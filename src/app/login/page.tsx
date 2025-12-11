@@ -3,18 +3,18 @@ import { signIn } from "next-auth/react";
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen w-full flex justify-center bg-white">
+    <div className="min-h-screen w-full flex justify-center items-center bg-white">
       {/* CENTER WRAPPER */}
-      <div className="flex w-full max-w-[1100px]">
+      <div className="flex w-full max-w-[1300px] gap-x-[200px] items-center">
 
         {/* LEFT SIDE */}
-        <div className="flex flex-1 justify-center">
-          <div className="w-full max-w-[480px] px-6 sm:px-10 lg:px-16 flex flex-col justify-center">
+        <div className="basis-[800px] flex justify-center">
+          <div className="w-full max-w-[680px] px-6 sm:px-10 lg:px-16 flex flex-col justify-center">
 
             <img src="/airtable-logo.png" className="h-10 w-10 mb-6" />
             <h1 className="text-[26px] font-semibold mb-6">Sign in to Airtable</h1>
 
-            <div className="scale-90 origin-top-left">
+            <div className="scale-100 origin-top-left">
 
               <label className="text-sm font-medium mb-1 block">Email</label>
               <input
@@ -43,13 +43,14 @@ export default function LoginPage() {
               </button>
 
               <button
-                onClick={() => signIn("google", { callbackUrl: "/"})}
-                className="w-full h-10 border  border-gray-300 rounded-lg flex items-center justify-center gap-2 mb-3 cursor-pointer">
+                onClick={() => signIn("google", { callbackUrl: "/" })}
+                className="w-full h-10 border border-gray-300 rounded-lg flex items-center justify-center gap-2 mb-3 cursor-pointer"
+              >
                 <img src="/google-icon.png" className="h-5" />
                 Continue with <span className="font-semibold">Google</span>
               </button>
 
-              <button className="w-full h-10 border  border-gray-300 rounded-lg flex items-center justify-center gap-2 cursor-pointer">
+              <button className="w-full h-10 border border-gray-300 rounded-lg flex items-center justify-center gap-2 cursor-pointer">
                 <img src="/apple-icon.png" className="h-5" />
                 Continue with <span className="font-semibold">Apple ID</span>
               </button>
@@ -57,12 +58,13 @@ export default function LoginPage() {
               <p className="mt-6 text-sm text-gray-600">
                 New to Airtable? <a className="underline font-medium">Create an account</a> instead
               </p>
+
             </div>
           </div>
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="hidden lg:flex w-[420px] bg-[#3C0D63] text-white p-10 h-120 mt-30 rounded-3xl flex-col justify-center">
+        <div className="hidden lg:flex flex-none w-[420px] bg-[#3C0D63] text-white p-10 h-120 rounded-3xl flex-col justify-center">
           <h2 className="text-[24px] font-semibold leading-tight mb-6">
             Meet Omni, your AI<br />collaborator for<br />building custom apps.
           </h2>

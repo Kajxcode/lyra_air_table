@@ -11,7 +11,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-[#f7f7f7] text-gray-900 relative">
 
       {/* TOP BAR */}
-      <div className="h-16 border-b bg-white fixed top-0 left-0 right-0 z-50 flex items-center px-6">
+      <div className="h-16 border-b  border-gray-300 bg-white fixed top-0 left-0 right-0 z-50 flex items-center px-6">
 
         {/* BURGER BUTTON */}
         <button
@@ -34,7 +34,7 @@ export default function HomePage() {
         <div className="absolute left-1/2 -translate-x-1/2">
           <input
             placeholder="Search..."
-            className="border rounded-lg px-3 py-1 text-sm w-[280px] bg-gray-50"
+            className="border rounded-lg border-gray-300 px-3 py-1 text-sm w-[280px] bg-gray-50"
           />
         </div>
 
@@ -50,7 +50,7 @@ export default function HomePage() {
         {/* COLLAPSIBLE SIDEBAR */}
         <aside
           className={`
-            bg-white border-r min-h-screen pt-4 flex flex-col
+            bg-white border-r border-gray-300 min-h-screen pt-4 flex flex-col
             transition-all duration-300
             ${open ? "w-60" : "w-0 overflow-hidden"}
           `}
@@ -76,22 +76,22 @@ export default function HomePage() {
             {/* ACTION TILES */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
 
-              <button className="border bg-white rounded-xl p-4 text-left shadow-sm hover:shadow-md transition">
+              <button className="border border-gray-300 bg-white rounded-xl p-4 text-left shadow-sm hover:shadow-md transition">
                 <p className="font-semibold mb-1">Start with Omni</p>
                 <p className="text-sm text-gray-500">Use AI to build a custom app.</p>
               </button>
 
-              <button className="border bg-white rounded-xl p-4 text-left shadow-sm hover:shadow-md transition">
+              <button className="border border-gray-300 bg-white rounded-xl p-4 text-left shadow-sm hover:shadow-md transition">
                 <p className="font-semibold mb-1">Start with templates</p>
                 <p className="text-sm text-gray-500">Select a template to get started.</p>
               </button>
 
-              <button className="border bg-white rounded-xl p-4 text-left shadow-sm hover:shadow-md transition">
+              <button className="border border-gray-300 bg-white rounded-xl p-4 text-left shadow-sm hover:shadow-md transition">
                 <p className="font-semibold mb-1">Quickly upload</p>
                 <p className="text-sm text-gray-500">Import existing projects easily.</p>
               </button>
 
-              <button className="border bg-white rounded-xl p-4 text-left shadow-sm hover:shadow-md transition">
+              <button className="border border-gray-300 bg-white rounded-xl p-4 text-left shadow-sm hover:shadow-md transition">
                 <p className="font-semibold mb-1">Build an app on your own</p>
                 <p className="text-sm text-gray-500">Start with a blank workspace.</p>
               </button>
