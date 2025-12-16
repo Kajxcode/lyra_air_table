@@ -73,6 +73,9 @@ export default function HomePage() {
         <main className="flex-1">
           <div className="p-6">
 
+            {/* TITLE */}
+            <h1 className="font-bold p-4 text-3xl">Home</h1>
+            
             {/* ACTION TILES */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
 

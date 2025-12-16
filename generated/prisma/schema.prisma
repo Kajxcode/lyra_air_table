@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/prisma"
@@ -8,41 +5,28 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below
-  // Further reading:
-  // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
-  // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
   url      = env("DATABASE_URL")
 }
 
-model Post {
-  id        Int      @id @default(autoincrement())
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+/**
+ * Next auth
+ */
 
-  createdBy   User   @relation(fields: [createdById], references: [id])
-  createdById String
-
-  @@index([name])
-}
-
-// Necessary for Next auth
 model Account {
   id                       String  @id @default(cuid())
   userId                   String
   type                     String
   provider                 String
   providerAccountId        String
-  refresh_token            String? // @db.Text
-  access_token             String? // @db.Text
+  refresh_token            String?
+  access_token             String?
   expires_at               Int?
   token_type               String?
   scope                    String?
-  id_token                 String? // @db.Text
+  id_token                 String?
   session_state            String?
-  user                     User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   refresh_token_expires_in Int?
+  user                     User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -63,7 +47,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-  posts         Post[]
+  bases         Base[]
 }
 
 model VerificationToken {
@@ -72,4 +56,150 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+/**
+ * Airtable
+ */
+
+model Base {
+  id        String   @id @default(cuid())
+  name      String
+  ownerId   String
+  owner     User     @relation(fields: [ownerId], references: [id])
+  tables    Table[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Table {
+  id        String   @id @default(cuid())
+  baseId    String
+  base      Base     @relation(fields: [baseId], references: [id])
+  name      String
+  position  Int      @default(0)
+  columns   Column[]
+  rows      Row[]
+  views     View[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([baseId])
+}
+
+enum ColumnType {
+  TEXT
+  NUMBER
+}
+
+model Column {
+  id           String        @id @default(cuid())
+  tableId      String
+  table        Table         @relation(fields: [tableId], references: [id])
+  name         String
+  type         ColumnType
+  position     Int
+  isHidden     Boolean       @default(false)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  cells        Cell[]
+  filters      ViewFilter[]
+  sorts        ViewSort[]
+  columnStates ColumnState[]
+
+  @@index([tableId])
+}
+
+model Row {
+  id        String   @id @default(cuid())
+  tableId   String
+  table     Table    @relation(fields: [tableId], references: [id])
+  index     Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  cells     Cell[]
+
+  @@index([tableId, index])
+}
+
+model Cell {
+  id          String  @id @default(cuid())
+  rowId       String
+  columnId    String
+  row         Row     @relation(fields: [rowId], references: [id])
+  column      Column  @relation(fields: [columnId], references: [id])
+  valueText   String?
+  valueNumber Float?
+
+  @@unique([rowId, columnId])
+  @@index([columnId, valueText])
+  @@index([columnId, valueNumber])
+}
+
+model View {
+  id           String        @id @default(cuid())
+  tableId      String
+  table        Table         @relation(fields: [tableId], references: [id])
+  name         String
+  searchQuery  String?
+  filters      ViewFilter[]
+  sorts        ViewSort[]
+  columnStates ColumnState[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([tableId])
+}
+
+enum FilterOperator {
+  CONTAINS
+  NOT_CONTAINS
+  EQUALS
+  NOT_EQUALS
+  IS_EMPTY
+  IS_NOT_EMPTY
+  GREATER_THAN
+  LESS_THAN
+}
+
+model ViewFilter {
+  id          String         @id @default(cuid())
+  viewId      String
+  view        View           @relation(fields: [viewId], references: [id])
+  columnId    String
+  column      Column         @relation(fields: [columnId], references: [id])
+  operator    FilterOperator
+  valueText   String?
+  valueNumber Float?
+
+  @@index([viewId])
+}
+
+model ViewSort {
+  id        String        @id @default(cuid())
+  viewId    String
+  view      View          @relation(fields: [viewId], references: [id])
+  columnId  String
+  column    Column        @relation(fields: [columnId], references: [id])
+  direction SortDirection
+  priority  Int           @default(0)
+
+  @@index([viewId])
+}
+
+enum SortDirection {
+  ASC
+  DESC
+}
+
+model ColumnState {
+  id       String  @id @default(cuid())
+  viewId   String
+  view     View    @relation(fields: [viewId], references: [id])
+  columnId String
+  column   Column  @relation(fields: [columnId], references: [id])
+  isHidden Boolean @default(false)
+
+  @@unique([viewId, columnId])
 }

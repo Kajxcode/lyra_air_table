@@ -14,11 +14,6 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model Post
- * 
- */
-export type Post = $Result.DefaultSelection<Prisma.$PostPayload>
-/**
  * Model Account
  * 
  */
@@ -38,6 +33,98 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  * 
  */
 export type VerificationToken = $Result.DefaultSelection<Prisma.$VerificationTokenPayload>
+/**
+ * Model Base
+ * 
+ */
+export type Base = $Result.DefaultSelection<Prisma.$BasePayload>
+/**
+ * Model Table
+ * 
+ */
+export type Table = $Result.DefaultSelection<Prisma.$TablePayload>
+/**
+ * Model Column
+ * 
+ */
+export type Column = $Result.DefaultSelection<Prisma.$ColumnPayload>
+/**
+ * Model Row
+ * 
+ */
+export type Row = $Result.DefaultSelection<Prisma.$RowPayload>
+/**
+ * Model Cell
+ * 
+ */
+export type Cell = $Result.DefaultSelection<Prisma.$CellPayload>
+/**
+ * Model View
+ * 
+ */
+export type View = $Result.DefaultSelection<Prisma.$ViewPayload>
+/**
+ * Model ViewFilter
+ * 
+ */
+export type ViewFilter = $Result.DefaultSelection<Prisma.$ViewFilterPayload>
+/**
+ * Model ViewSort
+ * 
+ */
+export type ViewSort = $Result.DefaultSelection<Prisma.$ViewSortPayload>
+/**
+ * Model ColumnState
+ * 
+ */
+export type ColumnState = $Result.DefaultSelection<Prisma.$ColumnStatePayload>
+
+/**
+ * Enums
+ */
+export namespace $Enums {
+  export const ColumnType: {
+  TEXT: 'TEXT',
+  NUMBER: 'NUMBER'
+};
+
+export type ColumnType = (typeof ColumnType)[keyof typeof ColumnType]
+
+
+export const FilterOperator: {
+  CONTAINS: 'CONTAINS',
+  NOT_CONTAINS: 'NOT_CONTAINS',
+  EQUALS: 'EQUALS',
+  NOT_EQUALS: 'NOT_EQUALS',
+  IS_EMPTY: 'IS_EMPTY',
+  IS_NOT_EMPTY: 'IS_NOT_EMPTY',
+  GREATER_THAN: 'GREATER_THAN',
+  LESS_THAN: 'LESS_THAN'
+};
+
+export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator]
+
+
+export const SortDirection: {
+  ASC: 'ASC',
+  DESC: 'DESC'
+};
+
+export type SortDirection = (typeof SortDirection)[keyof typeof SortDirection]
+
+}
+
+export type ColumnType = $Enums.ColumnType
+
+export const ColumnType: typeof $Enums.ColumnType
+
+export type FilterOperator = $Enums.FilterOperator
+
+export const FilterOperator: typeof $Enums.FilterOperator
+
+export type SortDirection = $Enums.SortDirection
+
+export const SortDirection: typeof $Enums.SortDirection
 
 /**
  * ##  Prisma Client ʲˢ
@@ -46,8 +133,8 @@ export type VerificationToken = $Result.DefaultSelection<Prisma.$VerificationTok
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Posts
- * const posts = await prisma.post.findMany()
+ * // Fetch zero or more Accounts
+ * const accounts = await prisma.account.findMany()
  * ```
  *
  *
@@ -67,8 +154,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Posts
-   * const posts = await prisma.post.findMany()
+   * // Fetch zero or more Accounts
+   * const accounts = await prisma.account.findMany()
    * ```
    *
    *
@@ -158,16 +245,6 @@ export class PrismaClient<
   }>>
 
       /**
-   * `prisma.post`: Exposes CRUD operations for the **Post** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Posts
-    * const posts = await prisma.post.findMany()
-    * ```
-    */
-  get post(): Prisma.PostDelegate<ExtArgs, ClientOptions>;
-
-  /**
    * `prisma.account`: Exposes CRUD operations for the **Account** model.
     * Example usage:
     * ```ts
@@ -206,6 +283,96 @@ export class PrismaClient<
     * ```
     */
   get verificationToken(): Prisma.VerificationTokenDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.base`: Exposes CRUD operations for the **Base** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Bases
+    * const bases = await prisma.base.findMany()
+    * ```
+    */
+  get base(): Prisma.BaseDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.table`: Exposes CRUD operations for the **Table** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Tables
+    * const tables = await prisma.table.findMany()
+    * ```
+    */
+  get table(): Prisma.TableDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.column`: Exposes CRUD operations for the **Column** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Columns
+    * const columns = await prisma.column.findMany()
+    * ```
+    */
+  get column(): Prisma.ColumnDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.row`: Exposes CRUD operations for the **Row** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Rows
+    * const rows = await prisma.row.findMany()
+    * ```
+    */
+  get row(): Prisma.RowDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.cell`: Exposes CRUD operations for the **Cell** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Cells
+    * const cells = await prisma.cell.findMany()
+    * ```
+    */
+  get cell(): Prisma.CellDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.view`: Exposes CRUD operations for the **View** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Views
+    * const views = await prisma.view.findMany()
+    * ```
+    */
+  get view(): Prisma.ViewDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.viewFilter`: Exposes CRUD operations for the **ViewFilter** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ViewFilters
+    * const viewFilters = await prisma.viewFilter.findMany()
+    * ```
+    */
+  get viewFilter(): Prisma.ViewFilterDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.viewSort`: Exposes CRUD operations for the **ViewSort** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ViewSorts
+    * const viewSorts = await prisma.viewSort.findMany()
+    * ```
+    */
+  get viewSort(): Prisma.ViewSortDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.columnState`: Exposes CRUD operations for the **ColumnState** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ColumnStates
+    * const columnStates = await prisma.columnState.findMany()
+    * ```
+    */
+  get columnState(): Prisma.ColumnStateDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -647,11 +814,19 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    Post: 'Post',
     Account: 'Account',
     Session: 'Session',
     User: 'User',
-    VerificationToken: 'VerificationToken'
+    VerificationToken: 'VerificationToken',
+    Base: 'Base',
+    Table: 'Table',
+    Column: 'Column',
+    Row: 'Row',
+    Cell: 'Cell',
+    View: 'View',
+    ViewFilter: 'ViewFilter',
+    ViewSort: 'ViewSort',
+    ColumnState: 'ColumnState'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -670,84 +845,10 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "post" | "account" | "session" | "user" | "verificationToken"
+      modelProps: "account" | "session" | "user" | "verificationToken" | "base" | "table" | "column" | "row" | "cell" | "view" | "viewFilter" | "viewSort" | "columnState"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      Post: {
-        payload: Prisma.$PostPayload<ExtArgs>
-        fields: Prisma.PostFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.PostFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.PostFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
-          }
-          findFirst: {
-            args: Prisma.PostFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.PostFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
-          }
-          findMany: {
-            args: Prisma.PostFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>[]
-          }
-          create: {
-            args: Prisma.PostCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
-          }
-          createMany: {
-            args: Prisma.PostCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.PostCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>[]
-          }
-          delete: {
-            args: Prisma.PostDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
-          }
-          update: {
-            args: Prisma.PostUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
-          }
-          deleteMany: {
-            args: Prisma.PostDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.PostUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.PostUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>[]
-          }
-          upsert: {
-            args: Prisma.PostUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
-          }
-          aggregate: {
-            args: Prisma.PostAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregatePost>
-          }
-          groupBy: {
-            args: Prisma.PostGroupByArgs<ExtArgs>
-            result: $Utils.Optional<PostGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.PostCountArgs<ExtArgs>
-            result: $Utils.Optional<PostCountAggregateOutputType> | number
-          }
-        }
-      }
       Account: {
         payload: Prisma.$AccountPayload<ExtArgs>
         fields: Prisma.AccountFieldRefs
@@ -1044,6 +1145,672 @@ export namespace Prisma {
           }
         }
       }
+      Base: {
+        payload: Prisma.$BasePayload<ExtArgs>
+        fields: Prisma.BaseFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BaseFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BasePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BaseFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BasePayload>
+          }
+          findFirst: {
+            args: Prisma.BaseFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BasePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BaseFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BasePayload>
+          }
+          findMany: {
+            args: Prisma.BaseFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BasePayload>[]
+          }
+          create: {
+            args: Prisma.BaseCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BasePayload>
+          }
+          createMany: {
+            args: Prisma.BaseCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BaseCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BasePayload>[]
+          }
+          delete: {
+            args: Prisma.BaseDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BasePayload>
+          }
+          update: {
+            args: Prisma.BaseUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BasePayload>
+          }
+          deleteMany: {
+            args: Prisma.BaseDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BaseUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BaseUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BasePayload>[]
+          }
+          upsert: {
+            args: Prisma.BaseUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BasePayload>
+          }
+          aggregate: {
+            args: Prisma.BaseAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBase>
+          }
+          groupBy: {
+            args: Prisma.BaseGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BaseGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BaseCountArgs<ExtArgs>
+            result: $Utils.Optional<BaseCountAggregateOutputType> | number
+          }
+        }
+      }
+      Table: {
+        payload: Prisma.$TablePayload<ExtArgs>
+        fields: Prisma.TableFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TableFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TablePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TableFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TablePayload>
+          }
+          findFirst: {
+            args: Prisma.TableFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TablePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TableFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TablePayload>
+          }
+          findMany: {
+            args: Prisma.TableFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TablePayload>[]
+          }
+          create: {
+            args: Prisma.TableCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TablePayload>
+          }
+          createMany: {
+            args: Prisma.TableCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TableCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TablePayload>[]
+          }
+          delete: {
+            args: Prisma.TableDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TablePayload>
+          }
+          update: {
+            args: Prisma.TableUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TablePayload>
+          }
+          deleteMany: {
+            args: Prisma.TableDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TableUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TableUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TablePayload>[]
+          }
+          upsert: {
+            args: Prisma.TableUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TablePayload>
+          }
+          aggregate: {
+            args: Prisma.TableAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTable>
+          }
+          groupBy: {
+            args: Prisma.TableGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TableGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TableCountArgs<ExtArgs>
+            result: $Utils.Optional<TableCountAggregateOutputType> | number
+          }
+        }
+      }
+      Column: {
+        payload: Prisma.$ColumnPayload<ExtArgs>
+        fields: Prisma.ColumnFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ColumnFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ColumnFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnPayload>
+          }
+          findFirst: {
+            args: Prisma.ColumnFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ColumnFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnPayload>
+          }
+          findMany: {
+            args: Prisma.ColumnFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnPayload>[]
+          }
+          create: {
+            args: Prisma.ColumnCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnPayload>
+          }
+          createMany: {
+            args: Prisma.ColumnCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ColumnCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnPayload>[]
+          }
+          delete: {
+            args: Prisma.ColumnDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnPayload>
+          }
+          update: {
+            args: Prisma.ColumnUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnPayload>
+          }
+          deleteMany: {
+            args: Prisma.ColumnDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ColumnUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ColumnUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnPayload>[]
+          }
+          upsert: {
+            args: Prisma.ColumnUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnPayload>
+          }
+          aggregate: {
+            args: Prisma.ColumnAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateColumn>
+          }
+          groupBy: {
+            args: Prisma.ColumnGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ColumnGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ColumnCountArgs<ExtArgs>
+            result: $Utils.Optional<ColumnCountAggregateOutputType> | number
+          }
+        }
+      }
+      Row: {
+        payload: Prisma.$RowPayload<ExtArgs>
+        fields: Prisma.RowFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.RowFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RowPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.RowFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RowPayload>
+          }
+          findFirst: {
+            args: Prisma.RowFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RowPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.RowFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RowPayload>
+          }
+          findMany: {
+            args: Prisma.RowFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RowPayload>[]
+          }
+          create: {
+            args: Prisma.RowCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RowPayload>
+          }
+          createMany: {
+            args: Prisma.RowCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.RowCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RowPayload>[]
+          }
+          delete: {
+            args: Prisma.RowDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RowPayload>
+          }
+          update: {
+            args: Prisma.RowUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RowPayload>
+          }
+          deleteMany: {
+            args: Prisma.RowDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.RowUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.RowUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RowPayload>[]
+          }
+          upsert: {
+            args: Prisma.RowUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RowPayload>
+          }
+          aggregate: {
+            args: Prisma.RowAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateRow>
+          }
+          groupBy: {
+            args: Prisma.RowGroupByArgs<ExtArgs>
+            result: $Utils.Optional<RowGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.RowCountArgs<ExtArgs>
+            result: $Utils.Optional<RowCountAggregateOutputType> | number
+          }
+        }
+      }
+      Cell: {
+        payload: Prisma.$CellPayload<ExtArgs>
+        fields: Prisma.CellFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CellFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CellPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CellFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CellPayload>
+          }
+          findFirst: {
+            args: Prisma.CellFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CellPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CellFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CellPayload>
+          }
+          findMany: {
+            args: Prisma.CellFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CellPayload>[]
+          }
+          create: {
+            args: Prisma.CellCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CellPayload>
+          }
+          createMany: {
+            args: Prisma.CellCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CellCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CellPayload>[]
+          }
+          delete: {
+            args: Prisma.CellDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CellPayload>
+          }
+          update: {
+            args: Prisma.CellUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CellPayload>
+          }
+          deleteMany: {
+            args: Prisma.CellDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CellUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CellUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CellPayload>[]
+          }
+          upsert: {
+            args: Prisma.CellUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CellPayload>
+          }
+          aggregate: {
+            args: Prisma.CellAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCell>
+          }
+          groupBy: {
+            args: Prisma.CellGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CellGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CellCountArgs<ExtArgs>
+            result: $Utils.Optional<CellCountAggregateOutputType> | number
+          }
+        }
+      }
+      View: {
+        payload: Prisma.$ViewPayload<ExtArgs>
+        fields: Prisma.ViewFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ViewFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ViewFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewPayload>
+          }
+          findFirst: {
+            args: Prisma.ViewFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ViewFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewPayload>
+          }
+          findMany: {
+            args: Prisma.ViewFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewPayload>[]
+          }
+          create: {
+            args: Prisma.ViewCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewPayload>
+          }
+          createMany: {
+            args: Prisma.ViewCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ViewCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewPayload>[]
+          }
+          delete: {
+            args: Prisma.ViewDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewPayload>
+          }
+          update: {
+            args: Prisma.ViewUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewPayload>
+          }
+          deleteMany: {
+            args: Prisma.ViewDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ViewUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ViewUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewPayload>[]
+          }
+          upsert: {
+            args: Prisma.ViewUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewPayload>
+          }
+          aggregate: {
+            args: Prisma.ViewAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateView>
+          }
+          groupBy: {
+            args: Prisma.ViewGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ViewGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ViewCountArgs<ExtArgs>
+            result: $Utils.Optional<ViewCountAggregateOutputType> | number
+          }
+        }
+      }
+      ViewFilter: {
+        payload: Prisma.$ViewFilterPayload<ExtArgs>
+        fields: Prisma.ViewFilterFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ViewFilterFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewFilterPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ViewFilterFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewFilterPayload>
+          }
+          findFirst: {
+            args: Prisma.ViewFilterFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewFilterPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ViewFilterFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewFilterPayload>
+          }
+          findMany: {
+            args: Prisma.ViewFilterFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewFilterPayload>[]
+          }
+          create: {
+            args: Prisma.ViewFilterCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewFilterPayload>
+          }
+          createMany: {
+            args: Prisma.ViewFilterCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ViewFilterCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewFilterPayload>[]
+          }
+          delete: {
+            args: Prisma.ViewFilterDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewFilterPayload>
+          }
+          update: {
+            args: Prisma.ViewFilterUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewFilterPayload>
+          }
+          deleteMany: {
+            args: Prisma.ViewFilterDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ViewFilterUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ViewFilterUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewFilterPayload>[]
+          }
+          upsert: {
+            args: Prisma.ViewFilterUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewFilterPayload>
+          }
+          aggregate: {
+            args: Prisma.ViewFilterAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateViewFilter>
+          }
+          groupBy: {
+            args: Prisma.ViewFilterGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ViewFilterGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ViewFilterCountArgs<ExtArgs>
+            result: $Utils.Optional<ViewFilterCountAggregateOutputType> | number
+          }
+        }
+      }
+      ViewSort: {
+        payload: Prisma.$ViewSortPayload<ExtArgs>
+        fields: Prisma.ViewSortFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ViewSortFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewSortPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ViewSortFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewSortPayload>
+          }
+          findFirst: {
+            args: Prisma.ViewSortFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewSortPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ViewSortFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewSortPayload>
+          }
+          findMany: {
+            args: Prisma.ViewSortFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewSortPayload>[]
+          }
+          create: {
+            args: Prisma.ViewSortCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewSortPayload>
+          }
+          createMany: {
+            args: Prisma.ViewSortCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ViewSortCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewSortPayload>[]
+          }
+          delete: {
+            args: Prisma.ViewSortDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewSortPayload>
+          }
+          update: {
+            args: Prisma.ViewSortUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewSortPayload>
+          }
+          deleteMany: {
+            args: Prisma.ViewSortDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ViewSortUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ViewSortUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewSortPayload>[]
+          }
+          upsert: {
+            args: Prisma.ViewSortUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ViewSortPayload>
+          }
+          aggregate: {
+            args: Prisma.ViewSortAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateViewSort>
+          }
+          groupBy: {
+            args: Prisma.ViewSortGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ViewSortGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ViewSortCountArgs<ExtArgs>
+            result: $Utils.Optional<ViewSortCountAggregateOutputType> | number
+          }
+        }
+      }
+      ColumnState: {
+        payload: Prisma.$ColumnStatePayload<ExtArgs>
+        fields: Prisma.ColumnStateFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ColumnStateFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnStatePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ColumnStateFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnStatePayload>
+          }
+          findFirst: {
+            args: Prisma.ColumnStateFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnStatePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ColumnStateFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnStatePayload>
+          }
+          findMany: {
+            args: Prisma.ColumnStateFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnStatePayload>[]
+          }
+          create: {
+            args: Prisma.ColumnStateCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnStatePayload>
+          }
+          createMany: {
+            args: Prisma.ColumnStateCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ColumnStateCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnStatePayload>[]
+          }
+          delete: {
+            args: Prisma.ColumnStateDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnStatePayload>
+          }
+          update: {
+            args: Prisma.ColumnStateUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnStatePayload>
+          }
+          deleteMany: {
+            args: Prisma.ColumnStateDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ColumnStateUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ColumnStateUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnStatePayload>[]
+          }
+          upsert: {
+            args: Prisma.ColumnStateUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ColumnStatePayload>
+          }
+          aggregate: {
+            args: Prisma.ColumnStateAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateColumnState>
+          }
+          groupBy: {
+            args: Prisma.ColumnStateGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ColumnStateGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ColumnStateCountArgs<ExtArgs>
+            result: $Utils.Optional<ColumnStateCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1140,11 +1907,19 @@ export namespace Prisma {
     omit?: Prisma.GlobalOmitConfig
   }
   export type GlobalOmitConfig = {
-    post?: PostOmit
     account?: AccountOmit
     session?: SessionOmit
     user?: UserOmit
     verificationToken?: VerificationTokenOmit
+    base?: BaseOmit
+    table?: TableOmit
+    column?: ColumnOmit
+    row?: RowOmit
+    cell?: CellOmit
+    view?: ViewOmit
+    viewFilter?: ViewFilterOmit
+    viewSort?: ViewSortOmit
+    columnState?: ColumnStateOmit
   }
 
   /* Types for Logging */
@@ -1227,13 +2002,13 @@ export namespace Prisma {
   export type UserCountOutputType = {
     accounts: number
     sessions: number
-    posts: number
+    bases: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
-    posts?: boolean | UserCountOutputTypeCountPostsArgs
+    bases?: boolean | UserCountOutputTypeCountBasesArgs
   }
 
   // Custom InputTypes
@@ -1264,1106 +2039,232 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PostWhereInput
+  export type UserCountOutputTypeCountBasesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BaseWhereInput
+  }
+
+
+  /**
+   * Count Type BaseCountOutputType
+   */
+
+  export type BaseCountOutputType = {
+    tables: number
+  }
+
+  export type BaseCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tables?: boolean | BaseCountOutputTypeCountTablesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * BaseCountOutputType without action
+   */
+  export type BaseCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BaseCountOutputType
+     */
+    select?: BaseCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * BaseCountOutputType without action
+   */
+  export type BaseCountOutputTypeCountTablesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TableWhereInput
+  }
+
+
+  /**
+   * Count Type TableCountOutputType
+   */
+
+  export type TableCountOutputType = {
+    columns: number
+    rows: number
+    views: number
+  }
+
+  export type TableCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    columns?: boolean | TableCountOutputTypeCountColumnsArgs
+    rows?: boolean | TableCountOutputTypeCountRowsArgs
+    views?: boolean | TableCountOutputTypeCountViewsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TableCountOutputType without action
+   */
+  export type TableCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TableCountOutputType
+     */
+    select?: TableCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TableCountOutputType without action
+   */
+  export type TableCountOutputTypeCountColumnsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ColumnWhereInput
+  }
+
+  /**
+   * TableCountOutputType without action
+   */
+  export type TableCountOutputTypeCountRowsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RowWhereInput
+  }
+
+  /**
+   * TableCountOutputType without action
+   */
+  export type TableCountOutputTypeCountViewsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ViewWhereInput
+  }
+
+
+  /**
+   * Count Type ColumnCountOutputType
+   */
+
+  export type ColumnCountOutputType = {
+    cells: number
+    filters: number
+    sorts: number
+    columnStates: number
+  }
+
+  export type ColumnCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    cells?: boolean | ColumnCountOutputTypeCountCellsArgs
+    filters?: boolean | ColumnCountOutputTypeCountFiltersArgs
+    sorts?: boolean | ColumnCountOutputTypeCountSortsArgs
+    columnStates?: boolean | ColumnCountOutputTypeCountColumnStatesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ColumnCountOutputType without action
+   */
+  export type ColumnCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ColumnCountOutputType
+     */
+    select?: ColumnCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ColumnCountOutputType without action
+   */
+  export type ColumnCountOutputTypeCountCellsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CellWhereInput
+  }
+
+  /**
+   * ColumnCountOutputType without action
+   */
+  export type ColumnCountOutputTypeCountFiltersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ViewFilterWhereInput
+  }
+
+  /**
+   * ColumnCountOutputType without action
+   */
+  export type ColumnCountOutputTypeCountSortsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ViewSortWhereInput
+  }
+
+  /**
+   * ColumnCountOutputType without action
+   */
+  export type ColumnCountOutputTypeCountColumnStatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ColumnStateWhereInput
+  }
+
+
+  /**
+   * Count Type RowCountOutputType
+   */
+
+  export type RowCountOutputType = {
+    cells: number
+  }
+
+  export type RowCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    cells?: boolean | RowCountOutputTypeCountCellsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * RowCountOutputType without action
+   */
+  export type RowCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RowCountOutputType
+     */
+    select?: RowCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * RowCountOutputType without action
+   */
+  export type RowCountOutputTypeCountCellsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CellWhereInput
+  }
+
+
+  /**
+   * Count Type ViewCountOutputType
+   */
+
+  export type ViewCountOutputType = {
+    filters: number
+    sorts: number
+    columnStates: number
+  }
+
+  export type ViewCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    filters?: boolean | ViewCountOutputTypeCountFiltersArgs
+    sorts?: boolean | ViewCountOutputTypeCountSortsArgs
+    columnStates?: boolean | ViewCountOutputTypeCountColumnStatesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ViewCountOutputType without action
+   */
+  export type ViewCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewCountOutputType
+     */
+    select?: ViewCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ViewCountOutputType without action
+   */
+  export type ViewCountOutputTypeCountFiltersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ViewFilterWhereInput
+  }
+
+  /**
+   * ViewCountOutputType without action
+   */
+  export type ViewCountOutputTypeCountSortsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ViewSortWhereInput
+  }
+
+  /**
+   * ViewCountOutputType without action
+   */
+  export type ViewCountOutputTypeCountColumnStatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ColumnStateWhereInput
   }
 
 
   /**
    * Models
    */
-
-  /**
-   * Model Post
-   */
-
-  export type AggregatePost = {
-    _count: PostCountAggregateOutputType | null
-    _avg: PostAvgAggregateOutputType | null
-    _sum: PostSumAggregateOutputType | null
-    _min: PostMinAggregateOutputType | null
-    _max: PostMaxAggregateOutputType | null
-  }
-
-  export type PostAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type PostSumAggregateOutputType = {
-    id: number | null
-  }
-
-  export type PostMinAggregateOutputType = {
-    id: number | null
-    name: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
-    createdById: string | null
-  }
-
-  export type PostMaxAggregateOutputType = {
-    id: number | null
-    name: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
-    createdById: string | null
-  }
-
-  export type PostCountAggregateOutputType = {
-    id: number
-    name: number
-    createdAt: number
-    updatedAt: number
-    createdById: number
-    _all: number
-  }
-
-
-  export type PostAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type PostSumAggregateInputType = {
-    id?: true
-  }
-
-  export type PostMinAggregateInputType = {
-    id?: true
-    name?: true
-    createdAt?: true
-    updatedAt?: true
-    createdById?: true
-  }
-
-  export type PostMaxAggregateInputType = {
-    id?: true
-    name?: true
-    createdAt?: true
-    updatedAt?: true
-    createdById?: true
-  }
-
-  export type PostCountAggregateInputType = {
-    id?: true
-    name?: true
-    createdAt?: true
-    updatedAt?: true
-    createdById?: true
-    _all?: true
-  }
-
-  export type PostAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Post to aggregate.
-     */
-    where?: PostWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Posts to fetch.
-     */
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: PostWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Posts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Posts.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Posts
-    **/
-    _count?: true | PostCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: PostAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: PostSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: PostMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: PostMaxAggregateInputType
-  }
-
-  export type GetPostAggregateType<T extends PostAggregateArgs> = {
-        [P in keyof T & keyof AggregatePost]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregatePost[P]>
-      : GetScalarType<T[P], AggregatePost[P]>
-  }
-
-
-
-
-  export type PostGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PostWhereInput
-    orderBy?: PostOrderByWithAggregationInput | PostOrderByWithAggregationInput[]
-    by: PostScalarFieldEnum[] | PostScalarFieldEnum
-    having?: PostScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: PostCountAggregateInputType | true
-    _avg?: PostAvgAggregateInputType
-    _sum?: PostSumAggregateInputType
-    _min?: PostMinAggregateInputType
-    _max?: PostMaxAggregateInputType
-  }
-
-  export type PostGroupByOutputType = {
-    id: number
-    name: string
-    createdAt: Date
-    updatedAt: Date
-    createdById: string
-    _count: PostCountAggregateOutputType | null
-    _avg: PostAvgAggregateOutputType | null
-    _sum: PostSumAggregateOutputType | null
-    _min: PostMinAggregateOutputType | null
-    _max: PostMaxAggregateOutputType | null
-  }
-
-  type GetPostGroupByPayload<T extends PostGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<PostGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof PostGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], PostGroupByOutputType[P]>
-            : GetScalarType<T[P], PostGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type PostSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    createdById?: boolean
-    createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["post"]>
-
-  export type PostSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    createdById?: boolean
-    createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["post"]>
-
-  export type PostSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    createdById?: boolean
-    createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["post"]>
-
-  export type PostSelectScalar = {
-    id?: boolean
-    name?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    createdById?: boolean
-  }
-
-  export type PostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "createdAt" | "updatedAt" | "createdById", ExtArgs["result"]["post"]>
-  export type PostInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type PostIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type PostIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }
-
-  export type $PostPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Post"
-    objects: {
-      createdBy: Prisma.$UserPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      name: string
-      createdAt: Date
-      updatedAt: Date
-      createdById: string
-    }, ExtArgs["result"]["post"]>
-    composites: {}
-  }
-
-  type PostGetPayload<S extends boolean | null | undefined | PostDefaultArgs> = $Result.GetResult<Prisma.$PostPayload, S>
-
-  type PostCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<PostFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: PostCountAggregateInputType | true
-    }
-
-  export interface PostDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Post'], meta: { name: 'Post' } }
-    /**
-     * Find zero or one Post that matches the filter.
-     * @param {PostFindUniqueArgs} args - Arguments to find a Post
-     * @example
-     * // Get one Post
-     * const post = await prisma.post.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends PostFindUniqueArgs>(args: SelectSubset<T, PostFindUniqueArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Post that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {PostFindUniqueOrThrowArgs} args - Arguments to find a Post
-     * @example
-     * // Get one Post
-     * const post = await prisma.post.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends PostFindUniqueOrThrowArgs>(args: SelectSubset<T, PostFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Post that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostFindFirstArgs} args - Arguments to find a Post
-     * @example
-     * // Get one Post
-     * const post = await prisma.post.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends PostFindFirstArgs>(args?: SelectSubset<T, PostFindFirstArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Post that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostFindFirstOrThrowArgs} args - Arguments to find a Post
-     * @example
-     * // Get one Post
-     * const post = await prisma.post.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends PostFindFirstOrThrowArgs>(args?: SelectSubset<T, PostFindFirstOrThrowArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Posts that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Posts
-     * const posts = await prisma.post.findMany()
-     * 
-     * // Get first 10 Posts
-     * const posts = await prisma.post.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const postWithIdOnly = await prisma.post.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends PostFindManyArgs>(args?: SelectSubset<T, PostFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Post.
-     * @param {PostCreateArgs} args - Arguments to create a Post.
-     * @example
-     * // Create one Post
-     * const Post = await prisma.post.create({
-     *   data: {
-     *     // ... data to create a Post
-     *   }
-     * })
-     * 
-     */
-    create<T extends PostCreateArgs>(args: SelectSubset<T, PostCreateArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Posts.
-     * @param {PostCreateManyArgs} args - Arguments to create many Posts.
-     * @example
-     * // Create many Posts
-     * const post = await prisma.post.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends PostCreateManyArgs>(args?: SelectSubset<T, PostCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Posts and returns the data saved in the database.
-     * @param {PostCreateManyAndReturnArgs} args - Arguments to create many Posts.
-     * @example
-     * // Create many Posts
-     * const post = await prisma.post.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Posts and only return the `id`
-     * const postWithIdOnly = await prisma.post.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends PostCreateManyAndReturnArgs>(args?: SelectSubset<T, PostCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a Post.
-     * @param {PostDeleteArgs} args - Arguments to delete one Post.
-     * @example
-     * // Delete one Post
-     * const Post = await prisma.post.delete({
-     *   where: {
-     *     // ... filter to delete one Post
-     *   }
-     * })
-     * 
-     */
-    delete<T extends PostDeleteArgs>(args: SelectSubset<T, PostDeleteArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Post.
-     * @param {PostUpdateArgs} args - Arguments to update one Post.
-     * @example
-     * // Update one Post
-     * const post = await prisma.post.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends PostUpdateArgs>(args: SelectSubset<T, PostUpdateArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Posts.
-     * @param {PostDeleteManyArgs} args - Arguments to filter Posts to delete.
-     * @example
-     * // Delete a few Posts
-     * const { count } = await prisma.post.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends PostDeleteManyArgs>(args?: SelectSubset<T, PostDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Posts.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Posts
-     * const post = await prisma.post.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends PostUpdateManyArgs>(args: SelectSubset<T, PostUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Posts and returns the data updated in the database.
-     * @param {PostUpdateManyAndReturnArgs} args - Arguments to update many Posts.
-     * @example
-     * // Update many Posts
-     * const post = await prisma.post.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Posts and only return the `id`
-     * const postWithIdOnly = await prisma.post.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends PostUpdateManyAndReturnArgs>(args: SelectSubset<T, PostUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one Post.
-     * @param {PostUpsertArgs} args - Arguments to update or create a Post.
-     * @example
-     * // Update or create a Post
-     * const post = await prisma.post.upsert({
-     *   create: {
-     *     // ... data to create a Post
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Post we want to update
-     *   }
-     * })
-     */
-    upsert<T extends PostUpsertArgs>(args: SelectSubset<T, PostUpsertArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Posts.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostCountArgs} args - Arguments to filter Posts to count.
-     * @example
-     * // Count the number of Posts
-     * const count = await prisma.post.count({
-     *   where: {
-     *     // ... the filter for the Posts we want to count
-     *   }
-     * })
-    **/
-    count<T extends PostCountArgs>(
-      args?: Subset<T, PostCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], PostCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Post.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends PostAggregateArgs>(args: Subset<T, PostAggregateArgs>): Prisma.PrismaPromise<GetPostAggregateType<T>>
-
-    /**
-     * Group by Post.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends PostGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: PostGroupByArgs['orderBy'] }
-        : { orderBy?: PostGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, PostGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPostGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Post model
-   */
-  readonly fields: PostFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Post.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__PostClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    createdBy<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Post model
-   */
-  interface PostFieldRefs {
-    readonly id: FieldRef<"Post", 'Int'>
-    readonly name: FieldRef<"Post", 'String'>
-    readonly createdAt: FieldRef<"Post", 'DateTime'>
-    readonly updatedAt: FieldRef<"Post", 'DateTime'>
-    readonly createdById: FieldRef<"Post", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Post findUnique
-   */
-  export type PostFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Post
-     */
-    select?: PostSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Post
-     */
-    omit?: PostOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PostInclude<ExtArgs> | null
-    /**
-     * Filter, which Post to fetch.
-     */
-    where: PostWhereUniqueInput
-  }
-
-  /**
-   * Post findUniqueOrThrow
-   */
-  export type PostFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Post
-     */
-    select?: PostSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Post
-     */
-    omit?: PostOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PostInclude<ExtArgs> | null
-    /**
-     * Filter, which Post to fetch.
-     */
-    where: PostWhereUniqueInput
-  }
-
-  /**
-   * Post findFirst
-   */
-  export type PostFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Post
-     */
-    select?: PostSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Post
-     */
-    omit?: PostOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PostInclude<ExtArgs> | null
-    /**
-     * Filter, which Post to fetch.
-     */
-    where?: PostWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Posts to fetch.
-     */
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Posts.
-     */
-    cursor?: PostWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Posts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Posts.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Posts.
-     */
-    distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
-  }
-
-  /**
-   * Post findFirstOrThrow
-   */
-  export type PostFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Post
-     */
-    select?: PostSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Post
-     */
-    omit?: PostOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PostInclude<ExtArgs> | null
-    /**
-     * Filter, which Post to fetch.
-     */
-    where?: PostWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Posts to fetch.
-     */
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Posts.
-     */
-    cursor?: PostWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Posts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Posts.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Posts.
-     */
-    distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
-  }
-
-  /**
-   * Post findMany
-   */
-  export type PostFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Post
-     */
-    select?: PostSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Post
-     */
-    omit?: PostOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PostInclude<ExtArgs> | null
-    /**
-     * Filter, which Posts to fetch.
-     */
-    where?: PostWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Posts to fetch.
-     */
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Posts.
-     */
-    cursor?: PostWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Posts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Posts.
-     */
-    skip?: number
-    distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
-  }
-
-  /**
-   * Post create
-   */
-  export type PostCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Post
-     */
-    select?: PostSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Post
-     */
-    omit?: PostOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PostInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Post.
-     */
-    data: XOR<PostCreateInput, PostUncheckedCreateInput>
-  }
-
-  /**
-   * Post createMany
-   */
-  export type PostCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Posts.
-     */
-    data: PostCreateManyInput | PostCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Post createManyAndReturn
-   */
-  export type PostCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Post
-     */
-    select?: PostSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Post
-     */
-    omit?: PostOmit<ExtArgs> | null
-    /**
-     * The data used to create many Posts.
-     */
-    data: PostCreateManyInput | PostCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PostIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Post update
-   */
-  export type PostUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Post
-     */
-    select?: PostSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Post
-     */
-    omit?: PostOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PostInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Post.
-     */
-    data: XOR<PostUpdateInput, PostUncheckedUpdateInput>
-    /**
-     * Choose, which Post to update.
-     */
-    where: PostWhereUniqueInput
-  }
-
-  /**
-   * Post updateMany
-   */
-  export type PostUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Posts.
-     */
-    data: XOR<PostUpdateManyMutationInput, PostUncheckedUpdateManyInput>
-    /**
-     * Filter which Posts to update
-     */
-    where?: PostWhereInput
-    /**
-     * Limit how many Posts to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Post updateManyAndReturn
-   */
-  export type PostUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Post
-     */
-    select?: PostSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Post
-     */
-    omit?: PostOmit<ExtArgs> | null
-    /**
-     * The data used to update Posts.
-     */
-    data: XOR<PostUpdateManyMutationInput, PostUncheckedUpdateManyInput>
-    /**
-     * Filter which Posts to update
-     */
-    where?: PostWhereInput
-    /**
-     * Limit how many Posts to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PostIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Post upsert
-   */
-  export type PostUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Post
-     */
-    select?: PostSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Post
-     */
-    omit?: PostOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PostInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Post to update in case it exists.
-     */
-    where: PostWhereUniqueInput
-    /**
-     * In case the Post found by the `where` argument doesn't exist, create a new Post with this data.
-     */
-    create: XOR<PostCreateInput, PostUncheckedCreateInput>
-    /**
-     * In case the Post was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<PostUpdateInput, PostUncheckedUpdateInput>
-  }
-
-  /**
-   * Post delete
-   */
-  export type PostDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Post
-     */
-    select?: PostSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Post
-     */
-    omit?: PostOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PostInclude<ExtArgs> | null
-    /**
-     * Filter which Post to delete.
-     */
-    where: PostWhereUniqueInput
-  }
-
-  /**
-   * Post deleteMany
-   */
-  export type PostDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Posts to delete
-     */
-    where?: PostWhereInput
-    /**
-     * Limit how many Posts to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Post without action
-   */
-  export type PostDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Post
-     */
-    select?: PostSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Post
-     */
-    omit?: PostOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PostInclude<ExtArgs> | null
-  }
-
 
   /**
    * Model Account
@@ -4776,7 +4677,7 @@ export namespace Prisma {
     image?: boolean
     accounts?: boolean | User$accountsArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
-    posts?: boolean | User$postsArgs<ExtArgs>
+    bases?: boolean | User$basesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -4808,7 +4709,7 @@ export namespace Prisma {
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | User$accountsArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
-    posts?: boolean | User$postsArgs<ExtArgs>
+    bases?: boolean | User$basesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -4819,7 +4720,7 @@ export namespace Prisma {
     objects: {
       accounts: Prisma.$AccountPayload<ExtArgs>[]
       sessions: Prisma.$SessionPayload<ExtArgs>[]
-      posts: Prisma.$PostPayload<ExtArgs>[]
+      bases: Prisma.$BasePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -5223,7 +5124,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    posts<T extends User$postsArgs<ExtArgs> = {}>(args?: Subset<T, User$postsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    bases<T extends User$basesArgs<ExtArgs> = {}>(args?: Subset<T, User$basesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5694,27 +5595,27 @@ export namespace Prisma {
   }
 
   /**
-   * User.posts
+   * User.bases
    */
-  export type User$postsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$basesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Base
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: BaseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Base
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: BaseOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
-    where?: PostWhereInput
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
-    cursor?: PostWhereUniqueInput
+    include?: BaseInclude<ExtArgs> | null
+    where?: BaseWhereInput
+    orderBy?: BaseOrderByWithRelationInput | BaseOrderByWithRelationInput[]
+    cursor?: BaseWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
+    distinct?: BaseScalarFieldEnum | BaseScalarFieldEnum[]
   }
 
   /**
@@ -6706,6 +6607,10175 @@ export namespace Prisma {
 
 
   /**
+   * Model Base
+   */
+
+  export type AggregateBase = {
+    _count: BaseCountAggregateOutputType | null
+    _min: BaseMinAggregateOutputType | null
+    _max: BaseMaxAggregateOutputType | null
+  }
+
+  export type BaseMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    ownerId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BaseMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    ownerId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BaseCountAggregateOutputType = {
+    id: number
+    name: number
+    ownerId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type BaseMinAggregateInputType = {
+    id?: true
+    name?: true
+    ownerId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BaseMaxAggregateInputType = {
+    id?: true
+    name?: true
+    ownerId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BaseCountAggregateInputType = {
+    id?: true
+    name?: true
+    ownerId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type BaseAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Base to aggregate.
+     */
+    where?: BaseWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bases to fetch.
+     */
+    orderBy?: BaseOrderByWithRelationInput | BaseOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BaseWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bases from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bases.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Bases
+    **/
+    _count?: true | BaseCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BaseMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BaseMaxAggregateInputType
+  }
+
+  export type GetBaseAggregateType<T extends BaseAggregateArgs> = {
+        [P in keyof T & keyof AggregateBase]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBase[P]>
+      : GetScalarType<T[P], AggregateBase[P]>
+  }
+
+
+
+
+  export type BaseGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BaseWhereInput
+    orderBy?: BaseOrderByWithAggregationInput | BaseOrderByWithAggregationInput[]
+    by: BaseScalarFieldEnum[] | BaseScalarFieldEnum
+    having?: BaseScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BaseCountAggregateInputType | true
+    _min?: BaseMinAggregateInputType
+    _max?: BaseMaxAggregateInputType
+  }
+
+  export type BaseGroupByOutputType = {
+    id: string
+    name: string
+    ownerId: string
+    createdAt: Date
+    updatedAt: Date
+    _count: BaseCountAggregateOutputType | null
+    _min: BaseMinAggregateOutputType | null
+    _max: BaseMaxAggregateOutputType | null
+  }
+
+  type GetBaseGroupByPayload<T extends BaseGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BaseGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BaseGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BaseGroupByOutputType[P]>
+            : GetScalarType<T[P], BaseGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BaseSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    ownerId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    owner?: boolean | UserDefaultArgs<ExtArgs>
+    tables?: boolean | Base$tablesArgs<ExtArgs>
+    _count?: boolean | BaseCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["base"]>
+
+  export type BaseSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    ownerId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    owner?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["base"]>
+
+  export type BaseSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    ownerId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    owner?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["base"]>
+
+  export type BaseSelectScalar = {
+    id?: boolean
+    name?: boolean
+    ownerId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type BaseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "ownerId" | "createdAt" | "updatedAt", ExtArgs["result"]["base"]>
+  export type BaseInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    owner?: boolean | UserDefaultArgs<ExtArgs>
+    tables?: boolean | Base$tablesArgs<ExtArgs>
+    _count?: boolean | BaseCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type BaseIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    owner?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type BaseIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    owner?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $BasePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Base"
+    objects: {
+      owner: Prisma.$UserPayload<ExtArgs>
+      tables: Prisma.$TablePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      ownerId: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["base"]>
+    composites: {}
+  }
+
+  type BaseGetPayload<S extends boolean | null | undefined | BaseDefaultArgs> = $Result.GetResult<Prisma.$BasePayload, S>
+
+  type BaseCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BaseFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BaseCountAggregateInputType | true
+    }
+
+  export interface BaseDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Base'], meta: { name: 'Base' } }
+    /**
+     * Find zero or one Base that matches the filter.
+     * @param {BaseFindUniqueArgs} args - Arguments to find a Base
+     * @example
+     * // Get one Base
+     * const base = await prisma.base.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BaseFindUniqueArgs>(args: SelectSubset<T, BaseFindUniqueArgs<ExtArgs>>): Prisma__BaseClient<$Result.GetResult<Prisma.$BasePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Base that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BaseFindUniqueOrThrowArgs} args - Arguments to find a Base
+     * @example
+     * // Get one Base
+     * const base = await prisma.base.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BaseFindUniqueOrThrowArgs>(args: SelectSubset<T, BaseFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BaseClient<$Result.GetResult<Prisma.$BasePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Base that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BaseFindFirstArgs} args - Arguments to find a Base
+     * @example
+     * // Get one Base
+     * const base = await prisma.base.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BaseFindFirstArgs>(args?: SelectSubset<T, BaseFindFirstArgs<ExtArgs>>): Prisma__BaseClient<$Result.GetResult<Prisma.$BasePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Base that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BaseFindFirstOrThrowArgs} args - Arguments to find a Base
+     * @example
+     * // Get one Base
+     * const base = await prisma.base.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BaseFindFirstOrThrowArgs>(args?: SelectSubset<T, BaseFindFirstOrThrowArgs<ExtArgs>>): Prisma__BaseClient<$Result.GetResult<Prisma.$BasePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Bases that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BaseFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Bases
+     * const bases = await prisma.base.findMany()
+     * 
+     * // Get first 10 Bases
+     * const bases = await prisma.base.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const baseWithIdOnly = await prisma.base.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BaseFindManyArgs>(args?: SelectSubset<T, BaseFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Base.
+     * @param {BaseCreateArgs} args - Arguments to create a Base.
+     * @example
+     * // Create one Base
+     * const Base = await prisma.base.create({
+     *   data: {
+     *     // ... data to create a Base
+     *   }
+     * })
+     * 
+     */
+    create<T extends BaseCreateArgs>(args: SelectSubset<T, BaseCreateArgs<ExtArgs>>): Prisma__BaseClient<$Result.GetResult<Prisma.$BasePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Bases.
+     * @param {BaseCreateManyArgs} args - Arguments to create many Bases.
+     * @example
+     * // Create many Bases
+     * const base = await prisma.base.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BaseCreateManyArgs>(args?: SelectSubset<T, BaseCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Bases and returns the data saved in the database.
+     * @param {BaseCreateManyAndReturnArgs} args - Arguments to create many Bases.
+     * @example
+     * // Create many Bases
+     * const base = await prisma.base.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Bases and only return the `id`
+     * const baseWithIdOnly = await prisma.base.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BaseCreateManyAndReturnArgs>(args?: SelectSubset<T, BaseCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BasePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Base.
+     * @param {BaseDeleteArgs} args - Arguments to delete one Base.
+     * @example
+     * // Delete one Base
+     * const Base = await prisma.base.delete({
+     *   where: {
+     *     // ... filter to delete one Base
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BaseDeleteArgs>(args: SelectSubset<T, BaseDeleteArgs<ExtArgs>>): Prisma__BaseClient<$Result.GetResult<Prisma.$BasePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Base.
+     * @param {BaseUpdateArgs} args - Arguments to update one Base.
+     * @example
+     * // Update one Base
+     * const base = await prisma.base.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BaseUpdateArgs>(args: SelectSubset<T, BaseUpdateArgs<ExtArgs>>): Prisma__BaseClient<$Result.GetResult<Prisma.$BasePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Bases.
+     * @param {BaseDeleteManyArgs} args - Arguments to filter Bases to delete.
+     * @example
+     * // Delete a few Bases
+     * const { count } = await prisma.base.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BaseDeleteManyArgs>(args?: SelectSubset<T, BaseDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Bases.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BaseUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Bases
+     * const base = await prisma.base.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BaseUpdateManyArgs>(args: SelectSubset<T, BaseUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Bases and returns the data updated in the database.
+     * @param {BaseUpdateManyAndReturnArgs} args - Arguments to update many Bases.
+     * @example
+     * // Update many Bases
+     * const base = await prisma.base.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Bases and only return the `id`
+     * const baseWithIdOnly = await prisma.base.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BaseUpdateManyAndReturnArgs>(args: SelectSubset<T, BaseUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BasePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Base.
+     * @param {BaseUpsertArgs} args - Arguments to update or create a Base.
+     * @example
+     * // Update or create a Base
+     * const base = await prisma.base.upsert({
+     *   create: {
+     *     // ... data to create a Base
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Base we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BaseUpsertArgs>(args: SelectSubset<T, BaseUpsertArgs<ExtArgs>>): Prisma__BaseClient<$Result.GetResult<Prisma.$BasePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Bases.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BaseCountArgs} args - Arguments to filter Bases to count.
+     * @example
+     * // Count the number of Bases
+     * const count = await prisma.base.count({
+     *   where: {
+     *     // ... the filter for the Bases we want to count
+     *   }
+     * })
+    **/
+    count<T extends BaseCountArgs>(
+      args?: Subset<T, BaseCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BaseCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Base.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BaseAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BaseAggregateArgs>(args: Subset<T, BaseAggregateArgs>): Prisma.PrismaPromise<GetBaseAggregateType<T>>
+
+    /**
+     * Group by Base.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BaseGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BaseGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BaseGroupByArgs['orderBy'] }
+        : { orderBy?: BaseGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BaseGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBaseGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Base model
+   */
+  readonly fields: BaseFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Base.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BaseClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    owner<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    tables<T extends Base$tablesArgs<ExtArgs> = {}>(args?: Subset<T, Base$tablesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TablePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Base model
+   */
+  interface BaseFieldRefs {
+    readonly id: FieldRef<"Base", 'String'>
+    readonly name: FieldRef<"Base", 'String'>
+    readonly ownerId: FieldRef<"Base", 'String'>
+    readonly createdAt: FieldRef<"Base", 'DateTime'>
+    readonly updatedAt: FieldRef<"Base", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Base findUnique
+   */
+  export type BaseFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Base
+     */
+    select?: BaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Base
+     */
+    omit?: BaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BaseInclude<ExtArgs> | null
+    /**
+     * Filter, which Base to fetch.
+     */
+    where: BaseWhereUniqueInput
+  }
+
+  /**
+   * Base findUniqueOrThrow
+   */
+  export type BaseFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Base
+     */
+    select?: BaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Base
+     */
+    omit?: BaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BaseInclude<ExtArgs> | null
+    /**
+     * Filter, which Base to fetch.
+     */
+    where: BaseWhereUniqueInput
+  }
+
+  /**
+   * Base findFirst
+   */
+  export type BaseFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Base
+     */
+    select?: BaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Base
+     */
+    omit?: BaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BaseInclude<ExtArgs> | null
+    /**
+     * Filter, which Base to fetch.
+     */
+    where?: BaseWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bases to fetch.
+     */
+    orderBy?: BaseOrderByWithRelationInput | BaseOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Bases.
+     */
+    cursor?: BaseWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bases from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bases.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Bases.
+     */
+    distinct?: BaseScalarFieldEnum | BaseScalarFieldEnum[]
+  }
+
+  /**
+   * Base findFirstOrThrow
+   */
+  export type BaseFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Base
+     */
+    select?: BaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Base
+     */
+    omit?: BaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BaseInclude<ExtArgs> | null
+    /**
+     * Filter, which Base to fetch.
+     */
+    where?: BaseWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bases to fetch.
+     */
+    orderBy?: BaseOrderByWithRelationInput | BaseOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Bases.
+     */
+    cursor?: BaseWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bases from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bases.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Bases.
+     */
+    distinct?: BaseScalarFieldEnum | BaseScalarFieldEnum[]
+  }
+
+  /**
+   * Base findMany
+   */
+  export type BaseFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Base
+     */
+    select?: BaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Base
+     */
+    omit?: BaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BaseInclude<ExtArgs> | null
+    /**
+     * Filter, which Bases to fetch.
+     */
+    where?: BaseWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bases to fetch.
+     */
+    orderBy?: BaseOrderByWithRelationInput | BaseOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Bases.
+     */
+    cursor?: BaseWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bases from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bases.
+     */
+    skip?: number
+    distinct?: BaseScalarFieldEnum | BaseScalarFieldEnum[]
+  }
+
+  /**
+   * Base create
+   */
+  export type BaseCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Base
+     */
+    select?: BaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Base
+     */
+    omit?: BaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BaseInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Base.
+     */
+    data: XOR<BaseCreateInput, BaseUncheckedCreateInput>
+  }
+
+  /**
+   * Base createMany
+   */
+  export type BaseCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Bases.
+     */
+    data: BaseCreateManyInput | BaseCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Base createManyAndReturn
+   */
+  export type BaseCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Base
+     */
+    select?: BaseSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Base
+     */
+    omit?: BaseOmit<ExtArgs> | null
+    /**
+     * The data used to create many Bases.
+     */
+    data: BaseCreateManyInput | BaseCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BaseIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Base update
+   */
+  export type BaseUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Base
+     */
+    select?: BaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Base
+     */
+    omit?: BaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BaseInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Base.
+     */
+    data: XOR<BaseUpdateInput, BaseUncheckedUpdateInput>
+    /**
+     * Choose, which Base to update.
+     */
+    where: BaseWhereUniqueInput
+  }
+
+  /**
+   * Base updateMany
+   */
+  export type BaseUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Bases.
+     */
+    data: XOR<BaseUpdateManyMutationInput, BaseUncheckedUpdateManyInput>
+    /**
+     * Filter which Bases to update
+     */
+    where?: BaseWhereInput
+    /**
+     * Limit how many Bases to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Base updateManyAndReturn
+   */
+  export type BaseUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Base
+     */
+    select?: BaseSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Base
+     */
+    omit?: BaseOmit<ExtArgs> | null
+    /**
+     * The data used to update Bases.
+     */
+    data: XOR<BaseUpdateManyMutationInput, BaseUncheckedUpdateManyInput>
+    /**
+     * Filter which Bases to update
+     */
+    where?: BaseWhereInput
+    /**
+     * Limit how many Bases to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BaseIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Base upsert
+   */
+  export type BaseUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Base
+     */
+    select?: BaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Base
+     */
+    omit?: BaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BaseInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Base to update in case it exists.
+     */
+    where: BaseWhereUniqueInput
+    /**
+     * In case the Base found by the `where` argument doesn't exist, create a new Base with this data.
+     */
+    create: XOR<BaseCreateInput, BaseUncheckedCreateInput>
+    /**
+     * In case the Base was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BaseUpdateInput, BaseUncheckedUpdateInput>
+  }
+
+  /**
+   * Base delete
+   */
+  export type BaseDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Base
+     */
+    select?: BaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Base
+     */
+    omit?: BaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BaseInclude<ExtArgs> | null
+    /**
+     * Filter which Base to delete.
+     */
+    where: BaseWhereUniqueInput
+  }
+
+  /**
+   * Base deleteMany
+   */
+  export type BaseDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Bases to delete
+     */
+    where?: BaseWhereInput
+    /**
+     * Limit how many Bases to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Base.tables
+   */
+  export type Base$tablesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Table
+     */
+    select?: TableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Table
+     */
+    omit?: TableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableInclude<ExtArgs> | null
+    where?: TableWhereInput
+    orderBy?: TableOrderByWithRelationInput | TableOrderByWithRelationInput[]
+    cursor?: TableWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TableScalarFieldEnum | TableScalarFieldEnum[]
+  }
+
+  /**
+   * Base without action
+   */
+  export type BaseDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Base
+     */
+    select?: BaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Base
+     */
+    omit?: BaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BaseInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Table
+   */
+
+  export type AggregateTable = {
+    _count: TableCountAggregateOutputType | null
+    _avg: TableAvgAggregateOutputType | null
+    _sum: TableSumAggregateOutputType | null
+    _min: TableMinAggregateOutputType | null
+    _max: TableMaxAggregateOutputType | null
+  }
+
+  export type TableAvgAggregateOutputType = {
+    position: number | null
+  }
+
+  export type TableSumAggregateOutputType = {
+    position: number | null
+  }
+
+  export type TableMinAggregateOutputType = {
+    id: string | null
+    baseId: string | null
+    name: string | null
+    position: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TableMaxAggregateOutputType = {
+    id: string | null
+    baseId: string | null
+    name: string | null
+    position: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TableCountAggregateOutputType = {
+    id: number
+    baseId: number
+    name: number
+    position: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type TableAvgAggregateInputType = {
+    position?: true
+  }
+
+  export type TableSumAggregateInputType = {
+    position?: true
+  }
+
+  export type TableMinAggregateInputType = {
+    id?: true
+    baseId?: true
+    name?: true
+    position?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TableMaxAggregateInputType = {
+    id?: true
+    baseId?: true
+    name?: true
+    position?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TableCountAggregateInputType = {
+    id?: true
+    baseId?: true
+    name?: true
+    position?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type TableAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Table to aggregate.
+     */
+    where?: TableWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Tables to fetch.
+     */
+    orderBy?: TableOrderByWithRelationInput | TableOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TableWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Tables from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Tables.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Tables
+    **/
+    _count?: true | TableCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TableAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TableSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TableMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TableMaxAggregateInputType
+  }
+
+  export type GetTableAggregateType<T extends TableAggregateArgs> = {
+        [P in keyof T & keyof AggregateTable]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTable[P]>
+      : GetScalarType<T[P], AggregateTable[P]>
+  }
+
+
+
+
+  export type TableGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TableWhereInput
+    orderBy?: TableOrderByWithAggregationInput | TableOrderByWithAggregationInput[]
+    by: TableScalarFieldEnum[] | TableScalarFieldEnum
+    having?: TableScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TableCountAggregateInputType | true
+    _avg?: TableAvgAggregateInputType
+    _sum?: TableSumAggregateInputType
+    _min?: TableMinAggregateInputType
+    _max?: TableMaxAggregateInputType
+  }
+
+  export type TableGroupByOutputType = {
+    id: string
+    baseId: string
+    name: string
+    position: number
+    createdAt: Date
+    updatedAt: Date
+    _count: TableCountAggregateOutputType | null
+    _avg: TableAvgAggregateOutputType | null
+    _sum: TableSumAggregateOutputType | null
+    _min: TableMinAggregateOutputType | null
+    _max: TableMaxAggregateOutputType | null
+  }
+
+  type GetTableGroupByPayload<T extends TableGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TableGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TableGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TableGroupByOutputType[P]>
+            : GetScalarType<T[P], TableGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TableSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    baseId?: boolean
+    name?: boolean
+    position?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    base?: boolean | BaseDefaultArgs<ExtArgs>
+    columns?: boolean | Table$columnsArgs<ExtArgs>
+    rows?: boolean | Table$rowsArgs<ExtArgs>
+    views?: boolean | Table$viewsArgs<ExtArgs>
+    _count?: boolean | TableCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["table"]>
+
+  export type TableSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    baseId?: boolean
+    name?: boolean
+    position?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    base?: boolean | BaseDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["table"]>
+
+  export type TableSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    baseId?: boolean
+    name?: boolean
+    position?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    base?: boolean | BaseDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["table"]>
+
+  export type TableSelectScalar = {
+    id?: boolean
+    baseId?: boolean
+    name?: boolean
+    position?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type TableOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "baseId" | "name" | "position" | "createdAt" | "updatedAt", ExtArgs["result"]["table"]>
+  export type TableInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    base?: boolean | BaseDefaultArgs<ExtArgs>
+    columns?: boolean | Table$columnsArgs<ExtArgs>
+    rows?: boolean | Table$rowsArgs<ExtArgs>
+    views?: boolean | Table$viewsArgs<ExtArgs>
+    _count?: boolean | TableCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type TableIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    base?: boolean | BaseDefaultArgs<ExtArgs>
+  }
+  export type TableIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    base?: boolean | BaseDefaultArgs<ExtArgs>
+  }
+
+  export type $TablePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Table"
+    objects: {
+      base: Prisma.$BasePayload<ExtArgs>
+      columns: Prisma.$ColumnPayload<ExtArgs>[]
+      rows: Prisma.$RowPayload<ExtArgs>[]
+      views: Prisma.$ViewPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      baseId: string
+      name: string
+      position: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["table"]>
+    composites: {}
+  }
+
+  type TableGetPayload<S extends boolean | null | undefined | TableDefaultArgs> = $Result.GetResult<Prisma.$TablePayload, S>
+
+  type TableCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TableFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TableCountAggregateInputType | true
+    }
+
+  export interface TableDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Table'], meta: { name: 'Table' } }
+    /**
+     * Find zero or one Table that matches the filter.
+     * @param {TableFindUniqueArgs} args - Arguments to find a Table
+     * @example
+     * // Get one Table
+     * const table = await prisma.table.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TableFindUniqueArgs>(args: SelectSubset<T, TableFindUniqueArgs<ExtArgs>>): Prisma__TableClient<$Result.GetResult<Prisma.$TablePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Table that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TableFindUniqueOrThrowArgs} args - Arguments to find a Table
+     * @example
+     * // Get one Table
+     * const table = await prisma.table.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TableFindUniqueOrThrowArgs>(args: SelectSubset<T, TableFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TableClient<$Result.GetResult<Prisma.$TablePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Table that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TableFindFirstArgs} args - Arguments to find a Table
+     * @example
+     * // Get one Table
+     * const table = await prisma.table.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TableFindFirstArgs>(args?: SelectSubset<T, TableFindFirstArgs<ExtArgs>>): Prisma__TableClient<$Result.GetResult<Prisma.$TablePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Table that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TableFindFirstOrThrowArgs} args - Arguments to find a Table
+     * @example
+     * // Get one Table
+     * const table = await prisma.table.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TableFindFirstOrThrowArgs>(args?: SelectSubset<T, TableFindFirstOrThrowArgs<ExtArgs>>): Prisma__TableClient<$Result.GetResult<Prisma.$TablePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Tables that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TableFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Tables
+     * const tables = await prisma.table.findMany()
+     * 
+     * // Get first 10 Tables
+     * const tables = await prisma.table.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const tableWithIdOnly = await prisma.table.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TableFindManyArgs>(args?: SelectSubset<T, TableFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TablePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Table.
+     * @param {TableCreateArgs} args - Arguments to create a Table.
+     * @example
+     * // Create one Table
+     * const Table = await prisma.table.create({
+     *   data: {
+     *     // ... data to create a Table
+     *   }
+     * })
+     * 
+     */
+    create<T extends TableCreateArgs>(args: SelectSubset<T, TableCreateArgs<ExtArgs>>): Prisma__TableClient<$Result.GetResult<Prisma.$TablePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Tables.
+     * @param {TableCreateManyArgs} args - Arguments to create many Tables.
+     * @example
+     * // Create many Tables
+     * const table = await prisma.table.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TableCreateManyArgs>(args?: SelectSubset<T, TableCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Tables and returns the data saved in the database.
+     * @param {TableCreateManyAndReturnArgs} args - Arguments to create many Tables.
+     * @example
+     * // Create many Tables
+     * const table = await prisma.table.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Tables and only return the `id`
+     * const tableWithIdOnly = await prisma.table.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TableCreateManyAndReturnArgs>(args?: SelectSubset<T, TableCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TablePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Table.
+     * @param {TableDeleteArgs} args - Arguments to delete one Table.
+     * @example
+     * // Delete one Table
+     * const Table = await prisma.table.delete({
+     *   where: {
+     *     // ... filter to delete one Table
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TableDeleteArgs>(args: SelectSubset<T, TableDeleteArgs<ExtArgs>>): Prisma__TableClient<$Result.GetResult<Prisma.$TablePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Table.
+     * @param {TableUpdateArgs} args - Arguments to update one Table.
+     * @example
+     * // Update one Table
+     * const table = await prisma.table.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TableUpdateArgs>(args: SelectSubset<T, TableUpdateArgs<ExtArgs>>): Prisma__TableClient<$Result.GetResult<Prisma.$TablePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Tables.
+     * @param {TableDeleteManyArgs} args - Arguments to filter Tables to delete.
+     * @example
+     * // Delete a few Tables
+     * const { count } = await prisma.table.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TableDeleteManyArgs>(args?: SelectSubset<T, TableDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Tables.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TableUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Tables
+     * const table = await prisma.table.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TableUpdateManyArgs>(args: SelectSubset<T, TableUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Tables and returns the data updated in the database.
+     * @param {TableUpdateManyAndReturnArgs} args - Arguments to update many Tables.
+     * @example
+     * // Update many Tables
+     * const table = await prisma.table.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Tables and only return the `id`
+     * const tableWithIdOnly = await prisma.table.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TableUpdateManyAndReturnArgs>(args: SelectSubset<T, TableUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TablePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Table.
+     * @param {TableUpsertArgs} args - Arguments to update or create a Table.
+     * @example
+     * // Update or create a Table
+     * const table = await prisma.table.upsert({
+     *   create: {
+     *     // ... data to create a Table
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Table we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TableUpsertArgs>(args: SelectSubset<T, TableUpsertArgs<ExtArgs>>): Prisma__TableClient<$Result.GetResult<Prisma.$TablePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Tables.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TableCountArgs} args - Arguments to filter Tables to count.
+     * @example
+     * // Count the number of Tables
+     * const count = await prisma.table.count({
+     *   where: {
+     *     // ... the filter for the Tables we want to count
+     *   }
+     * })
+    **/
+    count<T extends TableCountArgs>(
+      args?: Subset<T, TableCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TableCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Table.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TableAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TableAggregateArgs>(args: Subset<T, TableAggregateArgs>): Prisma.PrismaPromise<GetTableAggregateType<T>>
+
+    /**
+     * Group by Table.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TableGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TableGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TableGroupByArgs['orderBy'] }
+        : { orderBy?: TableGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TableGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTableGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Table model
+   */
+  readonly fields: TableFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Table.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TableClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    base<T extends BaseDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BaseDefaultArgs<ExtArgs>>): Prisma__BaseClient<$Result.GetResult<Prisma.$BasePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    columns<T extends Table$columnsArgs<ExtArgs> = {}>(args?: Subset<T, Table$columnsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ColumnPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    rows<T extends Table$rowsArgs<ExtArgs> = {}>(args?: Subset<T, Table$rowsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RowPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    views<T extends Table$viewsArgs<ExtArgs> = {}>(args?: Subset<T, Table$viewsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ViewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Table model
+   */
+  interface TableFieldRefs {
+    readonly id: FieldRef<"Table", 'String'>
+    readonly baseId: FieldRef<"Table", 'String'>
+    readonly name: FieldRef<"Table", 'String'>
+    readonly position: FieldRef<"Table", 'Int'>
+    readonly createdAt: FieldRef<"Table", 'DateTime'>
+    readonly updatedAt: FieldRef<"Table", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Table findUnique
+   */
+  export type TableFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Table
+     */
+    select?: TableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Table
+     */
+    omit?: TableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableInclude<ExtArgs> | null
+    /**
+     * Filter, which Table to fetch.
+     */
+    where: TableWhereUniqueInput
+  }
+
+  /**
+   * Table findUniqueOrThrow
+   */
+  export type TableFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Table
+     */
+    select?: TableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Table
+     */
+    omit?: TableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableInclude<ExtArgs> | null
+    /**
+     * Filter, which Table to fetch.
+     */
+    where: TableWhereUniqueInput
+  }
+
+  /**
+   * Table findFirst
+   */
+  export type TableFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Table
+     */
+    select?: TableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Table
+     */
+    omit?: TableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableInclude<ExtArgs> | null
+    /**
+     * Filter, which Table to fetch.
+     */
+    where?: TableWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Tables to fetch.
+     */
+    orderBy?: TableOrderByWithRelationInput | TableOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Tables.
+     */
+    cursor?: TableWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Tables from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Tables.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Tables.
+     */
+    distinct?: TableScalarFieldEnum | TableScalarFieldEnum[]
+  }
+
+  /**
+   * Table findFirstOrThrow
+   */
+  export type TableFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Table
+     */
+    select?: TableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Table
+     */
+    omit?: TableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableInclude<ExtArgs> | null
+    /**
+     * Filter, which Table to fetch.
+     */
+    where?: TableWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Tables to fetch.
+     */
+    orderBy?: TableOrderByWithRelationInput | TableOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Tables.
+     */
+    cursor?: TableWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Tables from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Tables.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Tables.
+     */
+    distinct?: TableScalarFieldEnum | TableScalarFieldEnum[]
+  }
+
+  /**
+   * Table findMany
+   */
+  export type TableFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Table
+     */
+    select?: TableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Table
+     */
+    omit?: TableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableInclude<ExtArgs> | null
+    /**
+     * Filter, which Tables to fetch.
+     */
+    where?: TableWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Tables to fetch.
+     */
+    orderBy?: TableOrderByWithRelationInput | TableOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Tables.
+     */
+    cursor?: TableWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Tables from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Tables.
+     */
+    skip?: number
+    distinct?: TableScalarFieldEnum | TableScalarFieldEnum[]
+  }
+
+  /**
+   * Table create
+   */
+  export type TableCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Table
+     */
+    select?: TableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Table
+     */
+    omit?: TableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Table.
+     */
+    data: XOR<TableCreateInput, TableUncheckedCreateInput>
+  }
+
+  /**
+   * Table createMany
+   */
+  export type TableCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Tables.
+     */
+    data: TableCreateManyInput | TableCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Table createManyAndReturn
+   */
+  export type TableCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Table
+     */
+    select?: TableSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Table
+     */
+    omit?: TableOmit<ExtArgs> | null
+    /**
+     * The data used to create many Tables.
+     */
+    data: TableCreateManyInput | TableCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Table update
+   */
+  export type TableUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Table
+     */
+    select?: TableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Table
+     */
+    omit?: TableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Table.
+     */
+    data: XOR<TableUpdateInput, TableUncheckedUpdateInput>
+    /**
+     * Choose, which Table to update.
+     */
+    where: TableWhereUniqueInput
+  }
+
+  /**
+   * Table updateMany
+   */
+  export type TableUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Tables.
+     */
+    data: XOR<TableUpdateManyMutationInput, TableUncheckedUpdateManyInput>
+    /**
+     * Filter which Tables to update
+     */
+    where?: TableWhereInput
+    /**
+     * Limit how many Tables to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Table updateManyAndReturn
+   */
+  export type TableUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Table
+     */
+    select?: TableSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Table
+     */
+    omit?: TableOmit<ExtArgs> | null
+    /**
+     * The data used to update Tables.
+     */
+    data: XOR<TableUpdateManyMutationInput, TableUncheckedUpdateManyInput>
+    /**
+     * Filter which Tables to update
+     */
+    where?: TableWhereInput
+    /**
+     * Limit how many Tables to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Table upsert
+   */
+  export type TableUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Table
+     */
+    select?: TableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Table
+     */
+    omit?: TableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Table to update in case it exists.
+     */
+    where: TableWhereUniqueInput
+    /**
+     * In case the Table found by the `where` argument doesn't exist, create a new Table with this data.
+     */
+    create: XOR<TableCreateInput, TableUncheckedCreateInput>
+    /**
+     * In case the Table was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TableUpdateInput, TableUncheckedUpdateInput>
+  }
+
+  /**
+   * Table delete
+   */
+  export type TableDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Table
+     */
+    select?: TableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Table
+     */
+    omit?: TableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableInclude<ExtArgs> | null
+    /**
+     * Filter which Table to delete.
+     */
+    where: TableWhereUniqueInput
+  }
+
+  /**
+   * Table deleteMany
+   */
+  export type TableDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Tables to delete
+     */
+    where?: TableWhereInput
+    /**
+     * Limit how many Tables to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Table.columns
+   */
+  export type Table$columnsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Column
+     */
+    select?: ColumnSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Column
+     */
+    omit?: ColumnOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnInclude<ExtArgs> | null
+    where?: ColumnWhereInput
+    orderBy?: ColumnOrderByWithRelationInput | ColumnOrderByWithRelationInput[]
+    cursor?: ColumnWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ColumnScalarFieldEnum | ColumnScalarFieldEnum[]
+  }
+
+  /**
+   * Table.rows
+   */
+  export type Table$rowsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Row
+     */
+    select?: RowSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Row
+     */
+    omit?: RowOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RowInclude<ExtArgs> | null
+    where?: RowWhereInput
+    orderBy?: RowOrderByWithRelationInput | RowOrderByWithRelationInput[]
+    cursor?: RowWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: RowScalarFieldEnum | RowScalarFieldEnum[]
+  }
+
+  /**
+   * Table.views
+   */
+  export type Table$viewsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the View
+     */
+    select?: ViewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the View
+     */
+    omit?: ViewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewInclude<ExtArgs> | null
+    where?: ViewWhereInput
+    orderBy?: ViewOrderByWithRelationInput | ViewOrderByWithRelationInput[]
+    cursor?: ViewWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ViewScalarFieldEnum | ViewScalarFieldEnum[]
+  }
+
+  /**
+   * Table without action
+   */
+  export type TableDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Table
+     */
+    select?: TableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Table
+     */
+    omit?: TableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Column
+   */
+
+  export type AggregateColumn = {
+    _count: ColumnCountAggregateOutputType | null
+    _avg: ColumnAvgAggregateOutputType | null
+    _sum: ColumnSumAggregateOutputType | null
+    _min: ColumnMinAggregateOutputType | null
+    _max: ColumnMaxAggregateOutputType | null
+  }
+
+  export type ColumnAvgAggregateOutputType = {
+    position: number | null
+  }
+
+  export type ColumnSumAggregateOutputType = {
+    position: number | null
+  }
+
+  export type ColumnMinAggregateOutputType = {
+    id: string | null
+    tableId: string | null
+    name: string | null
+    type: $Enums.ColumnType | null
+    position: number | null
+    isHidden: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ColumnMaxAggregateOutputType = {
+    id: string | null
+    tableId: string | null
+    name: string | null
+    type: $Enums.ColumnType | null
+    position: number | null
+    isHidden: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ColumnCountAggregateOutputType = {
+    id: number
+    tableId: number
+    name: number
+    type: number
+    position: number
+    isHidden: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ColumnAvgAggregateInputType = {
+    position?: true
+  }
+
+  export type ColumnSumAggregateInputType = {
+    position?: true
+  }
+
+  export type ColumnMinAggregateInputType = {
+    id?: true
+    tableId?: true
+    name?: true
+    type?: true
+    position?: true
+    isHidden?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ColumnMaxAggregateInputType = {
+    id?: true
+    tableId?: true
+    name?: true
+    type?: true
+    position?: true
+    isHidden?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ColumnCountAggregateInputType = {
+    id?: true
+    tableId?: true
+    name?: true
+    type?: true
+    position?: true
+    isHidden?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ColumnAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Column to aggregate.
+     */
+    where?: ColumnWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Columns to fetch.
+     */
+    orderBy?: ColumnOrderByWithRelationInput | ColumnOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ColumnWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Columns from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Columns.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Columns
+    **/
+    _count?: true | ColumnCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ColumnAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ColumnSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ColumnMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ColumnMaxAggregateInputType
+  }
+
+  export type GetColumnAggregateType<T extends ColumnAggregateArgs> = {
+        [P in keyof T & keyof AggregateColumn]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateColumn[P]>
+      : GetScalarType<T[P], AggregateColumn[P]>
+  }
+
+
+
+
+  export type ColumnGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ColumnWhereInput
+    orderBy?: ColumnOrderByWithAggregationInput | ColumnOrderByWithAggregationInput[]
+    by: ColumnScalarFieldEnum[] | ColumnScalarFieldEnum
+    having?: ColumnScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ColumnCountAggregateInputType | true
+    _avg?: ColumnAvgAggregateInputType
+    _sum?: ColumnSumAggregateInputType
+    _min?: ColumnMinAggregateInputType
+    _max?: ColumnMaxAggregateInputType
+  }
+
+  export type ColumnGroupByOutputType = {
+    id: string
+    tableId: string
+    name: string
+    type: $Enums.ColumnType
+    position: number
+    isHidden: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: ColumnCountAggregateOutputType | null
+    _avg: ColumnAvgAggregateOutputType | null
+    _sum: ColumnSumAggregateOutputType | null
+    _min: ColumnMinAggregateOutputType | null
+    _max: ColumnMaxAggregateOutputType | null
+  }
+
+  type GetColumnGroupByPayload<T extends ColumnGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ColumnGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ColumnGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ColumnGroupByOutputType[P]>
+            : GetScalarType<T[P], ColumnGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ColumnSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tableId?: boolean
+    name?: boolean
+    type?: boolean
+    position?: boolean
+    isHidden?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    table?: boolean | TableDefaultArgs<ExtArgs>
+    cells?: boolean | Column$cellsArgs<ExtArgs>
+    filters?: boolean | Column$filtersArgs<ExtArgs>
+    sorts?: boolean | Column$sortsArgs<ExtArgs>
+    columnStates?: boolean | Column$columnStatesArgs<ExtArgs>
+    _count?: boolean | ColumnCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["column"]>
+
+  export type ColumnSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tableId?: boolean
+    name?: boolean
+    type?: boolean
+    position?: boolean
+    isHidden?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    table?: boolean | TableDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["column"]>
+
+  export type ColumnSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tableId?: boolean
+    name?: boolean
+    type?: boolean
+    position?: boolean
+    isHidden?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    table?: boolean | TableDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["column"]>
+
+  export type ColumnSelectScalar = {
+    id?: boolean
+    tableId?: boolean
+    name?: boolean
+    type?: boolean
+    position?: boolean
+    isHidden?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ColumnOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tableId" | "name" | "type" | "position" | "isHidden" | "createdAt" | "updatedAt", ExtArgs["result"]["column"]>
+  export type ColumnInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    table?: boolean | TableDefaultArgs<ExtArgs>
+    cells?: boolean | Column$cellsArgs<ExtArgs>
+    filters?: boolean | Column$filtersArgs<ExtArgs>
+    sorts?: boolean | Column$sortsArgs<ExtArgs>
+    columnStates?: boolean | Column$columnStatesArgs<ExtArgs>
+    _count?: boolean | ColumnCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ColumnIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    table?: boolean | TableDefaultArgs<ExtArgs>
+  }
+  export type ColumnIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    table?: boolean | TableDefaultArgs<ExtArgs>
+  }
+
+  export type $ColumnPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Column"
+    objects: {
+      table: Prisma.$TablePayload<ExtArgs>
+      cells: Prisma.$CellPayload<ExtArgs>[]
+      filters: Prisma.$ViewFilterPayload<ExtArgs>[]
+      sorts: Prisma.$ViewSortPayload<ExtArgs>[]
+      columnStates: Prisma.$ColumnStatePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      tableId: string
+      name: string
+      type: $Enums.ColumnType
+      position: number
+      isHidden: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["column"]>
+    composites: {}
+  }
+
+  type ColumnGetPayload<S extends boolean | null | undefined | ColumnDefaultArgs> = $Result.GetResult<Prisma.$ColumnPayload, S>
+
+  type ColumnCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ColumnFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ColumnCountAggregateInputType | true
+    }
+
+  export interface ColumnDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Column'], meta: { name: 'Column' } }
+    /**
+     * Find zero or one Column that matches the filter.
+     * @param {ColumnFindUniqueArgs} args - Arguments to find a Column
+     * @example
+     * // Get one Column
+     * const column = await prisma.column.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ColumnFindUniqueArgs>(args: SelectSubset<T, ColumnFindUniqueArgs<ExtArgs>>): Prisma__ColumnClient<$Result.GetResult<Prisma.$ColumnPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Column that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ColumnFindUniqueOrThrowArgs} args - Arguments to find a Column
+     * @example
+     * // Get one Column
+     * const column = await prisma.column.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ColumnFindUniqueOrThrowArgs>(args: SelectSubset<T, ColumnFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ColumnClient<$Result.GetResult<Prisma.$ColumnPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Column that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ColumnFindFirstArgs} args - Arguments to find a Column
+     * @example
+     * // Get one Column
+     * const column = await prisma.column.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ColumnFindFirstArgs>(args?: SelectSubset<T, ColumnFindFirstArgs<ExtArgs>>): Prisma__ColumnClient<$Result.GetResult<Prisma.$ColumnPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Column that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ColumnFindFirstOrThrowArgs} args - Arguments to find a Column
+     * @example
+     * // Get one Column
+     * const column = await prisma.column.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ColumnFindFirstOrThrowArgs>(args?: SelectSubset<T, ColumnFindFirstOrThrowArgs<ExtArgs>>): Prisma__ColumnClient<$Result.GetResult<Prisma.$ColumnPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Columns that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ColumnFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Columns
+     * const columns = await prisma.column.findMany()
+     * 
+     * // Get first 10 Columns
+     * const columns = await prisma.column.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const columnWithIdOnly = await prisma.column.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ColumnFindManyArgs>(args?: SelectSubset<T, ColumnFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ColumnPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Column.
+     * @param {ColumnCreateArgs} args - Arguments to create a Column.
+     * @example
+     * // Create one Column
+     * const Column = await prisma.column.create({
+     *   data: {
+     *     // ... data to create a Column
+     *   }
+     * })
+     * 
+     */
+    create<T extends ColumnCreateArgs>(args: SelectSubset<T, ColumnCreateArgs<ExtArgs>>): Prisma__ColumnClient<$Result.GetResult<Prisma.$ColumnPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Columns.
+     * @param {ColumnCreateManyArgs} args - Arguments to create many Columns.
+     * @example
+     * // Create many Columns
+     * const column = await prisma.column.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ColumnCreateManyArgs>(args?: SelectSubset<T, ColumnCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Columns and returns the data saved in the database.
+     * @param {ColumnCreateManyAndReturnArgs} args - Arguments to create many Columns.
+     * @example
+     * // Create many Columns
+     * const column = await prisma.column.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Columns and only return the `id`
+     * const columnWithIdOnly = await prisma.column.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ColumnCreateManyAndReturnArgs>(args?: SelectSubset<T, ColumnCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ColumnPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Column.
+     * @param {ColumnDeleteArgs} args - Arguments to delete one Column.
+     * @example
+     * // Delete one Column
+     * const Column = await prisma.column.delete({
+     *   where: {
+     *     // ... filter to delete one Column
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ColumnDeleteArgs>(args: SelectSubset<T, ColumnDeleteArgs<ExtArgs>>): Prisma__ColumnClient<$Result.GetResult<Prisma.$ColumnPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Column.
+     * @param {ColumnUpdateArgs} args - Arguments to update one Column.
+     * @example
+     * // Update one Column
+     * const column = await prisma.column.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ColumnUpdateArgs>(args: SelectSubset<T, ColumnUpdateArgs<ExtArgs>>): Prisma__ColumnClient<$Result.GetResult<Prisma.$ColumnPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Columns.
+     * @param {ColumnDeleteManyArgs} args - Arguments to filter Columns to delete.
+     * @example
+     * // Delete a few Columns
+     * const { count } = await prisma.column.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ColumnDeleteManyArgs>(args?: SelectSubset<T, ColumnDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Columns.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ColumnUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Columns
+     * const column = await prisma.column.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ColumnUpdateManyArgs>(args: SelectSubset<T, ColumnUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Columns and returns the data updated in the database.
+     * @param {ColumnUpdateManyAndReturnArgs} args - Arguments to update many Columns.
+     * @example
+     * // Update many Columns
+     * const column = await prisma.column.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Columns and only return the `id`
+     * const columnWithIdOnly = await prisma.column.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ColumnUpdateManyAndReturnArgs>(args: SelectSubset<T, ColumnUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ColumnPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Column.
+     * @param {ColumnUpsertArgs} args - Arguments to update or create a Column.
+     * @example
+     * // Update or create a Column
+     * const column = await prisma.column.upsert({
+     *   create: {
+     *     // ... data to create a Column
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Column we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ColumnUpsertArgs>(args: SelectSubset<T, ColumnUpsertArgs<ExtArgs>>): Prisma__ColumnClient<$Result.GetResult<Prisma.$ColumnPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Columns.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ColumnCountArgs} args - Arguments to filter Columns to count.
+     * @example
+     * // Count the number of Columns
+     * const count = await prisma.column.count({
+     *   where: {
+     *     // ... the filter for the Columns we want to count
+     *   }
+     * })
+    **/
+    count<T extends ColumnCountArgs>(
+      args?: Subset<T, ColumnCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ColumnCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Column.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ColumnAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ColumnAggregateArgs>(args: Subset<T, ColumnAggregateArgs>): Prisma.PrismaPromise<GetColumnAggregateType<T>>
+
+    /**
+     * Group by Column.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ColumnGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ColumnGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ColumnGroupByArgs['orderBy'] }
+        : { orderBy?: ColumnGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ColumnGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetColumnGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Column model
+   */
+  readonly fields: ColumnFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Column.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ColumnClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    table<T extends TableDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TableDefaultArgs<ExtArgs>>): Prisma__TableClient<$Result.GetResult<Prisma.$TablePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    cells<T extends Column$cellsArgs<ExtArgs> = {}>(args?: Subset<T, Column$cellsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CellPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    filters<T extends Column$filtersArgs<ExtArgs> = {}>(args?: Subset<T, Column$filtersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ViewFilterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sorts<T extends Column$sortsArgs<ExtArgs> = {}>(args?: Subset<T, Column$sortsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ViewSortPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    columnStates<T extends Column$columnStatesArgs<ExtArgs> = {}>(args?: Subset<T, Column$columnStatesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ColumnStatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Column model
+   */
+  interface ColumnFieldRefs {
+    readonly id: FieldRef<"Column", 'String'>
+    readonly tableId: FieldRef<"Column", 'String'>
+    readonly name: FieldRef<"Column", 'String'>
+    readonly type: FieldRef<"Column", 'ColumnType'>
+    readonly position: FieldRef<"Column", 'Int'>
+    readonly isHidden: FieldRef<"Column", 'Boolean'>
+    readonly createdAt: FieldRef<"Column", 'DateTime'>
+    readonly updatedAt: FieldRef<"Column", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Column findUnique
+   */
+  export type ColumnFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Column
+     */
+    select?: ColumnSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Column
+     */
+    omit?: ColumnOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnInclude<ExtArgs> | null
+    /**
+     * Filter, which Column to fetch.
+     */
+    where: ColumnWhereUniqueInput
+  }
+
+  /**
+   * Column findUniqueOrThrow
+   */
+  export type ColumnFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Column
+     */
+    select?: ColumnSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Column
+     */
+    omit?: ColumnOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnInclude<ExtArgs> | null
+    /**
+     * Filter, which Column to fetch.
+     */
+    where: ColumnWhereUniqueInput
+  }
+
+  /**
+   * Column findFirst
+   */
+  export type ColumnFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Column
+     */
+    select?: ColumnSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Column
+     */
+    omit?: ColumnOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnInclude<ExtArgs> | null
+    /**
+     * Filter, which Column to fetch.
+     */
+    where?: ColumnWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Columns to fetch.
+     */
+    orderBy?: ColumnOrderByWithRelationInput | ColumnOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Columns.
+     */
+    cursor?: ColumnWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Columns from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Columns.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Columns.
+     */
+    distinct?: ColumnScalarFieldEnum | ColumnScalarFieldEnum[]
+  }
+
+  /**
+   * Column findFirstOrThrow
+   */
+  export type ColumnFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Column
+     */
+    select?: ColumnSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Column
+     */
+    omit?: ColumnOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnInclude<ExtArgs> | null
+    /**
+     * Filter, which Column to fetch.
+     */
+    where?: ColumnWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Columns to fetch.
+     */
+    orderBy?: ColumnOrderByWithRelationInput | ColumnOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Columns.
+     */
+    cursor?: ColumnWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Columns from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Columns.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Columns.
+     */
+    distinct?: ColumnScalarFieldEnum | ColumnScalarFieldEnum[]
+  }
+
+  /**
+   * Column findMany
+   */
+  export type ColumnFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Column
+     */
+    select?: ColumnSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Column
+     */
+    omit?: ColumnOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnInclude<ExtArgs> | null
+    /**
+     * Filter, which Columns to fetch.
+     */
+    where?: ColumnWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Columns to fetch.
+     */
+    orderBy?: ColumnOrderByWithRelationInput | ColumnOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Columns.
+     */
+    cursor?: ColumnWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Columns from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Columns.
+     */
+    skip?: number
+    distinct?: ColumnScalarFieldEnum | ColumnScalarFieldEnum[]
+  }
+
+  /**
+   * Column create
+   */
+  export type ColumnCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Column
+     */
+    select?: ColumnSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Column
+     */
+    omit?: ColumnOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Column.
+     */
+    data: XOR<ColumnCreateInput, ColumnUncheckedCreateInput>
+  }
+
+  /**
+   * Column createMany
+   */
+  export type ColumnCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Columns.
+     */
+    data: ColumnCreateManyInput | ColumnCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Column createManyAndReturn
+   */
+  export type ColumnCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Column
+     */
+    select?: ColumnSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Column
+     */
+    omit?: ColumnOmit<ExtArgs> | null
+    /**
+     * The data used to create many Columns.
+     */
+    data: ColumnCreateManyInput | ColumnCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Column update
+   */
+  export type ColumnUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Column
+     */
+    select?: ColumnSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Column
+     */
+    omit?: ColumnOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Column.
+     */
+    data: XOR<ColumnUpdateInput, ColumnUncheckedUpdateInput>
+    /**
+     * Choose, which Column to update.
+     */
+    where: ColumnWhereUniqueInput
+  }
+
+  /**
+   * Column updateMany
+   */
+  export type ColumnUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Columns.
+     */
+    data: XOR<ColumnUpdateManyMutationInput, ColumnUncheckedUpdateManyInput>
+    /**
+     * Filter which Columns to update
+     */
+    where?: ColumnWhereInput
+    /**
+     * Limit how many Columns to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Column updateManyAndReturn
+   */
+  export type ColumnUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Column
+     */
+    select?: ColumnSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Column
+     */
+    omit?: ColumnOmit<ExtArgs> | null
+    /**
+     * The data used to update Columns.
+     */
+    data: XOR<ColumnUpdateManyMutationInput, ColumnUncheckedUpdateManyInput>
+    /**
+     * Filter which Columns to update
+     */
+    where?: ColumnWhereInput
+    /**
+     * Limit how many Columns to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Column upsert
+   */
+  export type ColumnUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Column
+     */
+    select?: ColumnSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Column
+     */
+    omit?: ColumnOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Column to update in case it exists.
+     */
+    where: ColumnWhereUniqueInput
+    /**
+     * In case the Column found by the `where` argument doesn't exist, create a new Column with this data.
+     */
+    create: XOR<ColumnCreateInput, ColumnUncheckedCreateInput>
+    /**
+     * In case the Column was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ColumnUpdateInput, ColumnUncheckedUpdateInput>
+  }
+
+  /**
+   * Column delete
+   */
+  export type ColumnDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Column
+     */
+    select?: ColumnSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Column
+     */
+    omit?: ColumnOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnInclude<ExtArgs> | null
+    /**
+     * Filter which Column to delete.
+     */
+    where: ColumnWhereUniqueInput
+  }
+
+  /**
+   * Column deleteMany
+   */
+  export type ColumnDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Columns to delete
+     */
+    where?: ColumnWhereInput
+    /**
+     * Limit how many Columns to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Column.cells
+   */
+  export type Column$cellsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cell
+     */
+    select?: CellSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cell
+     */
+    omit?: CellOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CellInclude<ExtArgs> | null
+    where?: CellWhereInput
+    orderBy?: CellOrderByWithRelationInput | CellOrderByWithRelationInput[]
+    cursor?: CellWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CellScalarFieldEnum | CellScalarFieldEnum[]
+  }
+
+  /**
+   * Column.filters
+   */
+  export type Column$filtersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewFilter
+     */
+    select?: ViewFilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewFilter
+     */
+    omit?: ViewFilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewFilterInclude<ExtArgs> | null
+    where?: ViewFilterWhereInput
+    orderBy?: ViewFilterOrderByWithRelationInput | ViewFilterOrderByWithRelationInput[]
+    cursor?: ViewFilterWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ViewFilterScalarFieldEnum | ViewFilterScalarFieldEnum[]
+  }
+
+  /**
+   * Column.sorts
+   */
+  export type Column$sortsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewSort
+     */
+    select?: ViewSortSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewSort
+     */
+    omit?: ViewSortOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewSortInclude<ExtArgs> | null
+    where?: ViewSortWhereInput
+    orderBy?: ViewSortOrderByWithRelationInput | ViewSortOrderByWithRelationInput[]
+    cursor?: ViewSortWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ViewSortScalarFieldEnum | ViewSortScalarFieldEnum[]
+  }
+
+  /**
+   * Column.columnStates
+   */
+  export type Column$columnStatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ColumnState
+     */
+    select?: ColumnStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ColumnState
+     */
+    omit?: ColumnStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnStateInclude<ExtArgs> | null
+    where?: ColumnStateWhereInput
+    orderBy?: ColumnStateOrderByWithRelationInput | ColumnStateOrderByWithRelationInput[]
+    cursor?: ColumnStateWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ColumnStateScalarFieldEnum | ColumnStateScalarFieldEnum[]
+  }
+
+  /**
+   * Column without action
+   */
+  export type ColumnDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Column
+     */
+    select?: ColumnSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Column
+     */
+    omit?: ColumnOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Row
+   */
+
+  export type AggregateRow = {
+    _count: RowCountAggregateOutputType | null
+    _avg: RowAvgAggregateOutputType | null
+    _sum: RowSumAggregateOutputType | null
+    _min: RowMinAggregateOutputType | null
+    _max: RowMaxAggregateOutputType | null
+  }
+
+  export type RowAvgAggregateOutputType = {
+    index: number | null
+  }
+
+  export type RowSumAggregateOutputType = {
+    index: number | null
+  }
+
+  export type RowMinAggregateOutputType = {
+    id: string | null
+    tableId: string | null
+    index: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type RowMaxAggregateOutputType = {
+    id: string | null
+    tableId: string | null
+    index: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type RowCountAggregateOutputType = {
+    id: number
+    tableId: number
+    index: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type RowAvgAggregateInputType = {
+    index?: true
+  }
+
+  export type RowSumAggregateInputType = {
+    index?: true
+  }
+
+  export type RowMinAggregateInputType = {
+    id?: true
+    tableId?: true
+    index?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type RowMaxAggregateInputType = {
+    id?: true
+    tableId?: true
+    index?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type RowCountAggregateInputType = {
+    id?: true
+    tableId?: true
+    index?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type RowAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Row to aggregate.
+     */
+    where?: RowWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Rows to fetch.
+     */
+    orderBy?: RowOrderByWithRelationInput | RowOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: RowWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Rows from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Rows.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Rows
+    **/
+    _count?: true | RowCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: RowAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: RowSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: RowMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: RowMaxAggregateInputType
+  }
+
+  export type GetRowAggregateType<T extends RowAggregateArgs> = {
+        [P in keyof T & keyof AggregateRow]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateRow[P]>
+      : GetScalarType<T[P], AggregateRow[P]>
+  }
+
+
+
+
+  export type RowGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RowWhereInput
+    orderBy?: RowOrderByWithAggregationInput | RowOrderByWithAggregationInput[]
+    by: RowScalarFieldEnum[] | RowScalarFieldEnum
+    having?: RowScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: RowCountAggregateInputType | true
+    _avg?: RowAvgAggregateInputType
+    _sum?: RowSumAggregateInputType
+    _min?: RowMinAggregateInputType
+    _max?: RowMaxAggregateInputType
+  }
+
+  export type RowGroupByOutputType = {
+    id: string
+    tableId: string
+    index: number
+    createdAt: Date
+    updatedAt: Date
+    _count: RowCountAggregateOutputType | null
+    _avg: RowAvgAggregateOutputType | null
+    _sum: RowSumAggregateOutputType | null
+    _min: RowMinAggregateOutputType | null
+    _max: RowMaxAggregateOutputType | null
+  }
+
+  type GetRowGroupByPayload<T extends RowGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<RowGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof RowGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], RowGroupByOutputType[P]>
+            : GetScalarType<T[P], RowGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type RowSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tableId?: boolean
+    index?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    table?: boolean | TableDefaultArgs<ExtArgs>
+    cells?: boolean | Row$cellsArgs<ExtArgs>
+    _count?: boolean | RowCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["row"]>
+
+  export type RowSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tableId?: boolean
+    index?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    table?: boolean | TableDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["row"]>
+
+  export type RowSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tableId?: boolean
+    index?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    table?: boolean | TableDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["row"]>
+
+  export type RowSelectScalar = {
+    id?: boolean
+    tableId?: boolean
+    index?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type RowOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tableId" | "index" | "createdAt" | "updatedAt", ExtArgs["result"]["row"]>
+  export type RowInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    table?: boolean | TableDefaultArgs<ExtArgs>
+    cells?: boolean | Row$cellsArgs<ExtArgs>
+    _count?: boolean | RowCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type RowIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    table?: boolean | TableDefaultArgs<ExtArgs>
+  }
+  export type RowIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    table?: boolean | TableDefaultArgs<ExtArgs>
+  }
+
+  export type $RowPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Row"
+    objects: {
+      table: Prisma.$TablePayload<ExtArgs>
+      cells: Prisma.$CellPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      tableId: string
+      index: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["row"]>
+    composites: {}
+  }
+
+  type RowGetPayload<S extends boolean | null | undefined | RowDefaultArgs> = $Result.GetResult<Prisma.$RowPayload, S>
+
+  type RowCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<RowFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: RowCountAggregateInputType | true
+    }
+
+  export interface RowDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Row'], meta: { name: 'Row' } }
+    /**
+     * Find zero or one Row that matches the filter.
+     * @param {RowFindUniqueArgs} args - Arguments to find a Row
+     * @example
+     * // Get one Row
+     * const row = await prisma.row.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends RowFindUniqueArgs>(args: SelectSubset<T, RowFindUniqueArgs<ExtArgs>>): Prisma__RowClient<$Result.GetResult<Prisma.$RowPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Row that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {RowFindUniqueOrThrowArgs} args - Arguments to find a Row
+     * @example
+     * // Get one Row
+     * const row = await prisma.row.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends RowFindUniqueOrThrowArgs>(args: SelectSubset<T, RowFindUniqueOrThrowArgs<ExtArgs>>): Prisma__RowClient<$Result.GetResult<Prisma.$RowPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Row that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RowFindFirstArgs} args - Arguments to find a Row
+     * @example
+     * // Get one Row
+     * const row = await prisma.row.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends RowFindFirstArgs>(args?: SelectSubset<T, RowFindFirstArgs<ExtArgs>>): Prisma__RowClient<$Result.GetResult<Prisma.$RowPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Row that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RowFindFirstOrThrowArgs} args - Arguments to find a Row
+     * @example
+     * // Get one Row
+     * const row = await prisma.row.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends RowFindFirstOrThrowArgs>(args?: SelectSubset<T, RowFindFirstOrThrowArgs<ExtArgs>>): Prisma__RowClient<$Result.GetResult<Prisma.$RowPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Rows that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RowFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Rows
+     * const rows = await prisma.row.findMany()
+     * 
+     * // Get first 10 Rows
+     * const rows = await prisma.row.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const rowWithIdOnly = await prisma.row.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends RowFindManyArgs>(args?: SelectSubset<T, RowFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RowPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Row.
+     * @param {RowCreateArgs} args - Arguments to create a Row.
+     * @example
+     * // Create one Row
+     * const Row = await prisma.row.create({
+     *   data: {
+     *     // ... data to create a Row
+     *   }
+     * })
+     * 
+     */
+    create<T extends RowCreateArgs>(args: SelectSubset<T, RowCreateArgs<ExtArgs>>): Prisma__RowClient<$Result.GetResult<Prisma.$RowPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Rows.
+     * @param {RowCreateManyArgs} args - Arguments to create many Rows.
+     * @example
+     * // Create many Rows
+     * const row = await prisma.row.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends RowCreateManyArgs>(args?: SelectSubset<T, RowCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Rows and returns the data saved in the database.
+     * @param {RowCreateManyAndReturnArgs} args - Arguments to create many Rows.
+     * @example
+     * // Create many Rows
+     * const row = await prisma.row.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Rows and only return the `id`
+     * const rowWithIdOnly = await prisma.row.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends RowCreateManyAndReturnArgs>(args?: SelectSubset<T, RowCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RowPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Row.
+     * @param {RowDeleteArgs} args - Arguments to delete one Row.
+     * @example
+     * // Delete one Row
+     * const Row = await prisma.row.delete({
+     *   where: {
+     *     // ... filter to delete one Row
+     *   }
+     * })
+     * 
+     */
+    delete<T extends RowDeleteArgs>(args: SelectSubset<T, RowDeleteArgs<ExtArgs>>): Prisma__RowClient<$Result.GetResult<Prisma.$RowPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Row.
+     * @param {RowUpdateArgs} args - Arguments to update one Row.
+     * @example
+     * // Update one Row
+     * const row = await prisma.row.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends RowUpdateArgs>(args: SelectSubset<T, RowUpdateArgs<ExtArgs>>): Prisma__RowClient<$Result.GetResult<Prisma.$RowPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Rows.
+     * @param {RowDeleteManyArgs} args - Arguments to filter Rows to delete.
+     * @example
+     * // Delete a few Rows
+     * const { count } = await prisma.row.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends RowDeleteManyArgs>(args?: SelectSubset<T, RowDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Rows.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RowUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Rows
+     * const row = await prisma.row.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends RowUpdateManyArgs>(args: SelectSubset<T, RowUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Rows and returns the data updated in the database.
+     * @param {RowUpdateManyAndReturnArgs} args - Arguments to update many Rows.
+     * @example
+     * // Update many Rows
+     * const row = await prisma.row.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Rows and only return the `id`
+     * const rowWithIdOnly = await prisma.row.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends RowUpdateManyAndReturnArgs>(args: SelectSubset<T, RowUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RowPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Row.
+     * @param {RowUpsertArgs} args - Arguments to update or create a Row.
+     * @example
+     * // Update or create a Row
+     * const row = await prisma.row.upsert({
+     *   create: {
+     *     // ... data to create a Row
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Row we want to update
+     *   }
+     * })
+     */
+    upsert<T extends RowUpsertArgs>(args: SelectSubset<T, RowUpsertArgs<ExtArgs>>): Prisma__RowClient<$Result.GetResult<Prisma.$RowPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Rows.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RowCountArgs} args - Arguments to filter Rows to count.
+     * @example
+     * // Count the number of Rows
+     * const count = await prisma.row.count({
+     *   where: {
+     *     // ... the filter for the Rows we want to count
+     *   }
+     * })
+    **/
+    count<T extends RowCountArgs>(
+      args?: Subset<T, RowCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], RowCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Row.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RowAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends RowAggregateArgs>(args: Subset<T, RowAggregateArgs>): Prisma.PrismaPromise<GetRowAggregateType<T>>
+
+    /**
+     * Group by Row.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RowGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends RowGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: RowGroupByArgs['orderBy'] }
+        : { orderBy?: RowGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, RowGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRowGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Row model
+   */
+  readonly fields: RowFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Row.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__RowClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    table<T extends TableDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TableDefaultArgs<ExtArgs>>): Prisma__TableClient<$Result.GetResult<Prisma.$TablePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    cells<T extends Row$cellsArgs<ExtArgs> = {}>(args?: Subset<T, Row$cellsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CellPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Row model
+   */
+  interface RowFieldRefs {
+    readonly id: FieldRef<"Row", 'String'>
+    readonly tableId: FieldRef<"Row", 'String'>
+    readonly index: FieldRef<"Row", 'Int'>
+    readonly createdAt: FieldRef<"Row", 'DateTime'>
+    readonly updatedAt: FieldRef<"Row", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Row findUnique
+   */
+  export type RowFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Row
+     */
+    select?: RowSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Row
+     */
+    omit?: RowOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RowInclude<ExtArgs> | null
+    /**
+     * Filter, which Row to fetch.
+     */
+    where: RowWhereUniqueInput
+  }
+
+  /**
+   * Row findUniqueOrThrow
+   */
+  export type RowFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Row
+     */
+    select?: RowSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Row
+     */
+    omit?: RowOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RowInclude<ExtArgs> | null
+    /**
+     * Filter, which Row to fetch.
+     */
+    where: RowWhereUniqueInput
+  }
+
+  /**
+   * Row findFirst
+   */
+  export type RowFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Row
+     */
+    select?: RowSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Row
+     */
+    omit?: RowOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RowInclude<ExtArgs> | null
+    /**
+     * Filter, which Row to fetch.
+     */
+    where?: RowWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Rows to fetch.
+     */
+    orderBy?: RowOrderByWithRelationInput | RowOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Rows.
+     */
+    cursor?: RowWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Rows from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Rows.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Rows.
+     */
+    distinct?: RowScalarFieldEnum | RowScalarFieldEnum[]
+  }
+
+  /**
+   * Row findFirstOrThrow
+   */
+  export type RowFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Row
+     */
+    select?: RowSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Row
+     */
+    omit?: RowOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RowInclude<ExtArgs> | null
+    /**
+     * Filter, which Row to fetch.
+     */
+    where?: RowWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Rows to fetch.
+     */
+    orderBy?: RowOrderByWithRelationInput | RowOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Rows.
+     */
+    cursor?: RowWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Rows from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Rows.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Rows.
+     */
+    distinct?: RowScalarFieldEnum | RowScalarFieldEnum[]
+  }
+
+  /**
+   * Row findMany
+   */
+  export type RowFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Row
+     */
+    select?: RowSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Row
+     */
+    omit?: RowOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RowInclude<ExtArgs> | null
+    /**
+     * Filter, which Rows to fetch.
+     */
+    where?: RowWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Rows to fetch.
+     */
+    orderBy?: RowOrderByWithRelationInput | RowOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Rows.
+     */
+    cursor?: RowWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Rows from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Rows.
+     */
+    skip?: number
+    distinct?: RowScalarFieldEnum | RowScalarFieldEnum[]
+  }
+
+  /**
+   * Row create
+   */
+  export type RowCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Row
+     */
+    select?: RowSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Row
+     */
+    omit?: RowOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RowInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Row.
+     */
+    data: XOR<RowCreateInput, RowUncheckedCreateInput>
+  }
+
+  /**
+   * Row createMany
+   */
+  export type RowCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Rows.
+     */
+    data: RowCreateManyInput | RowCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Row createManyAndReturn
+   */
+  export type RowCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Row
+     */
+    select?: RowSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Row
+     */
+    omit?: RowOmit<ExtArgs> | null
+    /**
+     * The data used to create many Rows.
+     */
+    data: RowCreateManyInput | RowCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RowIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Row update
+   */
+  export type RowUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Row
+     */
+    select?: RowSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Row
+     */
+    omit?: RowOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RowInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Row.
+     */
+    data: XOR<RowUpdateInput, RowUncheckedUpdateInput>
+    /**
+     * Choose, which Row to update.
+     */
+    where: RowWhereUniqueInput
+  }
+
+  /**
+   * Row updateMany
+   */
+  export type RowUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Rows.
+     */
+    data: XOR<RowUpdateManyMutationInput, RowUncheckedUpdateManyInput>
+    /**
+     * Filter which Rows to update
+     */
+    where?: RowWhereInput
+    /**
+     * Limit how many Rows to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Row updateManyAndReturn
+   */
+  export type RowUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Row
+     */
+    select?: RowSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Row
+     */
+    omit?: RowOmit<ExtArgs> | null
+    /**
+     * The data used to update Rows.
+     */
+    data: XOR<RowUpdateManyMutationInput, RowUncheckedUpdateManyInput>
+    /**
+     * Filter which Rows to update
+     */
+    where?: RowWhereInput
+    /**
+     * Limit how many Rows to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RowIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Row upsert
+   */
+  export type RowUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Row
+     */
+    select?: RowSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Row
+     */
+    omit?: RowOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RowInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Row to update in case it exists.
+     */
+    where: RowWhereUniqueInput
+    /**
+     * In case the Row found by the `where` argument doesn't exist, create a new Row with this data.
+     */
+    create: XOR<RowCreateInput, RowUncheckedCreateInput>
+    /**
+     * In case the Row was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<RowUpdateInput, RowUncheckedUpdateInput>
+  }
+
+  /**
+   * Row delete
+   */
+  export type RowDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Row
+     */
+    select?: RowSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Row
+     */
+    omit?: RowOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RowInclude<ExtArgs> | null
+    /**
+     * Filter which Row to delete.
+     */
+    where: RowWhereUniqueInput
+  }
+
+  /**
+   * Row deleteMany
+   */
+  export type RowDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Rows to delete
+     */
+    where?: RowWhereInput
+    /**
+     * Limit how many Rows to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Row.cells
+   */
+  export type Row$cellsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cell
+     */
+    select?: CellSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cell
+     */
+    omit?: CellOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CellInclude<ExtArgs> | null
+    where?: CellWhereInput
+    orderBy?: CellOrderByWithRelationInput | CellOrderByWithRelationInput[]
+    cursor?: CellWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CellScalarFieldEnum | CellScalarFieldEnum[]
+  }
+
+  /**
+   * Row without action
+   */
+  export type RowDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Row
+     */
+    select?: RowSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Row
+     */
+    omit?: RowOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RowInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Cell
+   */
+
+  export type AggregateCell = {
+    _count: CellCountAggregateOutputType | null
+    _avg: CellAvgAggregateOutputType | null
+    _sum: CellSumAggregateOutputType | null
+    _min: CellMinAggregateOutputType | null
+    _max: CellMaxAggregateOutputType | null
+  }
+
+  export type CellAvgAggregateOutputType = {
+    valueNumber: number | null
+  }
+
+  export type CellSumAggregateOutputType = {
+    valueNumber: number | null
+  }
+
+  export type CellMinAggregateOutputType = {
+    id: string | null
+    rowId: string | null
+    columnId: string | null
+    valueText: string | null
+    valueNumber: number | null
+  }
+
+  export type CellMaxAggregateOutputType = {
+    id: string | null
+    rowId: string | null
+    columnId: string | null
+    valueText: string | null
+    valueNumber: number | null
+  }
+
+  export type CellCountAggregateOutputType = {
+    id: number
+    rowId: number
+    columnId: number
+    valueText: number
+    valueNumber: number
+    _all: number
+  }
+
+
+  export type CellAvgAggregateInputType = {
+    valueNumber?: true
+  }
+
+  export type CellSumAggregateInputType = {
+    valueNumber?: true
+  }
+
+  export type CellMinAggregateInputType = {
+    id?: true
+    rowId?: true
+    columnId?: true
+    valueText?: true
+    valueNumber?: true
+  }
+
+  export type CellMaxAggregateInputType = {
+    id?: true
+    rowId?: true
+    columnId?: true
+    valueText?: true
+    valueNumber?: true
+  }
+
+  export type CellCountAggregateInputType = {
+    id?: true
+    rowId?: true
+    columnId?: true
+    valueText?: true
+    valueNumber?: true
+    _all?: true
+  }
+
+  export type CellAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Cell to aggregate.
+     */
+    where?: CellWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Cells to fetch.
+     */
+    orderBy?: CellOrderByWithRelationInput | CellOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CellWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Cells from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Cells.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Cells
+    **/
+    _count?: true | CellCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CellAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CellSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CellMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CellMaxAggregateInputType
+  }
+
+  export type GetCellAggregateType<T extends CellAggregateArgs> = {
+        [P in keyof T & keyof AggregateCell]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCell[P]>
+      : GetScalarType<T[P], AggregateCell[P]>
+  }
+
+
+
+
+  export type CellGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CellWhereInput
+    orderBy?: CellOrderByWithAggregationInput | CellOrderByWithAggregationInput[]
+    by: CellScalarFieldEnum[] | CellScalarFieldEnum
+    having?: CellScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CellCountAggregateInputType | true
+    _avg?: CellAvgAggregateInputType
+    _sum?: CellSumAggregateInputType
+    _min?: CellMinAggregateInputType
+    _max?: CellMaxAggregateInputType
+  }
+
+  export type CellGroupByOutputType = {
+    id: string
+    rowId: string
+    columnId: string
+    valueText: string | null
+    valueNumber: number | null
+    _count: CellCountAggregateOutputType | null
+    _avg: CellAvgAggregateOutputType | null
+    _sum: CellSumAggregateOutputType | null
+    _min: CellMinAggregateOutputType | null
+    _max: CellMaxAggregateOutputType | null
+  }
+
+  type GetCellGroupByPayload<T extends CellGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CellGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CellGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CellGroupByOutputType[P]>
+            : GetScalarType<T[P], CellGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CellSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    rowId?: boolean
+    columnId?: boolean
+    valueText?: boolean
+    valueNumber?: boolean
+    row?: boolean | RowDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["cell"]>
+
+  export type CellSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    rowId?: boolean
+    columnId?: boolean
+    valueText?: boolean
+    valueNumber?: boolean
+    row?: boolean | RowDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["cell"]>
+
+  export type CellSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    rowId?: boolean
+    columnId?: boolean
+    valueText?: boolean
+    valueNumber?: boolean
+    row?: boolean | RowDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["cell"]>
+
+  export type CellSelectScalar = {
+    id?: boolean
+    rowId?: boolean
+    columnId?: boolean
+    valueText?: boolean
+    valueNumber?: boolean
+  }
+
+  export type CellOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "rowId" | "columnId" | "valueText" | "valueNumber", ExtArgs["result"]["cell"]>
+  export type CellInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    row?: boolean | RowDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }
+  export type CellIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    row?: boolean | RowDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }
+  export type CellIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    row?: boolean | RowDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }
+
+  export type $CellPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Cell"
+    objects: {
+      row: Prisma.$RowPayload<ExtArgs>
+      column: Prisma.$ColumnPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      rowId: string
+      columnId: string
+      valueText: string | null
+      valueNumber: number | null
+    }, ExtArgs["result"]["cell"]>
+    composites: {}
+  }
+
+  type CellGetPayload<S extends boolean | null | undefined | CellDefaultArgs> = $Result.GetResult<Prisma.$CellPayload, S>
+
+  type CellCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CellFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CellCountAggregateInputType | true
+    }
+
+  export interface CellDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Cell'], meta: { name: 'Cell' } }
+    /**
+     * Find zero or one Cell that matches the filter.
+     * @param {CellFindUniqueArgs} args - Arguments to find a Cell
+     * @example
+     * // Get one Cell
+     * const cell = await prisma.cell.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CellFindUniqueArgs>(args: SelectSubset<T, CellFindUniqueArgs<ExtArgs>>): Prisma__CellClient<$Result.GetResult<Prisma.$CellPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Cell that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CellFindUniqueOrThrowArgs} args - Arguments to find a Cell
+     * @example
+     * // Get one Cell
+     * const cell = await prisma.cell.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CellFindUniqueOrThrowArgs>(args: SelectSubset<T, CellFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CellClient<$Result.GetResult<Prisma.$CellPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Cell that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CellFindFirstArgs} args - Arguments to find a Cell
+     * @example
+     * // Get one Cell
+     * const cell = await prisma.cell.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CellFindFirstArgs>(args?: SelectSubset<T, CellFindFirstArgs<ExtArgs>>): Prisma__CellClient<$Result.GetResult<Prisma.$CellPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Cell that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CellFindFirstOrThrowArgs} args - Arguments to find a Cell
+     * @example
+     * // Get one Cell
+     * const cell = await prisma.cell.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CellFindFirstOrThrowArgs>(args?: SelectSubset<T, CellFindFirstOrThrowArgs<ExtArgs>>): Prisma__CellClient<$Result.GetResult<Prisma.$CellPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Cells that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CellFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Cells
+     * const cells = await prisma.cell.findMany()
+     * 
+     * // Get first 10 Cells
+     * const cells = await prisma.cell.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const cellWithIdOnly = await prisma.cell.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CellFindManyArgs>(args?: SelectSubset<T, CellFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CellPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Cell.
+     * @param {CellCreateArgs} args - Arguments to create a Cell.
+     * @example
+     * // Create one Cell
+     * const Cell = await prisma.cell.create({
+     *   data: {
+     *     // ... data to create a Cell
+     *   }
+     * })
+     * 
+     */
+    create<T extends CellCreateArgs>(args: SelectSubset<T, CellCreateArgs<ExtArgs>>): Prisma__CellClient<$Result.GetResult<Prisma.$CellPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Cells.
+     * @param {CellCreateManyArgs} args - Arguments to create many Cells.
+     * @example
+     * // Create many Cells
+     * const cell = await prisma.cell.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CellCreateManyArgs>(args?: SelectSubset<T, CellCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Cells and returns the data saved in the database.
+     * @param {CellCreateManyAndReturnArgs} args - Arguments to create many Cells.
+     * @example
+     * // Create many Cells
+     * const cell = await prisma.cell.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Cells and only return the `id`
+     * const cellWithIdOnly = await prisma.cell.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CellCreateManyAndReturnArgs>(args?: SelectSubset<T, CellCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CellPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Cell.
+     * @param {CellDeleteArgs} args - Arguments to delete one Cell.
+     * @example
+     * // Delete one Cell
+     * const Cell = await prisma.cell.delete({
+     *   where: {
+     *     // ... filter to delete one Cell
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CellDeleteArgs>(args: SelectSubset<T, CellDeleteArgs<ExtArgs>>): Prisma__CellClient<$Result.GetResult<Prisma.$CellPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Cell.
+     * @param {CellUpdateArgs} args - Arguments to update one Cell.
+     * @example
+     * // Update one Cell
+     * const cell = await prisma.cell.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CellUpdateArgs>(args: SelectSubset<T, CellUpdateArgs<ExtArgs>>): Prisma__CellClient<$Result.GetResult<Prisma.$CellPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Cells.
+     * @param {CellDeleteManyArgs} args - Arguments to filter Cells to delete.
+     * @example
+     * // Delete a few Cells
+     * const { count } = await prisma.cell.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CellDeleteManyArgs>(args?: SelectSubset<T, CellDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Cells.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CellUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Cells
+     * const cell = await prisma.cell.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CellUpdateManyArgs>(args: SelectSubset<T, CellUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Cells and returns the data updated in the database.
+     * @param {CellUpdateManyAndReturnArgs} args - Arguments to update many Cells.
+     * @example
+     * // Update many Cells
+     * const cell = await prisma.cell.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Cells and only return the `id`
+     * const cellWithIdOnly = await prisma.cell.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CellUpdateManyAndReturnArgs>(args: SelectSubset<T, CellUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CellPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Cell.
+     * @param {CellUpsertArgs} args - Arguments to update or create a Cell.
+     * @example
+     * // Update or create a Cell
+     * const cell = await prisma.cell.upsert({
+     *   create: {
+     *     // ... data to create a Cell
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Cell we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CellUpsertArgs>(args: SelectSubset<T, CellUpsertArgs<ExtArgs>>): Prisma__CellClient<$Result.GetResult<Prisma.$CellPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Cells.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CellCountArgs} args - Arguments to filter Cells to count.
+     * @example
+     * // Count the number of Cells
+     * const count = await prisma.cell.count({
+     *   where: {
+     *     // ... the filter for the Cells we want to count
+     *   }
+     * })
+    **/
+    count<T extends CellCountArgs>(
+      args?: Subset<T, CellCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CellCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Cell.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CellAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CellAggregateArgs>(args: Subset<T, CellAggregateArgs>): Prisma.PrismaPromise<GetCellAggregateType<T>>
+
+    /**
+     * Group by Cell.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CellGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CellGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CellGroupByArgs['orderBy'] }
+        : { orderBy?: CellGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CellGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCellGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Cell model
+   */
+  readonly fields: CellFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Cell.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CellClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    row<T extends RowDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RowDefaultArgs<ExtArgs>>): Prisma__RowClient<$Result.GetResult<Prisma.$RowPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    column<T extends ColumnDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ColumnDefaultArgs<ExtArgs>>): Prisma__ColumnClient<$Result.GetResult<Prisma.$ColumnPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Cell model
+   */
+  interface CellFieldRefs {
+    readonly id: FieldRef<"Cell", 'String'>
+    readonly rowId: FieldRef<"Cell", 'String'>
+    readonly columnId: FieldRef<"Cell", 'String'>
+    readonly valueText: FieldRef<"Cell", 'String'>
+    readonly valueNumber: FieldRef<"Cell", 'Float'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Cell findUnique
+   */
+  export type CellFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cell
+     */
+    select?: CellSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cell
+     */
+    omit?: CellOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CellInclude<ExtArgs> | null
+    /**
+     * Filter, which Cell to fetch.
+     */
+    where: CellWhereUniqueInput
+  }
+
+  /**
+   * Cell findUniqueOrThrow
+   */
+  export type CellFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cell
+     */
+    select?: CellSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cell
+     */
+    omit?: CellOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CellInclude<ExtArgs> | null
+    /**
+     * Filter, which Cell to fetch.
+     */
+    where: CellWhereUniqueInput
+  }
+
+  /**
+   * Cell findFirst
+   */
+  export type CellFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cell
+     */
+    select?: CellSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cell
+     */
+    omit?: CellOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CellInclude<ExtArgs> | null
+    /**
+     * Filter, which Cell to fetch.
+     */
+    where?: CellWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Cells to fetch.
+     */
+    orderBy?: CellOrderByWithRelationInput | CellOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Cells.
+     */
+    cursor?: CellWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Cells from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Cells.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Cells.
+     */
+    distinct?: CellScalarFieldEnum | CellScalarFieldEnum[]
+  }
+
+  /**
+   * Cell findFirstOrThrow
+   */
+  export type CellFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cell
+     */
+    select?: CellSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cell
+     */
+    omit?: CellOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CellInclude<ExtArgs> | null
+    /**
+     * Filter, which Cell to fetch.
+     */
+    where?: CellWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Cells to fetch.
+     */
+    orderBy?: CellOrderByWithRelationInput | CellOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Cells.
+     */
+    cursor?: CellWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Cells from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Cells.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Cells.
+     */
+    distinct?: CellScalarFieldEnum | CellScalarFieldEnum[]
+  }
+
+  /**
+   * Cell findMany
+   */
+  export type CellFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cell
+     */
+    select?: CellSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cell
+     */
+    omit?: CellOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CellInclude<ExtArgs> | null
+    /**
+     * Filter, which Cells to fetch.
+     */
+    where?: CellWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Cells to fetch.
+     */
+    orderBy?: CellOrderByWithRelationInput | CellOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Cells.
+     */
+    cursor?: CellWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Cells from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Cells.
+     */
+    skip?: number
+    distinct?: CellScalarFieldEnum | CellScalarFieldEnum[]
+  }
+
+  /**
+   * Cell create
+   */
+  export type CellCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cell
+     */
+    select?: CellSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cell
+     */
+    omit?: CellOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CellInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Cell.
+     */
+    data: XOR<CellCreateInput, CellUncheckedCreateInput>
+  }
+
+  /**
+   * Cell createMany
+   */
+  export type CellCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Cells.
+     */
+    data: CellCreateManyInput | CellCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Cell createManyAndReturn
+   */
+  export type CellCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cell
+     */
+    select?: CellSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cell
+     */
+    omit?: CellOmit<ExtArgs> | null
+    /**
+     * The data used to create many Cells.
+     */
+    data: CellCreateManyInput | CellCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CellIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Cell update
+   */
+  export type CellUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cell
+     */
+    select?: CellSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cell
+     */
+    omit?: CellOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CellInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Cell.
+     */
+    data: XOR<CellUpdateInput, CellUncheckedUpdateInput>
+    /**
+     * Choose, which Cell to update.
+     */
+    where: CellWhereUniqueInput
+  }
+
+  /**
+   * Cell updateMany
+   */
+  export type CellUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Cells.
+     */
+    data: XOR<CellUpdateManyMutationInput, CellUncheckedUpdateManyInput>
+    /**
+     * Filter which Cells to update
+     */
+    where?: CellWhereInput
+    /**
+     * Limit how many Cells to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Cell updateManyAndReturn
+   */
+  export type CellUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cell
+     */
+    select?: CellSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cell
+     */
+    omit?: CellOmit<ExtArgs> | null
+    /**
+     * The data used to update Cells.
+     */
+    data: XOR<CellUpdateManyMutationInput, CellUncheckedUpdateManyInput>
+    /**
+     * Filter which Cells to update
+     */
+    where?: CellWhereInput
+    /**
+     * Limit how many Cells to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CellIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Cell upsert
+   */
+  export type CellUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cell
+     */
+    select?: CellSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cell
+     */
+    omit?: CellOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CellInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Cell to update in case it exists.
+     */
+    where: CellWhereUniqueInput
+    /**
+     * In case the Cell found by the `where` argument doesn't exist, create a new Cell with this data.
+     */
+    create: XOR<CellCreateInput, CellUncheckedCreateInput>
+    /**
+     * In case the Cell was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CellUpdateInput, CellUncheckedUpdateInput>
+  }
+
+  /**
+   * Cell delete
+   */
+  export type CellDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cell
+     */
+    select?: CellSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cell
+     */
+    omit?: CellOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CellInclude<ExtArgs> | null
+    /**
+     * Filter which Cell to delete.
+     */
+    where: CellWhereUniqueInput
+  }
+
+  /**
+   * Cell deleteMany
+   */
+  export type CellDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Cells to delete
+     */
+    where?: CellWhereInput
+    /**
+     * Limit how many Cells to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Cell without action
+   */
+  export type CellDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cell
+     */
+    select?: CellSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cell
+     */
+    omit?: CellOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CellInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model View
+   */
+
+  export type AggregateView = {
+    _count: ViewCountAggregateOutputType | null
+    _min: ViewMinAggregateOutputType | null
+    _max: ViewMaxAggregateOutputType | null
+  }
+
+  export type ViewMinAggregateOutputType = {
+    id: string | null
+    tableId: string | null
+    name: string | null
+    searchQuery: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ViewMaxAggregateOutputType = {
+    id: string | null
+    tableId: string | null
+    name: string | null
+    searchQuery: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ViewCountAggregateOutputType = {
+    id: number
+    tableId: number
+    name: number
+    searchQuery: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ViewMinAggregateInputType = {
+    id?: true
+    tableId?: true
+    name?: true
+    searchQuery?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ViewMaxAggregateInputType = {
+    id?: true
+    tableId?: true
+    name?: true
+    searchQuery?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ViewCountAggregateInputType = {
+    id?: true
+    tableId?: true
+    name?: true
+    searchQuery?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ViewAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which View to aggregate.
+     */
+    where?: ViewWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Views to fetch.
+     */
+    orderBy?: ViewOrderByWithRelationInput | ViewOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ViewWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Views from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Views.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Views
+    **/
+    _count?: true | ViewCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ViewMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ViewMaxAggregateInputType
+  }
+
+  export type GetViewAggregateType<T extends ViewAggregateArgs> = {
+        [P in keyof T & keyof AggregateView]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateView[P]>
+      : GetScalarType<T[P], AggregateView[P]>
+  }
+
+
+
+
+  export type ViewGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ViewWhereInput
+    orderBy?: ViewOrderByWithAggregationInput | ViewOrderByWithAggregationInput[]
+    by: ViewScalarFieldEnum[] | ViewScalarFieldEnum
+    having?: ViewScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ViewCountAggregateInputType | true
+    _min?: ViewMinAggregateInputType
+    _max?: ViewMaxAggregateInputType
+  }
+
+  export type ViewGroupByOutputType = {
+    id: string
+    tableId: string
+    name: string
+    searchQuery: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: ViewCountAggregateOutputType | null
+    _min: ViewMinAggregateOutputType | null
+    _max: ViewMaxAggregateOutputType | null
+  }
+
+  type GetViewGroupByPayload<T extends ViewGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ViewGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ViewGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ViewGroupByOutputType[P]>
+            : GetScalarType<T[P], ViewGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ViewSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tableId?: boolean
+    name?: boolean
+    searchQuery?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    table?: boolean | TableDefaultArgs<ExtArgs>
+    filters?: boolean | View$filtersArgs<ExtArgs>
+    sorts?: boolean | View$sortsArgs<ExtArgs>
+    columnStates?: boolean | View$columnStatesArgs<ExtArgs>
+    _count?: boolean | ViewCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["view"]>
+
+  export type ViewSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tableId?: boolean
+    name?: boolean
+    searchQuery?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    table?: boolean | TableDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["view"]>
+
+  export type ViewSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tableId?: boolean
+    name?: boolean
+    searchQuery?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    table?: boolean | TableDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["view"]>
+
+  export type ViewSelectScalar = {
+    id?: boolean
+    tableId?: boolean
+    name?: boolean
+    searchQuery?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ViewOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tableId" | "name" | "searchQuery" | "createdAt" | "updatedAt", ExtArgs["result"]["view"]>
+  export type ViewInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    table?: boolean | TableDefaultArgs<ExtArgs>
+    filters?: boolean | View$filtersArgs<ExtArgs>
+    sorts?: boolean | View$sortsArgs<ExtArgs>
+    columnStates?: boolean | View$columnStatesArgs<ExtArgs>
+    _count?: boolean | ViewCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ViewIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    table?: boolean | TableDefaultArgs<ExtArgs>
+  }
+  export type ViewIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    table?: boolean | TableDefaultArgs<ExtArgs>
+  }
+
+  export type $ViewPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "View"
+    objects: {
+      table: Prisma.$TablePayload<ExtArgs>
+      filters: Prisma.$ViewFilterPayload<ExtArgs>[]
+      sorts: Prisma.$ViewSortPayload<ExtArgs>[]
+      columnStates: Prisma.$ColumnStatePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      tableId: string
+      name: string
+      searchQuery: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["view"]>
+    composites: {}
+  }
+
+  type ViewGetPayload<S extends boolean | null | undefined | ViewDefaultArgs> = $Result.GetResult<Prisma.$ViewPayload, S>
+
+  type ViewCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ViewFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ViewCountAggregateInputType | true
+    }
+
+  export interface ViewDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['View'], meta: { name: 'View' } }
+    /**
+     * Find zero or one View that matches the filter.
+     * @param {ViewFindUniqueArgs} args - Arguments to find a View
+     * @example
+     * // Get one View
+     * const view = await prisma.view.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ViewFindUniqueArgs>(args: SelectSubset<T, ViewFindUniqueArgs<ExtArgs>>): Prisma__ViewClient<$Result.GetResult<Prisma.$ViewPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one View that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ViewFindUniqueOrThrowArgs} args - Arguments to find a View
+     * @example
+     * // Get one View
+     * const view = await prisma.view.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ViewFindUniqueOrThrowArgs>(args: SelectSubset<T, ViewFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ViewClient<$Result.GetResult<Prisma.$ViewPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first View that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewFindFirstArgs} args - Arguments to find a View
+     * @example
+     * // Get one View
+     * const view = await prisma.view.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ViewFindFirstArgs>(args?: SelectSubset<T, ViewFindFirstArgs<ExtArgs>>): Prisma__ViewClient<$Result.GetResult<Prisma.$ViewPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first View that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewFindFirstOrThrowArgs} args - Arguments to find a View
+     * @example
+     * // Get one View
+     * const view = await prisma.view.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ViewFindFirstOrThrowArgs>(args?: SelectSubset<T, ViewFindFirstOrThrowArgs<ExtArgs>>): Prisma__ViewClient<$Result.GetResult<Prisma.$ViewPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Views that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Views
+     * const views = await prisma.view.findMany()
+     * 
+     * // Get first 10 Views
+     * const views = await prisma.view.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const viewWithIdOnly = await prisma.view.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ViewFindManyArgs>(args?: SelectSubset<T, ViewFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ViewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a View.
+     * @param {ViewCreateArgs} args - Arguments to create a View.
+     * @example
+     * // Create one View
+     * const View = await prisma.view.create({
+     *   data: {
+     *     // ... data to create a View
+     *   }
+     * })
+     * 
+     */
+    create<T extends ViewCreateArgs>(args: SelectSubset<T, ViewCreateArgs<ExtArgs>>): Prisma__ViewClient<$Result.GetResult<Prisma.$ViewPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Views.
+     * @param {ViewCreateManyArgs} args - Arguments to create many Views.
+     * @example
+     * // Create many Views
+     * const view = await prisma.view.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ViewCreateManyArgs>(args?: SelectSubset<T, ViewCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Views and returns the data saved in the database.
+     * @param {ViewCreateManyAndReturnArgs} args - Arguments to create many Views.
+     * @example
+     * // Create many Views
+     * const view = await prisma.view.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Views and only return the `id`
+     * const viewWithIdOnly = await prisma.view.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ViewCreateManyAndReturnArgs>(args?: SelectSubset<T, ViewCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ViewPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a View.
+     * @param {ViewDeleteArgs} args - Arguments to delete one View.
+     * @example
+     * // Delete one View
+     * const View = await prisma.view.delete({
+     *   where: {
+     *     // ... filter to delete one View
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ViewDeleteArgs>(args: SelectSubset<T, ViewDeleteArgs<ExtArgs>>): Prisma__ViewClient<$Result.GetResult<Prisma.$ViewPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one View.
+     * @param {ViewUpdateArgs} args - Arguments to update one View.
+     * @example
+     * // Update one View
+     * const view = await prisma.view.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ViewUpdateArgs>(args: SelectSubset<T, ViewUpdateArgs<ExtArgs>>): Prisma__ViewClient<$Result.GetResult<Prisma.$ViewPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Views.
+     * @param {ViewDeleteManyArgs} args - Arguments to filter Views to delete.
+     * @example
+     * // Delete a few Views
+     * const { count } = await prisma.view.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ViewDeleteManyArgs>(args?: SelectSubset<T, ViewDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Views.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Views
+     * const view = await prisma.view.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ViewUpdateManyArgs>(args: SelectSubset<T, ViewUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Views and returns the data updated in the database.
+     * @param {ViewUpdateManyAndReturnArgs} args - Arguments to update many Views.
+     * @example
+     * // Update many Views
+     * const view = await prisma.view.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Views and only return the `id`
+     * const viewWithIdOnly = await prisma.view.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ViewUpdateManyAndReturnArgs>(args: SelectSubset<T, ViewUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ViewPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one View.
+     * @param {ViewUpsertArgs} args - Arguments to update or create a View.
+     * @example
+     * // Update or create a View
+     * const view = await prisma.view.upsert({
+     *   create: {
+     *     // ... data to create a View
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the View we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ViewUpsertArgs>(args: SelectSubset<T, ViewUpsertArgs<ExtArgs>>): Prisma__ViewClient<$Result.GetResult<Prisma.$ViewPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Views.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewCountArgs} args - Arguments to filter Views to count.
+     * @example
+     * // Count the number of Views
+     * const count = await prisma.view.count({
+     *   where: {
+     *     // ... the filter for the Views we want to count
+     *   }
+     * })
+    **/
+    count<T extends ViewCountArgs>(
+      args?: Subset<T, ViewCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ViewCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a View.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ViewAggregateArgs>(args: Subset<T, ViewAggregateArgs>): Prisma.PrismaPromise<GetViewAggregateType<T>>
+
+    /**
+     * Group by View.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ViewGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ViewGroupByArgs['orderBy'] }
+        : { orderBy?: ViewGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ViewGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetViewGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the View model
+   */
+  readonly fields: ViewFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for View.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ViewClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    table<T extends TableDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TableDefaultArgs<ExtArgs>>): Prisma__TableClient<$Result.GetResult<Prisma.$TablePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    filters<T extends View$filtersArgs<ExtArgs> = {}>(args?: Subset<T, View$filtersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ViewFilterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sorts<T extends View$sortsArgs<ExtArgs> = {}>(args?: Subset<T, View$sortsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ViewSortPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    columnStates<T extends View$columnStatesArgs<ExtArgs> = {}>(args?: Subset<T, View$columnStatesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ColumnStatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the View model
+   */
+  interface ViewFieldRefs {
+    readonly id: FieldRef<"View", 'String'>
+    readonly tableId: FieldRef<"View", 'String'>
+    readonly name: FieldRef<"View", 'String'>
+    readonly searchQuery: FieldRef<"View", 'String'>
+    readonly createdAt: FieldRef<"View", 'DateTime'>
+    readonly updatedAt: FieldRef<"View", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * View findUnique
+   */
+  export type ViewFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the View
+     */
+    select?: ViewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the View
+     */
+    omit?: ViewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewInclude<ExtArgs> | null
+    /**
+     * Filter, which View to fetch.
+     */
+    where: ViewWhereUniqueInput
+  }
+
+  /**
+   * View findUniqueOrThrow
+   */
+  export type ViewFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the View
+     */
+    select?: ViewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the View
+     */
+    omit?: ViewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewInclude<ExtArgs> | null
+    /**
+     * Filter, which View to fetch.
+     */
+    where: ViewWhereUniqueInput
+  }
+
+  /**
+   * View findFirst
+   */
+  export type ViewFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the View
+     */
+    select?: ViewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the View
+     */
+    omit?: ViewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewInclude<ExtArgs> | null
+    /**
+     * Filter, which View to fetch.
+     */
+    where?: ViewWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Views to fetch.
+     */
+    orderBy?: ViewOrderByWithRelationInput | ViewOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Views.
+     */
+    cursor?: ViewWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Views from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Views.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Views.
+     */
+    distinct?: ViewScalarFieldEnum | ViewScalarFieldEnum[]
+  }
+
+  /**
+   * View findFirstOrThrow
+   */
+  export type ViewFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the View
+     */
+    select?: ViewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the View
+     */
+    omit?: ViewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewInclude<ExtArgs> | null
+    /**
+     * Filter, which View to fetch.
+     */
+    where?: ViewWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Views to fetch.
+     */
+    orderBy?: ViewOrderByWithRelationInput | ViewOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Views.
+     */
+    cursor?: ViewWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Views from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Views.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Views.
+     */
+    distinct?: ViewScalarFieldEnum | ViewScalarFieldEnum[]
+  }
+
+  /**
+   * View findMany
+   */
+  export type ViewFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the View
+     */
+    select?: ViewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the View
+     */
+    omit?: ViewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewInclude<ExtArgs> | null
+    /**
+     * Filter, which Views to fetch.
+     */
+    where?: ViewWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Views to fetch.
+     */
+    orderBy?: ViewOrderByWithRelationInput | ViewOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Views.
+     */
+    cursor?: ViewWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Views from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Views.
+     */
+    skip?: number
+    distinct?: ViewScalarFieldEnum | ViewScalarFieldEnum[]
+  }
+
+  /**
+   * View create
+   */
+  export type ViewCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the View
+     */
+    select?: ViewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the View
+     */
+    omit?: ViewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewInclude<ExtArgs> | null
+    /**
+     * The data needed to create a View.
+     */
+    data: XOR<ViewCreateInput, ViewUncheckedCreateInput>
+  }
+
+  /**
+   * View createMany
+   */
+  export type ViewCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Views.
+     */
+    data: ViewCreateManyInput | ViewCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * View createManyAndReturn
+   */
+  export type ViewCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the View
+     */
+    select?: ViewSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the View
+     */
+    omit?: ViewOmit<ExtArgs> | null
+    /**
+     * The data used to create many Views.
+     */
+    data: ViewCreateManyInput | ViewCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * View update
+   */
+  export type ViewUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the View
+     */
+    select?: ViewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the View
+     */
+    omit?: ViewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewInclude<ExtArgs> | null
+    /**
+     * The data needed to update a View.
+     */
+    data: XOR<ViewUpdateInput, ViewUncheckedUpdateInput>
+    /**
+     * Choose, which View to update.
+     */
+    where: ViewWhereUniqueInput
+  }
+
+  /**
+   * View updateMany
+   */
+  export type ViewUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Views.
+     */
+    data: XOR<ViewUpdateManyMutationInput, ViewUncheckedUpdateManyInput>
+    /**
+     * Filter which Views to update
+     */
+    where?: ViewWhereInput
+    /**
+     * Limit how many Views to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * View updateManyAndReturn
+   */
+  export type ViewUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the View
+     */
+    select?: ViewSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the View
+     */
+    omit?: ViewOmit<ExtArgs> | null
+    /**
+     * The data used to update Views.
+     */
+    data: XOR<ViewUpdateManyMutationInput, ViewUncheckedUpdateManyInput>
+    /**
+     * Filter which Views to update
+     */
+    where?: ViewWhereInput
+    /**
+     * Limit how many Views to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * View upsert
+   */
+  export type ViewUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the View
+     */
+    select?: ViewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the View
+     */
+    omit?: ViewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewInclude<ExtArgs> | null
+    /**
+     * The filter to search for the View to update in case it exists.
+     */
+    where: ViewWhereUniqueInput
+    /**
+     * In case the View found by the `where` argument doesn't exist, create a new View with this data.
+     */
+    create: XOR<ViewCreateInput, ViewUncheckedCreateInput>
+    /**
+     * In case the View was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ViewUpdateInput, ViewUncheckedUpdateInput>
+  }
+
+  /**
+   * View delete
+   */
+  export type ViewDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the View
+     */
+    select?: ViewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the View
+     */
+    omit?: ViewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewInclude<ExtArgs> | null
+    /**
+     * Filter which View to delete.
+     */
+    where: ViewWhereUniqueInput
+  }
+
+  /**
+   * View deleteMany
+   */
+  export type ViewDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Views to delete
+     */
+    where?: ViewWhereInput
+    /**
+     * Limit how many Views to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * View.filters
+   */
+  export type View$filtersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewFilter
+     */
+    select?: ViewFilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewFilter
+     */
+    omit?: ViewFilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewFilterInclude<ExtArgs> | null
+    where?: ViewFilterWhereInput
+    orderBy?: ViewFilterOrderByWithRelationInput | ViewFilterOrderByWithRelationInput[]
+    cursor?: ViewFilterWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ViewFilterScalarFieldEnum | ViewFilterScalarFieldEnum[]
+  }
+
+  /**
+   * View.sorts
+   */
+  export type View$sortsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewSort
+     */
+    select?: ViewSortSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewSort
+     */
+    omit?: ViewSortOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewSortInclude<ExtArgs> | null
+    where?: ViewSortWhereInput
+    orderBy?: ViewSortOrderByWithRelationInput | ViewSortOrderByWithRelationInput[]
+    cursor?: ViewSortWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ViewSortScalarFieldEnum | ViewSortScalarFieldEnum[]
+  }
+
+  /**
+   * View.columnStates
+   */
+  export type View$columnStatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ColumnState
+     */
+    select?: ColumnStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ColumnState
+     */
+    omit?: ColumnStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnStateInclude<ExtArgs> | null
+    where?: ColumnStateWhereInput
+    orderBy?: ColumnStateOrderByWithRelationInput | ColumnStateOrderByWithRelationInput[]
+    cursor?: ColumnStateWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ColumnStateScalarFieldEnum | ColumnStateScalarFieldEnum[]
+  }
+
+  /**
+   * View without action
+   */
+  export type ViewDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the View
+     */
+    select?: ViewSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the View
+     */
+    omit?: ViewOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ViewFilter
+   */
+
+  export type AggregateViewFilter = {
+    _count: ViewFilterCountAggregateOutputType | null
+    _avg: ViewFilterAvgAggregateOutputType | null
+    _sum: ViewFilterSumAggregateOutputType | null
+    _min: ViewFilterMinAggregateOutputType | null
+    _max: ViewFilterMaxAggregateOutputType | null
+  }
+
+  export type ViewFilterAvgAggregateOutputType = {
+    valueNumber: number | null
+  }
+
+  export type ViewFilterSumAggregateOutputType = {
+    valueNumber: number | null
+  }
+
+  export type ViewFilterMinAggregateOutputType = {
+    id: string | null
+    viewId: string | null
+    columnId: string | null
+    operator: $Enums.FilterOperator | null
+    valueText: string | null
+    valueNumber: number | null
+  }
+
+  export type ViewFilterMaxAggregateOutputType = {
+    id: string | null
+    viewId: string | null
+    columnId: string | null
+    operator: $Enums.FilterOperator | null
+    valueText: string | null
+    valueNumber: number | null
+  }
+
+  export type ViewFilterCountAggregateOutputType = {
+    id: number
+    viewId: number
+    columnId: number
+    operator: number
+    valueText: number
+    valueNumber: number
+    _all: number
+  }
+
+
+  export type ViewFilterAvgAggregateInputType = {
+    valueNumber?: true
+  }
+
+  export type ViewFilterSumAggregateInputType = {
+    valueNumber?: true
+  }
+
+  export type ViewFilterMinAggregateInputType = {
+    id?: true
+    viewId?: true
+    columnId?: true
+    operator?: true
+    valueText?: true
+    valueNumber?: true
+  }
+
+  export type ViewFilterMaxAggregateInputType = {
+    id?: true
+    viewId?: true
+    columnId?: true
+    operator?: true
+    valueText?: true
+    valueNumber?: true
+  }
+
+  export type ViewFilterCountAggregateInputType = {
+    id?: true
+    viewId?: true
+    columnId?: true
+    operator?: true
+    valueText?: true
+    valueNumber?: true
+    _all?: true
+  }
+
+  export type ViewFilterAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ViewFilter to aggregate.
+     */
+    where?: ViewFilterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ViewFilters to fetch.
+     */
+    orderBy?: ViewFilterOrderByWithRelationInput | ViewFilterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ViewFilterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ViewFilters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ViewFilters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ViewFilters
+    **/
+    _count?: true | ViewFilterCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ViewFilterAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ViewFilterSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ViewFilterMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ViewFilterMaxAggregateInputType
+  }
+
+  export type GetViewFilterAggregateType<T extends ViewFilterAggregateArgs> = {
+        [P in keyof T & keyof AggregateViewFilter]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateViewFilter[P]>
+      : GetScalarType<T[P], AggregateViewFilter[P]>
+  }
+
+
+
+
+  export type ViewFilterGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ViewFilterWhereInput
+    orderBy?: ViewFilterOrderByWithAggregationInput | ViewFilterOrderByWithAggregationInput[]
+    by: ViewFilterScalarFieldEnum[] | ViewFilterScalarFieldEnum
+    having?: ViewFilterScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ViewFilterCountAggregateInputType | true
+    _avg?: ViewFilterAvgAggregateInputType
+    _sum?: ViewFilterSumAggregateInputType
+    _min?: ViewFilterMinAggregateInputType
+    _max?: ViewFilterMaxAggregateInputType
+  }
+
+  export type ViewFilterGroupByOutputType = {
+    id: string
+    viewId: string
+    columnId: string
+    operator: $Enums.FilterOperator
+    valueText: string | null
+    valueNumber: number | null
+    _count: ViewFilterCountAggregateOutputType | null
+    _avg: ViewFilterAvgAggregateOutputType | null
+    _sum: ViewFilterSumAggregateOutputType | null
+    _min: ViewFilterMinAggregateOutputType | null
+    _max: ViewFilterMaxAggregateOutputType | null
+  }
+
+  type GetViewFilterGroupByPayload<T extends ViewFilterGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ViewFilterGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ViewFilterGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ViewFilterGroupByOutputType[P]>
+            : GetScalarType<T[P], ViewFilterGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ViewFilterSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    viewId?: boolean
+    columnId?: boolean
+    operator?: boolean
+    valueText?: boolean
+    valueNumber?: boolean
+    view?: boolean | ViewDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["viewFilter"]>
+
+  export type ViewFilterSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    viewId?: boolean
+    columnId?: boolean
+    operator?: boolean
+    valueText?: boolean
+    valueNumber?: boolean
+    view?: boolean | ViewDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["viewFilter"]>
+
+  export type ViewFilterSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    viewId?: boolean
+    columnId?: boolean
+    operator?: boolean
+    valueText?: boolean
+    valueNumber?: boolean
+    view?: boolean | ViewDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["viewFilter"]>
+
+  export type ViewFilterSelectScalar = {
+    id?: boolean
+    viewId?: boolean
+    columnId?: boolean
+    operator?: boolean
+    valueText?: boolean
+    valueNumber?: boolean
+  }
+
+  export type ViewFilterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "viewId" | "columnId" | "operator" | "valueText" | "valueNumber", ExtArgs["result"]["viewFilter"]>
+  export type ViewFilterInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    view?: boolean | ViewDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }
+  export type ViewFilterIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    view?: boolean | ViewDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }
+  export type ViewFilterIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    view?: boolean | ViewDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }
+
+  export type $ViewFilterPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ViewFilter"
+    objects: {
+      view: Prisma.$ViewPayload<ExtArgs>
+      column: Prisma.$ColumnPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      viewId: string
+      columnId: string
+      operator: $Enums.FilterOperator
+      valueText: string | null
+      valueNumber: number | null
+    }, ExtArgs["result"]["viewFilter"]>
+    composites: {}
+  }
+
+  type ViewFilterGetPayload<S extends boolean | null | undefined | ViewFilterDefaultArgs> = $Result.GetResult<Prisma.$ViewFilterPayload, S>
+
+  type ViewFilterCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ViewFilterFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ViewFilterCountAggregateInputType | true
+    }
+
+  export interface ViewFilterDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ViewFilter'], meta: { name: 'ViewFilter' } }
+    /**
+     * Find zero or one ViewFilter that matches the filter.
+     * @param {ViewFilterFindUniqueArgs} args - Arguments to find a ViewFilter
+     * @example
+     * // Get one ViewFilter
+     * const viewFilter = await prisma.viewFilter.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ViewFilterFindUniqueArgs>(args: SelectSubset<T, ViewFilterFindUniqueArgs<ExtArgs>>): Prisma__ViewFilterClient<$Result.GetResult<Prisma.$ViewFilterPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ViewFilter that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ViewFilterFindUniqueOrThrowArgs} args - Arguments to find a ViewFilter
+     * @example
+     * // Get one ViewFilter
+     * const viewFilter = await prisma.viewFilter.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ViewFilterFindUniqueOrThrowArgs>(args: SelectSubset<T, ViewFilterFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ViewFilterClient<$Result.GetResult<Prisma.$ViewFilterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ViewFilter that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewFilterFindFirstArgs} args - Arguments to find a ViewFilter
+     * @example
+     * // Get one ViewFilter
+     * const viewFilter = await prisma.viewFilter.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ViewFilterFindFirstArgs>(args?: SelectSubset<T, ViewFilterFindFirstArgs<ExtArgs>>): Prisma__ViewFilterClient<$Result.GetResult<Prisma.$ViewFilterPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ViewFilter that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewFilterFindFirstOrThrowArgs} args - Arguments to find a ViewFilter
+     * @example
+     * // Get one ViewFilter
+     * const viewFilter = await prisma.viewFilter.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ViewFilterFindFirstOrThrowArgs>(args?: SelectSubset<T, ViewFilterFindFirstOrThrowArgs<ExtArgs>>): Prisma__ViewFilterClient<$Result.GetResult<Prisma.$ViewFilterPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ViewFilters that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewFilterFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ViewFilters
+     * const viewFilters = await prisma.viewFilter.findMany()
+     * 
+     * // Get first 10 ViewFilters
+     * const viewFilters = await prisma.viewFilter.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const viewFilterWithIdOnly = await prisma.viewFilter.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ViewFilterFindManyArgs>(args?: SelectSubset<T, ViewFilterFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ViewFilterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ViewFilter.
+     * @param {ViewFilterCreateArgs} args - Arguments to create a ViewFilter.
+     * @example
+     * // Create one ViewFilter
+     * const ViewFilter = await prisma.viewFilter.create({
+     *   data: {
+     *     // ... data to create a ViewFilter
+     *   }
+     * })
+     * 
+     */
+    create<T extends ViewFilterCreateArgs>(args: SelectSubset<T, ViewFilterCreateArgs<ExtArgs>>): Prisma__ViewFilterClient<$Result.GetResult<Prisma.$ViewFilterPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ViewFilters.
+     * @param {ViewFilterCreateManyArgs} args - Arguments to create many ViewFilters.
+     * @example
+     * // Create many ViewFilters
+     * const viewFilter = await prisma.viewFilter.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ViewFilterCreateManyArgs>(args?: SelectSubset<T, ViewFilterCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ViewFilters and returns the data saved in the database.
+     * @param {ViewFilterCreateManyAndReturnArgs} args - Arguments to create many ViewFilters.
+     * @example
+     * // Create many ViewFilters
+     * const viewFilter = await prisma.viewFilter.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ViewFilters and only return the `id`
+     * const viewFilterWithIdOnly = await prisma.viewFilter.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ViewFilterCreateManyAndReturnArgs>(args?: SelectSubset<T, ViewFilterCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ViewFilterPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ViewFilter.
+     * @param {ViewFilterDeleteArgs} args - Arguments to delete one ViewFilter.
+     * @example
+     * // Delete one ViewFilter
+     * const ViewFilter = await prisma.viewFilter.delete({
+     *   where: {
+     *     // ... filter to delete one ViewFilter
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ViewFilterDeleteArgs>(args: SelectSubset<T, ViewFilterDeleteArgs<ExtArgs>>): Prisma__ViewFilterClient<$Result.GetResult<Prisma.$ViewFilterPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ViewFilter.
+     * @param {ViewFilterUpdateArgs} args - Arguments to update one ViewFilter.
+     * @example
+     * // Update one ViewFilter
+     * const viewFilter = await prisma.viewFilter.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ViewFilterUpdateArgs>(args: SelectSubset<T, ViewFilterUpdateArgs<ExtArgs>>): Prisma__ViewFilterClient<$Result.GetResult<Prisma.$ViewFilterPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ViewFilters.
+     * @param {ViewFilterDeleteManyArgs} args - Arguments to filter ViewFilters to delete.
+     * @example
+     * // Delete a few ViewFilters
+     * const { count } = await prisma.viewFilter.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ViewFilterDeleteManyArgs>(args?: SelectSubset<T, ViewFilterDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ViewFilters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewFilterUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ViewFilters
+     * const viewFilter = await prisma.viewFilter.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ViewFilterUpdateManyArgs>(args: SelectSubset<T, ViewFilterUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ViewFilters and returns the data updated in the database.
+     * @param {ViewFilterUpdateManyAndReturnArgs} args - Arguments to update many ViewFilters.
+     * @example
+     * // Update many ViewFilters
+     * const viewFilter = await prisma.viewFilter.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ViewFilters and only return the `id`
+     * const viewFilterWithIdOnly = await prisma.viewFilter.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ViewFilterUpdateManyAndReturnArgs>(args: SelectSubset<T, ViewFilterUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ViewFilterPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ViewFilter.
+     * @param {ViewFilterUpsertArgs} args - Arguments to update or create a ViewFilter.
+     * @example
+     * // Update or create a ViewFilter
+     * const viewFilter = await prisma.viewFilter.upsert({
+     *   create: {
+     *     // ... data to create a ViewFilter
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ViewFilter we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ViewFilterUpsertArgs>(args: SelectSubset<T, ViewFilterUpsertArgs<ExtArgs>>): Prisma__ViewFilterClient<$Result.GetResult<Prisma.$ViewFilterPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ViewFilters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewFilterCountArgs} args - Arguments to filter ViewFilters to count.
+     * @example
+     * // Count the number of ViewFilters
+     * const count = await prisma.viewFilter.count({
+     *   where: {
+     *     // ... the filter for the ViewFilters we want to count
+     *   }
+     * })
+    **/
+    count<T extends ViewFilterCountArgs>(
+      args?: Subset<T, ViewFilterCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ViewFilterCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ViewFilter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewFilterAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ViewFilterAggregateArgs>(args: Subset<T, ViewFilterAggregateArgs>): Prisma.PrismaPromise<GetViewFilterAggregateType<T>>
+
+    /**
+     * Group by ViewFilter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewFilterGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ViewFilterGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ViewFilterGroupByArgs['orderBy'] }
+        : { orderBy?: ViewFilterGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ViewFilterGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetViewFilterGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ViewFilter model
+   */
+  readonly fields: ViewFilterFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ViewFilter.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ViewFilterClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    view<T extends ViewDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ViewDefaultArgs<ExtArgs>>): Prisma__ViewClient<$Result.GetResult<Prisma.$ViewPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    column<T extends ColumnDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ColumnDefaultArgs<ExtArgs>>): Prisma__ColumnClient<$Result.GetResult<Prisma.$ColumnPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ViewFilter model
+   */
+  interface ViewFilterFieldRefs {
+    readonly id: FieldRef<"ViewFilter", 'String'>
+    readonly viewId: FieldRef<"ViewFilter", 'String'>
+    readonly columnId: FieldRef<"ViewFilter", 'String'>
+    readonly operator: FieldRef<"ViewFilter", 'FilterOperator'>
+    readonly valueText: FieldRef<"ViewFilter", 'String'>
+    readonly valueNumber: FieldRef<"ViewFilter", 'Float'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ViewFilter findUnique
+   */
+  export type ViewFilterFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewFilter
+     */
+    select?: ViewFilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewFilter
+     */
+    omit?: ViewFilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewFilterInclude<ExtArgs> | null
+    /**
+     * Filter, which ViewFilter to fetch.
+     */
+    where: ViewFilterWhereUniqueInput
+  }
+
+  /**
+   * ViewFilter findUniqueOrThrow
+   */
+  export type ViewFilterFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewFilter
+     */
+    select?: ViewFilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewFilter
+     */
+    omit?: ViewFilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewFilterInclude<ExtArgs> | null
+    /**
+     * Filter, which ViewFilter to fetch.
+     */
+    where: ViewFilterWhereUniqueInput
+  }
+
+  /**
+   * ViewFilter findFirst
+   */
+  export type ViewFilterFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewFilter
+     */
+    select?: ViewFilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewFilter
+     */
+    omit?: ViewFilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewFilterInclude<ExtArgs> | null
+    /**
+     * Filter, which ViewFilter to fetch.
+     */
+    where?: ViewFilterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ViewFilters to fetch.
+     */
+    orderBy?: ViewFilterOrderByWithRelationInput | ViewFilterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ViewFilters.
+     */
+    cursor?: ViewFilterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ViewFilters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ViewFilters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ViewFilters.
+     */
+    distinct?: ViewFilterScalarFieldEnum | ViewFilterScalarFieldEnum[]
+  }
+
+  /**
+   * ViewFilter findFirstOrThrow
+   */
+  export type ViewFilterFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewFilter
+     */
+    select?: ViewFilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewFilter
+     */
+    omit?: ViewFilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewFilterInclude<ExtArgs> | null
+    /**
+     * Filter, which ViewFilter to fetch.
+     */
+    where?: ViewFilterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ViewFilters to fetch.
+     */
+    orderBy?: ViewFilterOrderByWithRelationInput | ViewFilterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ViewFilters.
+     */
+    cursor?: ViewFilterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ViewFilters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ViewFilters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ViewFilters.
+     */
+    distinct?: ViewFilterScalarFieldEnum | ViewFilterScalarFieldEnum[]
+  }
+
+  /**
+   * ViewFilter findMany
+   */
+  export type ViewFilterFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewFilter
+     */
+    select?: ViewFilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewFilter
+     */
+    omit?: ViewFilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewFilterInclude<ExtArgs> | null
+    /**
+     * Filter, which ViewFilters to fetch.
+     */
+    where?: ViewFilterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ViewFilters to fetch.
+     */
+    orderBy?: ViewFilterOrderByWithRelationInput | ViewFilterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ViewFilters.
+     */
+    cursor?: ViewFilterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ViewFilters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ViewFilters.
+     */
+    skip?: number
+    distinct?: ViewFilterScalarFieldEnum | ViewFilterScalarFieldEnum[]
+  }
+
+  /**
+   * ViewFilter create
+   */
+  export type ViewFilterCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewFilter
+     */
+    select?: ViewFilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewFilter
+     */
+    omit?: ViewFilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewFilterInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ViewFilter.
+     */
+    data: XOR<ViewFilterCreateInput, ViewFilterUncheckedCreateInput>
+  }
+
+  /**
+   * ViewFilter createMany
+   */
+  export type ViewFilterCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ViewFilters.
+     */
+    data: ViewFilterCreateManyInput | ViewFilterCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ViewFilter createManyAndReturn
+   */
+  export type ViewFilterCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewFilter
+     */
+    select?: ViewFilterSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewFilter
+     */
+    omit?: ViewFilterOmit<ExtArgs> | null
+    /**
+     * The data used to create many ViewFilters.
+     */
+    data: ViewFilterCreateManyInput | ViewFilterCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewFilterIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ViewFilter update
+   */
+  export type ViewFilterUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewFilter
+     */
+    select?: ViewFilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewFilter
+     */
+    omit?: ViewFilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewFilterInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ViewFilter.
+     */
+    data: XOR<ViewFilterUpdateInput, ViewFilterUncheckedUpdateInput>
+    /**
+     * Choose, which ViewFilter to update.
+     */
+    where: ViewFilterWhereUniqueInput
+  }
+
+  /**
+   * ViewFilter updateMany
+   */
+  export type ViewFilterUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ViewFilters.
+     */
+    data: XOR<ViewFilterUpdateManyMutationInput, ViewFilterUncheckedUpdateManyInput>
+    /**
+     * Filter which ViewFilters to update
+     */
+    where?: ViewFilterWhereInput
+    /**
+     * Limit how many ViewFilters to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ViewFilter updateManyAndReturn
+   */
+  export type ViewFilterUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewFilter
+     */
+    select?: ViewFilterSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewFilter
+     */
+    omit?: ViewFilterOmit<ExtArgs> | null
+    /**
+     * The data used to update ViewFilters.
+     */
+    data: XOR<ViewFilterUpdateManyMutationInput, ViewFilterUncheckedUpdateManyInput>
+    /**
+     * Filter which ViewFilters to update
+     */
+    where?: ViewFilterWhereInput
+    /**
+     * Limit how many ViewFilters to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewFilterIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ViewFilter upsert
+   */
+  export type ViewFilterUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewFilter
+     */
+    select?: ViewFilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewFilter
+     */
+    omit?: ViewFilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewFilterInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ViewFilter to update in case it exists.
+     */
+    where: ViewFilterWhereUniqueInput
+    /**
+     * In case the ViewFilter found by the `where` argument doesn't exist, create a new ViewFilter with this data.
+     */
+    create: XOR<ViewFilterCreateInput, ViewFilterUncheckedCreateInput>
+    /**
+     * In case the ViewFilter was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ViewFilterUpdateInput, ViewFilterUncheckedUpdateInput>
+  }
+
+  /**
+   * ViewFilter delete
+   */
+  export type ViewFilterDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewFilter
+     */
+    select?: ViewFilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewFilter
+     */
+    omit?: ViewFilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewFilterInclude<ExtArgs> | null
+    /**
+     * Filter which ViewFilter to delete.
+     */
+    where: ViewFilterWhereUniqueInput
+  }
+
+  /**
+   * ViewFilter deleteMany
+   */
+  export type ViewFilterDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ViewFilters to delete
+     */
+    where?: ViewFilterWhereInput
+    /**
+     * Limit how many ViewFilters to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ViewFilter without action
+   */
+  export type ViewFilterDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewFilter
+     */
+    select?: ViewFilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewFilter
+     */
+    omit?: ViewFilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewFilterInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ViewSort
+   */
+
+  export type AggregateViewSort = {
+    _count: ViewSortCountAggregateOutputType | null
+    _avg: ViewSortAvgAggregateOutputType | null
+    _sum: ViewSortSumAggregateOutputType | null
+    _min: ViewSortMinAggregateOutputType | null
+    _max: ViewSortMaxAggregateOutputType | null
+  }
+
+  export type ViewSortAvgAggregateOutputType = {
+    priority: number | null
+  }
+
+  export type ViewSortSumAggregateOutputType = {
+    priority: number | null
+  }
+
+  export type ViewSortMinAggregateOutputType = {
+    id: string | null
+    viewId: string | null
+    columnId: string | null
+    direction: $Enums.SortDirection | null
+    priority: number | null
+  }
+
+  export type ViewSortMaxAggregateOutputType = {
+    id: string | null
+    viewId: string | null
+    columnId: string | null
+    direction: $Enums.SortDirection | null
+    priority: number | null
+  }
+
+  export type ViewSortCountAggregateOutputType = {
+    id: number
+    viewId: number
+    columnId: number
+    direction: number
+    priority: number
+    _all: number
+  }
+
+
+  export type ViewSortAvgAggregateInputType = {
+    priority?: true
+  }
+
+  export type ViewSortSumAggregateInputType = {
+    priority?: true
+  }
+
+  export type ViewSortMinAggregateInputType = {
+    id?: true
+    viewId?: true
+    columnId?: true
+    direction?: true
+    priority?: true
+  }
+
+  export type ViewSortMaxAggregateInputType = {
+    id?: true
+    viewId?: true
+    columnId?: true
+    direction?: true
+    priority?: true
+  }
+
+  export type ViewSortCountAggregateInputType = {
+    id?: true
+    viewId?: true
+    columnId?: true
+    direction?: true
+    priority?: true
+    _all?: true
+  }
+
+  export type ViewSortAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ViewSort to aggregate.
+     */
+    where?: ViewSortWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ViewSorts to fetch.
+     */
+    orderBy?: ViewSortOrderByWithRelationInput | ViewSortOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ViewSortWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ViewSorts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ViewSorts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ViewSorts
+    **/
+    _count?: true | ViewSortCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ViewSortAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ViewSortSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ViewSortMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ViewSortMaxAggregateInputType
+  }
+
+  export type GetViewSortAggregateType<T extends ViewSortAggregateArgs> = {
+        [P in keyof T & keyof AggregateViewSort]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateViewSort[P]>
+      : GetScalarType<T[P], AggregateViewSort[P]>
+  }
+
+
+
+
+  export type ViewSortGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ViewSortWhereInput
+    orderBy?: ViewSortOrderByWithAggregationInput | ViewSortOrderByWithAggregationInput[]
+    by: ViewSortScalarFieldEnum[] | ViewSortScalarFieldEnum
+    having?: ViewSortScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ViewSortCountAggregateInputType | true
+    _avg?: ViewSortAvgAggregateInputType
+    _sum?: ViewSortSumAggregateInputType
+    _min?: ViewSortMinAggregateInputType
+    _max?: ViewSortMaxAggregateInputType
+  }
+
+  export type ViewSortGroupByOutputType = {
+    id: string
+    viewId: string
+    columnId: string
+    direction: $Enums.SortDirection
+    priority: number
+    _count: ViewSortCountAggregateOutputType | null
+    _avg: ViewSortAvgAggregateOutputType | null
+    _sum: ViewSortSumAggregateOutputType | null
+    _min: ViewSortMinAggregateOutputType | null
+    _max: ViewSortMaxAggregateOutputType | null
+  }
+
+  type GetViewSortGroupByPayload<T extends ViewSortGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ViewSortGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ViewSortGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ViewSortGroupByOutputType[P]>
+            : GetScalarType<T[P], ViewSortGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ViewSortSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    viewId?: boolean
+    columnId?: boolean
+    direction?: boolean
+    priority?: boolean
+    view?: boolean | ViewDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["viewSort"]>
+
+  export type ViewSortSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    viewId?: boolean
+    columnId?: boolean
+    direction?: boolean
+    priority?: boolean
+    view?: boolean | ViewDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["viewSort"]>
+
+  export type ViewSortSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    viewId?: boolean
+    columnId?: boolean
+    direction?: boolean
+    priority?: boolean
+    view?: boolean | ViewDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["viewSort"]>
+
+  export type ViewSortSelectScalar = {
+    id?: boolean
+    viewId?: boolean
+    columnId?: boolean
+    direction?: boolean
+    priority?: boolean
+  }
+
+  export type ViewSortOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "viewId" | "columnId" | "direction" | "priority", ExtArgs["result"]["viewSort"]>
+  export type ViewSortInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    view?: boolean | ViewDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }
+  export type ViewSortIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    view?: boolean | ViewDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }
+  export type ViewSortIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    view?: boolean | ViewDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }
+
+  export type $ViewSortPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ViewSort"
+    objects: {
+      view: Prisma.$ViewPayload<ExtArgs>
+      column: Prisma.$ColumnPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      viewId: string
+      columnId: string
+      direction: $Enums.SortDirection
+      priority: number
+    }, ExtArgs["result"]["viewSort"]>
+    composites: {}
+  }
+
+  type ViewSortGetPayload<S extends boolean | null | undefined | ViewSortDefaultArgs> = $Result.GetResult<Prisma.$ViewSortPayload, S>
+
+  type ViewSortCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ViewSortFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ViewSortCountAggregateInputType | true
+    }
+
+  export interface ViewSortDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ViewSort'], meta: { name: 'ViewSort' } }
+    /**
+     * Find zero or one ViewSort that matches the filter.
+     * @param {ViewSortFindUniqueArgs} args - Arguments to find a ViewSort
+     * @example
+     * // Get one ViewSort
+     * const viewSort = await prisma.viewSort.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ViewSortFindUniqueArgs>(args: SelectSubset<T, ViewSortFindUniqueArgs<ExtArgs>>): Prisma__ViewSortClient<$Result.GetResult<Prisma.$ViewSortPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ViewSort that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ViewSortFindUniqueOrThrowArgs} args - Arguments to find a ViewSort
+     * @example
+     * // Get one ViewSort
+     * const viewSort = await prisma.viewSort.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ViewSortFindUniqueOrThrowArgs>(args: SelectSubset<T, ViewSortFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ViewSortClient<$Result.GetResult<Prisma.$ViewSortPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ViewSort that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewSortFindFirstArgs} args - Arguments to find a ViewSort
+     * @example
+     * // Get one ViewSort
+     * const viewSort = await prisma.viewSort.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ViewSortFindFirstArgs>(args?: SelectSubset<T, ViewSortFindFirstArgs<ExtArgs>>): Prisma__ViewSortClient<$Result.GetResult<Prisma.$ViewSortPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ViewSort that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewSortFindFirstOrThrowArgs} args - Arguments to find a ViewSort
+     * @example
+     * // Get one ViewSort
+     * const viewSort = await prisma.viewSort.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ViewSortFindFirstOrThrowArgs>(args?: SelectSubset<T, ViewSortFindFirstOrThrowArgs<ExtArgs>>): Prisma__ViewSortClient<$Result.GetResult<Prisma.$ViewSortPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ViewSorts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewSortFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ViewSorts
+     * const viewSorts = await prisma.viewSort.findMany()
+     * 
+     * // Get first 10 ViewSorts
+     * const viewSorts = await prisma.viewSort.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const viewSortWithIdOnly = await prisma.viewSort.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ViewSortFindManyArgs>(args?: SelectSubset<T, ViewSortFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ViewSortPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ViewSort.
+     * @param {ViewSortCreateArgs} args - Arguments to create a ViewSort.
+     * @example
+     * // Create one ViewSort
+     * const ViewSort = await prisma.viewSort.create({
+     *   data: {
+     *     // ... data to create a ViewSort
+     *   }
+     * })
+     * 
+     */
+    create<T extends ViewSortCreateArgs>(args: SelectSubset<T, ViewSortCreateArgs<ExtArgs>>): Prisma__ViewSortClient<$Result.GetResult<Prisma.$ViewSortPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ViewSorts.
+     * @param {ViewSortCreateManyArgs} args - Arguments to create many ViewSorts.
+     * @example
+     * // Create many ViewSorts
+     * const viewSort = await prisma.viewSort.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ViewSortCreateManyArgs>(args?: SelectSubset<T, ViewSortCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ViewSorts and returns the data saved in the database.
+     * @param {ViewSortCreateManyAndReturnArgs} args - Arguments to create many ViewSorts.
+     * @example
+     * // Create many ViewSorts
+     * const viewSort = await prisma.viewSort.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ViewSorts and only return the `id`
+     * const viewSortWithIdOnly = await prisma.viewSort.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ViewSortCreateManyAndReturnArgs>(args?: SelectSubset<T, ViewSortCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ViewSortPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ViewSort.
+     * @param {ViewSortDeleteArgs} args - Arguments to delete one ViewSort.
+     * @example
+     * // Delete one ViewSort
+     * const ViewSort = await prisma.viewSort.delete({
+     *   where: {
+     *     // ... filter to delete one ViewSort
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ViewSortDeleteArgs>(args: SelectSubset<T, ViewSortDeleteArgs<ExtArgs>>): Prisma__ViewSortClient<$Result.GetResult<Prisma.$ViewSortPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ViewSort.
+     * @param {ViewSortUpdateArgs} args - Arguments to update one ViewSort.
+     * @example
+     * // Update one ViewSort
+     * const viewSort = await prisma.viewSort.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ViewSortUpdateArgs>(args: SelectSubset<T, ViewSortUpdateArgs<ExtArgs>>): Prisma__ViewSortClient<$Result.GetResult<Prisma.$ViewSortPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ViewSorts.
+     * @param {ViewSortDeleteManyArgs} args - Arguments to filter ViewSorts to delete.
+     * @example
+     * // Delete a few ViewSorts
+     * const { count } = await prisma.viewSort.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ViewSortDeleteManyArgs>(args?: SelectSubset<T, ViewSortDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ViewSorts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewSortUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ViewSorts
+     * const viewSort = await prisma.viewSort.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ViewSortUpdateManyArgs>(args: SelectSubset<T, ViewSortUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ViewSorts and returns the data updated in the database.
+     * @param {ViewSortUpdateManyAndReturnArgs} args - Arguments to update many ViewSorts.
+     * @example
+     * // Update many ViewSorts
+     * const viewSort = await prisma.viewSort.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ViewSorts and only return the `id`
+     * const viewSortWithIdOnly = await prisma.viewSort.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ViewSortUpdateManyAndReturnArgs>(args: SelectSubset<T, ViewSortUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ViewSortPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ViewSort.
+     * @param {ViewSortUpsertArgs} args - Arguments to update or create a ViewSort.
+     * @example
+     * // Update or create a ViewSort
+     * const viewSort = await prisma.viewSort.upsert({
+     *   create: {
+     *     // ... data to create a ViewSort
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ViewSort we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ViewSortUpsertArgs>(args: SelectSubset<T, ViewSortUpsertArgs<ExtArgs>>): Prisma__ViewSortClient<$Result.GetResult<Prisma.$ViewSortPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ViewSorts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewSortCountArgs} args - Arguments to filter ViewSorts to count.
+     * @example
+     * // Count the number of ViewSorts
+     * const count = await prisma.viewSort.count({
+     *   where: {
+     *     // ... the filter for the ViewSorts we want to count
+     *   }
+     * })
+    **/
+    count<T extends ViewSortCountArgs>(
+      args?: Subset<T, ViewSortCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ViewSortCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ViewSort.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewSortAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ViewSortAggregateArgs>(args: Subset<T, ViewSortAggregateArgs>): Prisma.PrismaPromise<GetViewSortAggregateType<T>>
+
+    /**
+     * Group by ViewSort.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ViewSortGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ViewSortGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ViewSortGroupByArgs['orderBy'] }
+        : { orderBy?: ViewSortGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ViewSortGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetViewSortGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ViewSort model
+   */
+  readonly fields: ViewSortFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ViewSort.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ViewSortClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    view<T extends ViewDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ViewDefaultArgs<ExtArgs>>): Prisma__ViewClient<$Result.GetResult<Prisma.$ViewPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    column<T extends ColumnDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ColumnDefaultArgs<ExtArgs>>): Prisma__ColumnClient<$Result.GetResult<Prisma.$ColumnPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ViewSort model
+   */
+  interface ViewSortFieldRefs {
+    readonly id: FieldRef<"ViewSort", 'String'>
+    readonly viewId: FieldRef<"ViewSort", 'String'>
+    readonly columnId: FieldRef<"ViewSort", 'String'>
+    readonly direction: FieldRef<"ViewSort", 'SortDirection'>
+    readonly priority: FieldRef<"ViewSort", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ViewSort findUnique
+   */
+  export type ViewSortFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewSort
+     */
+    select?: ViewSortSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewSort
+     */
+    omit?: ViewSortOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewSortInclude<ExtArgs> | null
+    /**
+     * Filter, which ViewSort to fetch.
+     */
+    where: ViewSortWhereUniqueInput
+  }
+
+  /**
+   * ViewSort findUniqueOrThrow
+   */
+  export type ViewSortFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewSort
+     */
+    select?: ViewSortSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewSort
+     */
+    omit?: ViewSortOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewSortInclude<ExtArgs> | null
+    /**
+     * Filter, which ViewSort to fetch.
+     */
+    where: ViewSortWhereUniqueInput
+  }
+
+  /**
+   * ViewSort findFirst
+   */
+  export type ViewSortFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewSort
+     */
+    select?: ViewSortSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewSort
+     */
+    omit?: ViewSortOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewSortInclude<ExtArgs> | null
+    /**
+     * Filter, which ViewSort to fetch.
+     */
+    where?: ViewSortWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ViewSorts to fetch.
+     */
+    orderBy?: ViewSortOrderByWithRelationInput | ViewSortOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ViewSorts.
+     */
+    cursor?: ViewSortWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ViewSorts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ViewSorts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ViewSorts.
+     */
+    distinct?: ViewSortScalarFieldEnum | ViewSortScalarFieldEnum[]
+  }
+
+  /**
+   * ViewSort findFirstOrThrow
+   */
+  export type ViewSortFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewSort
+     */
+    select?: ViewSortSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewSort
+     */
+    omit?: ViewSortOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewSortInclude<ExtArgs> | null
+    /**
+     * Filter, which ViewSort to fetch.
+     */
+    where?: ViewSortWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ViewSorts to fetch.
+     */
+    orderBy?: ViewSortOrderByWithRelationInput | ViewSortOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ViewSorts.
+     */
+    cursor?: ViewSortWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ViewSorts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ViewSorts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ViewSorts.
+     */
+    distinct?: ViewSortScalarFieldEnum | ViewSortScalarFieldEnum[]
+  }
+
+  /**
+   * ViewSort findMany
+   */
+  export type ViewSortFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewSort
+     */
+    select?: ViewSortSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewSort
+     */
+    omit?: ViewSortOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewSortInclude<ExtArgs> | null
+    /**
+     * Filter, which ViewSorts to fetch.
+     */
+    where?: ViewSortWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ViewSorts to fetch.
+     */
+    orderBy?: ViewSortOrderByWithRelationInput | ViewSortOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ViewSorts.
+     */
+    cursor?: ViewSortWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ViewSorts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ViewSorts.
+     */
+    skip?: number
+    distinct?: ViewSortScalarFieldEnum | ViewSortScalarFieldEnum[]
+  }
+
+  /**
+   * ViewSort create
+   */
+  export type ViewSortCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewSort
+     */
+    select?: ViewSortSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewSort
+     */
+    omit?: ViewSortOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewSortInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ViewSort.
+     */
+    data: XOR<ViewSortCreateInput, ViewSortUncheckedCreateInput>
+  }
+
+  /**
+   * ViewSort createMany
+   */
+  export type ViewSortCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ViewSorts.
+     */
+    data: ViewSortCreateManyInput | ViewSortCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ViewSort createManyAndReturn
+   */
+  export type ViewSortCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewSort
+     */
+    select?: ViewSortSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewSort
+     */
+    omit?: ViewSortOmit<ExtArgs> | null
+    /**
+     * The data used to create many ViewSorts.
+     */
+    data: ViewSortCreateManyInput | ViewSortCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewSortIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ViewSort update
+   */
+  export type ViewSortUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewSort
+     */
+    select?: ViewSortSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewSort
+     */
+    omit?: ViewSortOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewSortInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ViewSort.
+     */
+    data: XOR<ViewSortUpdateInput, ViewSortUncheckedUpdateInput>
+    /**
+     * Choose, which ViewSort to update.
+     */
+    where: ViewSortWhereUniqueInput
+  }
+
+  /**
+   * ViewSort updateMany
+   */
+  export type ViewSortUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ViewSorts.
+     */
+    data: XOR<ViewSortUpdateManyMutationInput, ViewSortUncheckedUpdateManyInput>
+    /**
+     * Filter which ViewSorts to update
+     */
+    where?: ViewSortWhereInput
+    /**
+     * Limit how many ViewSorts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ViewSort updateManyAndReturn
+   */
+  export type ViewSortUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewSort
+     */
+    select?: ViewSortSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewSort
+     */
+    omit?: ViewSortOmit<ExtArgs> | null
+    /**
+     * The data used to update ViewSorts.
+     */
+    data: XOR<ViewSortUpdateManyMutationInput, ViewSortUncheckedUpdateManyInput>
+    /**
+     * Filter which ViewSorts to update
+     */
+    where?: ViewSortWhereInput
+    /**
+     * Limit how many ViewSorts to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewSortIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ViewSort upsert
+   */
+  export type ViewSortUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewSort
+     */
+    select?: ViewSortSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewSort
+     */
+    omit?: ViewSortOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewSortInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ViewSort to update in case it exists.
+     */
+    where: ViewSortWhereUniqueInput
+    /**
+     * In case the ViewSort found by the `where` argument doesn't exist, create a new ViewSort with this data.
+     */
+    create: XOR<ViewSortCreateInput, ViewSortUncheckedCreateInput>
+    /**
+     * In case the ViewSort was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ViewSortUpdateInput, ViewSortUncheckedUpdateInput>
+  }
+
+  /**
+   * ViewSort delete
+   */
+  export type ViewSortDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewSort
+     */
+    select?: ViewSortSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewSort
+     */
+    omit?: ViewSortOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewSortInclude<ExtArgs> | null
+    /**
+     * Filter which ViewSort to delete.
+     */
+    where: ViewSortWhereUniqueInput
+  }
+
+  /**
+   * ViewSort deleteMany
+   */
+  export type ViewSortDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ViewSorts to delete
+     */
+    where?: ViewSortWhereInput
+    /**
+     * Limit how many ViewSorts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ViewSort without action
+   */
+  export type ViewSortDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ViewSort
+     */
+    select?: ViewSortSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ViewSort
+     */
+    omit?: ViewSortOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ViewSortInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ColumnState
+   */
+
+  export type AggregateColumnState = {
+    _count: ColumnStateCountAggregateOutputType | null
+    _min: ColumnStateMinAggregateOutputType | null
+    _max: ColumnStateMaxAggregateOutputType | null
+  }
+
+  export type ColumnStateMinAggregateOutputType = {
+    id: string | null
+    viewId: string | null
+    columnId: string | null
+    isHidden: boolean | null
+  }
+
+  export type ColumnStateMaxAggregateOutputType = {
+    id: string | null
+    viewId: string | null
+    columnId: string | null
+    isHidden: boolean | null
+  }
+
+  export type ColumnStateCountAggregateOutputType = {
+    id: number
+    viewId: number
+    columnId: number
+    isHidden: number
+    _all: number
+  }
+
+
+  export type ColumnStateMinAggregateInputType = {
+    id?: true
+    viewId?: true
+    columnId?: true
+    isHidden?: true
+  }
+
+  export type ColumnStateMaxAggregateInputType = {
+    id?: true
+    viewId?: true
+    columnId?: true
+    isHidden?: true
+  }
+
+  export type ColumnStateCountAggregateInputType = {
+    id?: true
+    viewId?: true
+    columnId?: true
+    isHidden?: true
+    _all?: true
+  }
+
+  export type ColumnStateAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ColumnState to aggregate.
+     */
+    where?: ColumnStateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ColumnStates to fetch.
+     */
+    orderBy?: ColumnStateOrderByWithRelationInput | ColumnStateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ColumnStateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ColumnStates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ColumnStates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ColumnStates
+    **/
+    _count?: true | ColumnStateCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ColumnStateMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ColumnStateMaxAggregateInputType
+  }
+
+  export type GetColumnStateAggregateType<T extends ColumnStateAggregateArgs> = {
+        [P in keyof T & keyof AggregateColumnState]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateColumnState[P]>
+      : GetScalarType<T[P], AggregateColumnState[P]>
+  }
+
+
+
+
+  export type ColumnStateGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ColumnStateWhereInput
+    orderBy?: ColumnStateOrderByWithAggregationInput | ColumnStateOrderByWithAggregationInput[]
+    by: ColumnStateScalarFieldEnum[] | ColumnStateScalarFieldEnum
+    having?: ColumnStateScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ColumnStateCountAggregateInputType | true
+    _min?: ColumnStateMinAggregateInputType
+    _max?: ColumnStateMaxAggregateInputType
+  }
+
+  export type ColumnStateGroupByOutputType = {
+    id: string
+    viewId: string
+    columnId: string
+    isHidden: boolean
+    _count: ColumnStateCountAggregateOutputType | null
+    _min: ColumnStateMinAggregateOutputType | null
+    _max: ColumnStateMaxAggregateOutputType | null
+  }
+
+  type GetColumnStateGroupByPayload<T extends ColumnStateGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ColumnStateGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ColumnStateGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ColumnStateGroupByOutputType[P]>
+            : GetScalarType<T[P], ColumnStateGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ColumnStateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    viewId?: boolean
+    columnId?: boolean
+    isHidden?: boolean
+    view?: boolean | ViewDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["columnState"]>
+
+  export type ColumnStateSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    viewId?: boolean
+    columnId?: boolean
+    isHidden?: boolean
+    view?: boolean | ViewDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["columnState"]>
+
+  export type ColumnStateSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    viewId?: boolean
+    columnId?: boolean
+    isHidden?: boolean
+    view?: boolean | ViewDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["columnState"]>
+
+  export type ColumnStateSelectScalar = {
+    id?: boolean
+    viewId?: boolean
+    columnId?: boolean
+    isHidden?: boolean
+  }
+
+  export type ColumnStateOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "viewId" | "columnId" | "isHidden", ExtArgs["result"]["columnState"]>
+  export type ColumnStateInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    view?: boolean | ViewDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }
+  export type ColumnStateIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    view?: boolean | ViewDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }
+  export type ColumnStateIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    view?: boolean | ViewDefaultArgs<ExtArgs>
+    column?: boolean | ColumnDefaultArgs<ExtArgs>
+  }
+
+  export type $ColumnStatePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ColumnState"
+    objects: {
+      view: Prisma.$ViewPayload<ExtArgs>
+      column: Prisma.$ColumnPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      viewId: string
+      columnId: string
+      isHidden: boolean
+    }, ExtArgs["result"]["columnState"]>
+    composites: {}
+  }
+
+  type ColumnStateGetPayload<S extends boolean | null | undefined | ColumnStateDefaultArgs> = $Result.GetResult<Prisma.$ColumnStatePayload, S>
+
+  type ColumnStateCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ColumnStateFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ColumnStateCountAggregateInputType | true
+    }
+
+  export interface ColumnStateDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ColumnState'], meta: { name: 'ColumnState' } }
+    /**
+     * Find zero or one ColumnState that matches the filter.
+     * @param {ColumnStateFindUniqueArgs} args - Arguments to find a ColumnState
+     * @example
+     * // Get one ColumnState
+     * const columnState = await prisma.columnState.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ColumnStateFindUniqueArgs>(args: SelectSubset<T, ColumnStateFindUniqueArgs<ExtArgs>>): Prisma__ColumnStateClient<$Result.GetResult<Prisma.$ColumnStatePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ColumnState that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ColumnStateFindUniqueOrThrowArgs} args - Arguments to find a ColumnState
+     * @example
+     * // Get one ColumnState
+     * const columnState = await prisma.columnState.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ColumnStateFindUniqueOrThrowArgs>(args: SelectSubset<T, ColumnStateFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ColumnStateClient<$Result.GetResult<Prisma.$ColumnStatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ColumnState that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ColumnStateFindFirstArgs} args - Arguments to find a ColumnState
+     * @example
+     * // Get one ColumnState
+     * const columnState = await prisma.columnState.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ColumnStateFindFirstArgs>(args?: SelectSubset<T, ColumnStateFindFirstArgs<ExtArgs>>): Prisma__ColumnStateClient<$Result.GetResult<Prisma.$ColumnStatePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ColumnState that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ColumnStateFindFirstOrThrowArgs} args - Arguments to find a ColumnState
+     * @example
+     * // Get one ColumnState
+     * const columnState = await prisma.columnState.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ColumnStateFindFirstOrThrowArgs>(args?: SelectSubset<T, ColumnStateFindFirstOrThrowArgs<ExtArgs>>): Prisma__ColumnStateClient<$Result.GetResult<Prisma.$ColumnStatePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ColumnStates that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ColumnStateFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ColumnStates
+     * const columnStates = await prisma.columnState.findMany()
+     * 
+     * // Get first 10 ColumnStates
+     * const columnStates = await prisma.columnState.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const columnStateWithIdOnly = await prisma.columnState.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ColumnStateFindManyArgs>(args?: SelectSubset<T, ColumnStateFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ColumnStatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ColumnState.
+     * @param {ColumnStateCreateArgs} args - Arguments to create a ColumnState.
+     * @example
+     * // Create one ColumnState
+     * const ColumnState = await prisma.columnState.create({
+     *   data: {
+     *     // ... data to create a ColumnState
+     *   }
+     * })
+     * 
+     */
+    create<T extends ColumnStateCreateArgs>(args: SelectSubset<T, ColumnStateCreateArgs<ExtArgs>>): Prisma__ColumnStateClient<$Result.GetResult<Prisma.$ColumnStatePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ColumnStates.
+     * @param {ColumnStateCreateManyArgs} args - Arguments to create many ColumnStates.
+     * @example
+     * // Create many ColumnStates
+     * const columnState = await prisma.columnState.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ColumnStateCreateManyArgs>(args?: SelectSubset<T, ColumnStateCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ColumnStates and returns the data saved in the database.
+     * @param {ColumnStateCreateManyAndReturnArgs} args - Arguments to create many ColumnStates.
+     * @example
+     * // Create many ColumnStates
+     * const columnState = await prisma.columnState.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ColumnStates and only return the `id`
+     * const columnStateWithIdOnly = await prisma.columnState.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ColumnStateCreateManyAndReturnArgs>(args?: SelectSubset<T, ColumnStateCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ColumnStatePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ColumnState.
+     * @param {ColumnStateDeleteArgs} args - Arguments to delete one ColumnState.
+     * @example
+     * // Delete one ColumnState
+     * const ColumnState = await prisma.columnState.delete({
+     *   where: {
+     *     // ... filter to delete one ColumnState
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ColumnStateDeleteArgs>(args: SelectSubset<T, ColumnStateDeleteArgs<ExtArgs>>): Prisma__ColumnStateClient<$Result.GetResult<Prisma.$ColumnStatePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ColumnState.
+     * @param {ColumnStateUpdateArgs} args - Arguments to update one ColumnState.
+     * @example
+     * // Update one ColumnState
+     * const columnState = await prisma.columnState.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ColumnStateUpdateArgs>(args: SelectSubset<T, ColumnStateUpdateArgs<ExtArgs>>): Prisma__ColumnStateClient<$Result.GetResult<Prisma.$ColumnStatePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ColumnStates.
+     * @param {ColumnStateDeleteManyArgs} args - Arguments to filter ColumnStates to delete.
+     * @example
+     * // Delete a few ColumnStates
+     * const { count } = await prisma.columnState.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ColumnStateDeleteManyArgs>(args?: SelectSubset<T, ColumnStateDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ColumnStates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ColumnStateUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ColumnStates
+     * const columnState = await prisma.columnState.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ColumnStateUpdateManyArgs>(args: SelectSubset<T, ColumnStateUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ColumnStates and returns the data updated in the database.
+     * @param {ColumnStateUpdateManyAndReturnArgs} args - Arguments to update many ColumnStates.
+     * @example
+     * // Update many ColumnStates
+     * const columnState = await prisma.columnState.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ColumnStates and only return the `id`
+     * const columnStateWithIdOnly = await prisma.columnState.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ColumnStateUpdateManyAndReturnArgs>(args: SelectSubset<T, ColumnStateUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ColumnStatePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ColumnState.
+     * @param {ColumnStateUpsertArgs} args - Arguments to update or create a ColumnState.
+     * @example
+     * // Update or create a ColumnState
+     * const columnState = await prisma.columnState.upsert({
+     *   create: {
+     *     // ... data to create a ColumnState
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ColumnState we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ColumnStateUpsertArgs>(args: SelectSubset<T, ColumnStateUpsertArgs<ExtArgs>>): Prisma__ColumnStateClient<$Result.GetResult<Prisma.$ColumnStatePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ColumnStates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ColumnStateCountArgs} args - Arguments to filter ColumnStates to count.
+     * @example
+     * // Count the number of ColumnStates
+     * const count = await prisma.columnState.count({
+     *   where: {
+     *     // ... the filter for the ColumnStates we want to count
+     *   }
+     * })
+    **/
+    count<T extends ColumnStateCountArgs>(
+      args?: Subset<T, ColumnStateCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ColumnStateCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ColumnState.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ColumnStateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ColumnStateAggregateArgs>(args: Subset<T, ColumnStateAggregateArgs>): Prisma.PrismaPromise<GetColumnStateAggregateType<T>>
+
+    /**
+     * Group by ColumnState.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ColumnStateGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ColumnStateGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ColumnStateGroupByArgs['orderBy'] }
+        : { orderBy?: ColumnStateGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ColumnStateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetColumnStateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ColumnState model
+   */
+  readonly fields: ColumnStateFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ColumnState.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ColumnStateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    view<T extends ViewDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ViewDefaultArgs<ExtArgs>>): Prisma__ViewClient<$Result.GetResult<Prisma.$ViewPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    column<T extends ColumnDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ColumnDefaultArgs<ExtArgs>>): Prisma__ColumnClient<$Result.GetResult<Prisma.$ColumnPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ColumnState model
+   */
+  interface ColumnStateFieldRefs {
+    readonly id: FieldRef<"ColumnState", 'String'>
+    readonly viewId: FieldRef<"ColumnState", 'String'>
+    readonly columnId: FieldRef<"ColumnState", 'String'>
+    readonly isHidden: FieldRef<"ColumnState", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ColumnState findUnique
+   */
+  export type ColumnStateFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ColumnState
+     */
+    select?: ColumnStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ColumnState
+     */
+    omit?: ColumnStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnStateInclude<ExtArgs> | null
+    /**
+     * Filter, which ColumnState to fetch.
+     */
+    where: ColumnStateWhereUniqueInput
+  }
+
+  /**
+   * ColumnState findUniqueOrThrow
+   */
+  export type ColumnStateFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ColumnState
+     */
+    select?: ColumnStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ColumnState
+     */
+    omit?: ColumnStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnStateInclude<ExtArgs> | null
+    /**
+     * Filter, which ColumnState to fetch.
+     */
+    where: ColumnStateWhereUniqueInput
+  }
+
+  /**
+   * ColumnState findFirst
+   */
+  export type ColumnStateFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ColumnState
+     */
+    select?: ColumnStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ColumnState
+     */
+    omit?: ColumnStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnStateInclude<ExtArgs> | null
+    /**
+     * Filter, which ColumnState to fetch.
+     */
+    where?: ColumnStateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ColumnStates to fetch.
+     */
+    orderBy?: ColumnStateOrderByWithRelationInput | ColumnStateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ColumnStates.
+     */
+    cursor?: ColumnStateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ColumnStates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ColumnStates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ColumnStates.
+     */
+    distinct?: ColumnStateScalarFieldEnum | ColumnStateScalarFieldEnum[]
+  }
+
+  /**
+   * ColumnState findFirstOrThrow
+   */
+  export type ColumnStateFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ColumnState
+     */
+    select?: ColumnStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ColumnState
+     */
+    omit?: ColumnStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnStateInclude<ExtArgs> | null
+    /**
+     * Filter, which ColumnState to fetch.
+     */
+    where?: ColumnStateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ColumnStates to fetch.
+     */
+    orderBy?: ColumnStateOrderByWithRelationInput | ColumnStateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ColumnStates.
+     */
+    cursor?: ColumnStateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ColumnStates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ColumnStates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ColumnStates.
+     */
+    distinct?: ColumnStateScalarFieldEnum | ColumnStateScalarFieldEnum[]
+  }
+
+  /**
+   * ColumnState findMany
+   */
+  export type ColumnStateFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ColumnState
+     */
+    select?: ColumnStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ColumnState
+     */
+    omit?: ColumnStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnStateInclude<ExtArgs> | null
+    /**
+     * Filter, which ColumnStates to fetch.
+     */
+    where?: ColumnStateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ColumnStates to fetch.
+     */
+    orderBy?: ColumnStateOrderByWithRelationInput | ColumnStateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ColumnStates.
+     */
+    cursor?: ColumnStateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ColumnStates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ColumnStates.
+     */
+    skip?: number
+    distinct?: ColumnStateScalarFieldEnum | ColumnStateScalarFieldEnum[]
+  }
+
+  /**
+   * ColumnState create
+   */
+  export type ColumnStateCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ColumnState
+     */
+    select?: ColumnStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ColumnState
+     */
+    omit?: ColumnStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnStateInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ColumnState.
+     */
+    data: XOR<ColumnStateCreateInput, ColumnStateUncheckedCreateInput>
+  }
+
+  /**
+   * ColumnState createMany
+   */
+  export type ColumnStateCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ColumnStates.
+     */
+    data: ColumnStateCreateManyInput | ColumnStateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ColumnState createManyAndReturn
+   */
+  export type ColumnStateCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ColumnState
+     */
+    select?: ColumnStateSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ColumnState
+     */
+    omit?: ColumnStateOmit<ExtArgs> | null
+    /**
+     * The data used to create many ColumnStates.
+     */
+    data: ColumnStateCreateManyInput | ColumnStateCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnStateIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ColumnState update
+   */
+  export type ColumnStateUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ColumnState
+     */
+    select?: ColumnStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ColumnState
+     */
+    omit?: ColumnStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnStateInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ColumnState.
+     */
+    data: XOR<ColumnStateUpdateInput, ColumnStateUncheckedUpdateInput>
+    /**
+     * Choose, which ColumnState to update.
+     */
+    where: ColumnStateWhereUniqueInput
+  }
+
+  /**
+   * ColumnState updateMany
+   */
+  export type ColumnStateUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ColumnStates.
+     */
+    data: XOR<ColumnStateUpdateManyMutationInput, ColumnStateUncheckedUpdateManyInput>
+    /**
+     * Filter which ColumnStates to update
+     */
+    where?: ColumnStateWhereInput
+    /**
+     * Limit how many ColumnStates to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ColumnState updateManyAndReturn
+   */
+  export type ColumnStateUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ColumnState
+     */
+    select?: ColumnStateSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ColumnState
+     */
+    omit?: ColumnStateOmit<ExtArgs> | null
+    /**
+     * The data used to update ColumnStates.
+     */
+    data: XOR<ColumnStateUpdateManyMutationInput, ColumnStateUncheckedUpdateManyInput>
+    /**
+     * Filter which ColumnStates to update
+     */
+    where?: ColumnStateWhereInput
+    /**
+     * Limit how many ColumnStates to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnStateIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ColumnState upsert
+   */
+  export type ColumnStateUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ColumnState
+     */
+    select?: ColumnStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ColumnState
+     */
+    omit?: ColumnStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnStateInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ColumnState to update in case it exists.
+     */
+    where: ColumnStateWhereUniqueInput
+    /**
+     * In case the ColumnState found by the `where` argument doesn't exist, create a new ColumnState with this data.
+     */
+    create: XOR<ColumnStateCreateInput, ColumnStateUncheckedCreateInput>
+    /**
+     * In case the ColumnState was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ColumnStateUpdateInput, ColumnStateUncheckedUpdateInput>
+  }
+
+  /**
+   * ColumnState delete
+   */
+  export type ColumnStateDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ColumnState
+     */
+    select?: ColumnStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ColumnState
+     */
+    omit?: ColumnStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnStateInclude<ExtArgs> | null
+    /**
+     * Filter which ColumnState to delete.
+     */
+    where: ColumnStateWhereUniqueInput
+  }
+
+  /**
+   * ColumnState deleteMany
+   */
+  export type ColumnStateDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ColumnStates to delete
+     */
+    where?: ColumnStateWhereInput
+    /**
+     * Limit how many ColumnStates to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ColumnState without action
+   */
+  export type ColumnStateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ColumnState
+     */
+    select?: ColumnStateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ColumnState
+     */
+    omit?: ColumnStateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ColumnStateInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -6717,17 +16787,6 @@ export namespace Prisma {
   };
 
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
-
-
-  export const PostScalarFieldEnum: {
-    id: 'id',
-    name: 'name',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt',
-    createdById: 'createdById'
-  };
-
-  export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum]
 
 
   export const AccountScalarFieldEnum: {
@@ -6779,6 +16838,110 @@ export namespace Prisma {
   export type VerificationTokenScalarFieldEnum = (typeof VerificationTokenScalarFieldEnum)[keyof typeof VerificationTokenScalarFieldEnum]
 
 
+  export const BaseScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    ownerId: 'ownerId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type BaseScalarFieldEnum = (typeof BaseScalarFieldEnum)[keyof typeof BaseScalarFieldEnum]
+
+
+  export const TableScalarFieldEnum: {
+    id: 'id',
+    baseId: 'baseId',
+    name: 'name',
+    position: 'position',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type TableScalarFieldEnum = (typeof TableScalarFieldEnum)[keyof typeof TableScalarFieldEnum]
+
+
+  export const ColumnScalarFieldEnum: {
+    id: 'id',
+    tableId: 'tableId',
+    name: 'name',
+    type: 'type',
+    position: 'position',
+    isHidden: 'isHidden',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ColumnScalarFieldEnum = (typeof ColumnScalarFieldEnum)[keyof typeof ColumnScalarFieldEnum]
+
+
+  export const RowScalarFieldEnum: {
+    id: 'id',
+    tableId: 'tableId',
+    index: 'index',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type RowScalarFieldEnum = (typeof RowScalarFieldEnum)[keyof typeof RowScalarFieldEnum]
+
+
+  export const CellScalarFieldEnum: {
+    id: 'id',
+    rowId: 'rowId',
+    columnId: 'columnId',
+    valueText: 'valueText',
+    valueNumber: 'valueNumber'
+  };
+
+  export type CellScalarFieldEnum = (typeof CellScalarFieldEnum)[keyof typeof CellScalarFieldEnum]
+
+
+  export const ViewScalarFieldEnum: {
+    id: 'id',
+    tableId: 'tableId',
+    name: 'name',
+    searchQuery: 'searchQuery',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ViewScalarFieldEnum = (typeof ViewScalarFieldEnum)[keyof typeof ViewScalarFieldEnum]
+
+
+  export const ViewFilterScalarFieldEnum: {
+    id: 'id',
+    viewId: 'viewId',
+    columnId: 'columnId',
+    operator: 'operator',
+    valueText: 'valueText',
+    valueNumber: 'valueNumber'
+  };
+
+  export type ViewFilterScalarFieldEnum = (typeof ViewFilterScalarFieldEnum)[keyof typeof ViewFilterScalarFieldEnum]
+
+
+  export const ViewSortScalarFieldEnum: {
+    id: 'id',
+    viewId: 'viewId',
+    columnId: 'columnId',
+    direction: 'direction',
+    priority: 'priority'
+  };
+
+  export type ViewSortScalarFieldEnum = (typeof ViewSortScalarFieldEnum)[keyof typeof ViewSortScalarFieldEnum]
+
+
+  export const ColumnStateScalarFieldEnum: {
+    id: 'id',
+    viewId: 'viewId',
+    columnId: 'columnId',
+    isHidden: 'isHidden'
+  };
+
+  export type ColumnStateScalarFieldEnum = (typeof ColumnStateScalarFieldEnum)[keyof typeof ColumnStateScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -6809,20 +16972,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Int'
-   */
-  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-    
-
-
-  /**
-   * Reference to a field of type 'Int[]'
-   */
-  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
-    
-
-
-  /**
    * Reference to a field of type 'String'
    */
   export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
@@ -6833,6 +16982,20 @@ export namespace Prisma {
    * Reference to a field of type 'String[]'
    */
   export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int'
+   */
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int[]'
+   */
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
 
 
@@ -6851,6 +17014,27 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'ColumnType'
+   */
+  export type EnumColumnTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ColumnType'>
+    
+
+
+  /**
+   * Reference to a field of type 'ColumnType[]'
+   */
+  export type ListEnumColumnTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ColumnType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -6862,67 +17046,38 @@ export namespace Prisma {
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
+
+
+  /**
+   * Reference to a field of type 'FilterOperator'
+   */
+  export type EnumFilterOperatorFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'FilterOperator'>
+    
+
+
+  /**
+   * Reference to a field of type 'FilterOperator[]'
+   */
+  export type ListEnumFilterOperatorFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'FilterOperator[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'SortDirection'
+   */
+  export type EnumSortDirectionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SortDirection'>
+    
+
+
+  /**
+   * Reference to a field of type 'SortDirection[]'
+   */
+  export type ListEnumSortDirectionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SortDirection[]'>
+    
   /**
    * Deep Input Types
    */
 
-
-  export type PostWhereInput = {
-    AND?: PostWhereInput | PostWhereInput[]
-    OR?: PostWhereInput[]
-    NOT?: PostWhereInput | PostWhereInput[]
-    id?: IntFilter<"Post"> | number
-    name?: StringFilter<"Post"> | string
-    createdAt?: DateTimeFilter<"Post"> | Date | string
-    updatedAt?: DateTimeFilter<"Post"> | Date | string
-    createdById?: StringFilter<"Post"> | string
-    createdBy?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }
-
-  export type PostOrderByWithRelationInput = {
-    id?: SortOrder
-    name?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    createdById?: SortOrder
-    createdBy?: UserOrderByWithRelationInput
-  }
-
-  export type PostWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: PostWhereInput | PostWhereInput[]
-    OR?: PostWhereInput[]
-    NOT?: PostWhereInput | PostWhereInput[]
-    name?: StringFilter<"Post"> | string
-    createdAt?: DateTimeFilter<"Post"> | Date | string
-    updatedAt?: DateTimeFilter<"Post"> | Date | string
-    createdById?: StringFilter<"Post"> | string
-    createdBy?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "id">
-
-  export type PostOrderByWithAggregationInput = {
-    id?: SortOrder
-    name?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    createdById?: SortOrder
-    _count?: PostCountOrderByAggregateInput
-    _avg?: PostAvgOrderByAggregateInput
-    _max?: PostMaxOrderByAggregateInput
-    _min?: PostMinOrderByAggregateInput
-    _sum?: PostSumOrderByAggregateInput
-  }
-
-  export type PostScalarWhereWithAggregatesInput = {
-    AND?: PostScalarWhereWithAggregatesInput | PostScalarWhereWithAggregatesInput[]
-    OR?: PostScalarWhereWithAggregatesInput[]
-    NOT?: PostScalarWhereWithAggregatesInput | PostScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Post"> | number
-    name?: StringWithAggregatesFilter<"Post"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"Post"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Post"> | Date | string
-    createdById?: StringWithAggregatesFilter<"Post"> | string
-  }
 
   export type AccountWhereInput = {
     AND?: AccountWhereInput | AccountWhereInput[]
@@ -7083,7 +17238,7 @@ export namespace Prisma {
     image?: StringNullableFilter<"User"> | string | null
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
-    posts?: PostListRelationFilter
+    bases?: BaseListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -7094,7 +17249,7 @@ export namespace Prisma {
     image?: SortOrderInput | SortOrder
     accounts?: AccountOrderByRelationAggregateInput
     sessions?: SessionOrderByRelationAggregateInput
-    posts?: PostOrderByRelationAggregateInput
+    bases?: BaseOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -7108,7 +17263,7 @@ export namespace Prisma {
     image?: StringNullableFilter<"User"> | string | null
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
-    posts?: PostListRelationFilter
+    bases?: BaseListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -7176,56 +17331,586 @@ export namespace Prisma {
     expires?: DateTimeWithAggregatesFilter<"VerificationToken"> | Date | string
   }
 
-  export type PostCreateInput = {
-    name: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    createdBy: UserCreateNestedOneWithoutPostsInput
+  export type BaseWhereInput = {
+    AND?: BaseWhereInput | BaseWhereInput[]
+    OR?: BaseWhereInput[]
+    NOT?: BaseWhereInput | BaseWhereInput[]
+    id?: StringFilter<"Base"> | string
+    name?: StringFilter<"Base"> | string
+    ownerId?: StringFilter<"Base"> | string
+    createdAt?: DateTimeFilter<"Base"> | Date | string
+    updatedAt?: DateTimeFilter<"Base"> | Date | string
+    owner?: XOR<UserScalarRelationFilter, UserWhereInput>
+    tables?: TableListRelationFilter
   }
 
-  export type PostUncheckedCreateInput = {
-    id?: number
-    name: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    createdById: string
+  export type BaseOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    ownerId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    owner?: UserOrderByWithRelationInput
+    tables?: TableOrderByRelationAggregateInput
   }
 
-  export type PostUpdateInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdBy?: UserUpdateOneRequiredWithoutPostsNestedInput
+  export type BaseWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: BaseWhereInput | BaseWhereInput[]
+    OR?: BaseWhereInput[]
+    NOT?: BaseWhereInput | BaseWhereInput[]
+    name?: StringFilter<"Base"> | string
+    ownerId?: StringFilter<"Base"> | string
+    createdAt?: DateTimeFilter<"Base"> | Date | string
+    updatedAt?: DateTimeFilter<"Base"> | Date | string
+    owner?: XOR<UserScalarRelationFilter, UserWhereInput>
+    tables?: TableListRelationFilter
+  }, "id">
+
+  export type BaseOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    ownerId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: BaseCountOrderByAggregateInput
+    _max?: BaseMaxOrderByAggregateInput
+    _min?: BaseMinOrderByAggregateInput
   }
 
-  export type PostUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdById?: StringFieldUpdateOperationsInput | string
+  export type BaseScalarWhereWithAggregatesInput = {
+    AND?: BaseScalarWhereWithAggregatesInput | BaseScalarWhereWithAggregatesInput[]
+    OR?: BaseScalarWhereWithAggregatesInput[]
+    NOT?: BaseScalarWhereWithAggregatesInput | BaseScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Base"> | string
+    name?: StringWithAggregatesFilter<"Base"> | string
+    ownerId?: StringWithAggregatesFilter<"Base"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Base"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Base"> | Date | string
   }
 
-  export type PostCreateManyInput = {
-    id?: number
-    name: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    createdById: string
+  export type TableWhereInput = {
+    AND?: TableWhereInput | TableWhereInput[]
+    OR?: TableWhereInput[]
+    NOT?: TableWhereInput | TableWhereInput[]
+    id?: StringFilter<"Table"> | string
+    baseId?: StringFilter<"Table"> | string
+    name?: StringFilter<"Table"> | string
+    position?: IntFilter<"Table"> | number
+    createdAt?: DateTimeFilter<"Table"> | Date | string
+    updatedAt?: DateTimeFilter<"Table"> | Date | string
+    base?: XOR<BaseScalarRelationFilter, BaseWhereInput>
+    columns?: ColumnListRelationFilter
+    rows?: RowListRelationFilter
+    views?: ViewListRelationFilter
   }
 
-  export type PostUpdateManyMutationInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type TableOrderByWithRelationInput = {
+    id?: SortOrder
+    baseId?: SortOrder
+    name?: SortOrder
+    position?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    base?: BaseOrderByWithRelationInput
+    columns?: ColumnOrderByRelationAggregateInput
+    rows?: RowOrderByRelationAggregateInput
+    views?: ViewOrderByRelationAggregateInput
   }
 
-  export type PostUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdById?: StringFieldUpdateOperationsInput | string
+  export type TableWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: TableWhereInput | TableWhereInput[]
+    OR?: TableWhereInput[]
+    NOT?: TableWhereInput | TableWhereInput[]
+    baseId?: StringFilter<"Table"> | string
+    name?: StringFilter<"Table"> | string
+    position?: IntFilter<"Table"> | number
+    createdAt?: DateTimeFilter<"Table"> | Date | string
+    updatedAt?: DateTimeFilter<"Table"> | Date | string
+    base?: XOR<BaseScalarRelationFilter, BaseWhereInput>
+    columns?: ColumnListRelationFilter
+    rows?: RowListRelationFilter
+    views?: ViewListRelationFilter
+  }, "id">
+
+  export type TableOrderByWithAggregationInput = {
+    id?: SortOrder
+    baseId?: SortOrder
+    name?: SortOrder
+    position?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: TableCountOrderByAggregateInput
+    _avg?: TableAvgOrderByAggregateInput
+    _max?: TableMaxOrderByAggregateInput
+    _min?: TableMinOrderByAggregateInput
+    _sum?: TableSumOrderByAggregateInput
+  }
+
+  export type TableScalarWhereWithAggregatesInput = {
+    AND?: TableScalarWhereWithAggregatesInput | TableScalarWhereWithAggregatesInput[]
+    OR?: TableScalarWhereWithAggregatesInput[]
+    NOT?: TableScalarWhereWithAggregatesInput | TableScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Table"> | string
+    baseId?: StringWithAggregatesFilter<"Table"> | string
+    name?: StringWithAggregatesFilter<"Table"> | string
+    position?: IntWithAggregatesFilter<"Table"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Table"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Table"> | Date | string
+  }
+
+  export type ColumnWhereInput = {
+    AND?: ColumnWhereInput | ColumnWhereInput[]
+    OR?: ColumnWhereInput[]
+    NOT?: ColumnWhereInput | ColumnWhereInput[]
+    id?: StringFilter<"Column"> | string
+    tableId?: StringFilter<"Column"> | string
+    name?: StringFilter<"Column"> | string
+    type?: EnumColumnTypeFilter<"Column"> | $Enums.ColumnType
+    position?: IntFilter<"Column"> | number
+    isHidden?: BoolFilter<"Column"> | boolean
+    createdAt?: DateTimeFilter<"Column"> | Date | string
+    updatedAt?: DateTimeFilter<"Column"> | Date | string
+    table?: XOR<TableScalarRelationFilter, TableWhereInput>
+    cells?: CellListRelationFilter
+    filters?: ViewFilterListRelationFilter
+    sorts?: ViewSortListRelationFilter
+    columnStates?: ColumnStateListRelationFilter
+  }
+
+  export type ColumnOrderByWithRelationInput = {
+    id?: SortOrder
+    tableId?: SortOrder
+    name?: SortOrder
+    type?: SortOrder
+    position?: SortOrder
+    isHidden?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    table?: TableOrderByWithRelationInput
+    cells?: CellOrderByRelationAggregateInput
+    filters?: ViewFilterOrderByRelationAggregateInput
+    sorts?: ViewSortOrderByRelationAggregateInput
+    columnStates?: ColumnStateOrderByRelationAggregateInput
+  }
+
+  export type ColumnWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ColumnWhereInput | ColumnWhereInput[]
+    OR?: ColumnWhereInput[]
+    NOT?: ColumnWhereInput | ColumnWhereInput[]
+    tableId?: StringFilter<"Column"> | string
+    name?: StringFilter<"Column"> | string
+    type?: EnumColumnTypeFilter<"Column"> | $Enums.ColumnType
+    position?: IntFilter<"Column"> | number
+    isHidden?: BoolFilter<"Column"> | boolean
+    createdAt?: DateTimeFilter<"Column"> | Date | string
+    updatedAt?: DateTimeFilter<"Column"> | Date | string
+    table?: XOR<TableScalarRelationFilter, TableWhereInput>
+    cells?: CellListRelationFilter
+    filters?: ViewFilterListRelationFilter
+    sorts?: ViewSortListRelationFilter
+    columnStates?: ColumnStateListRelationFilter
+  }, "id">
+
+  export type ColumnOrderByWithAggregationInput = {
+    id?: SortOrder
+    tableId?: SortOrder
+    name?: SortOrder
+    type?: SortOrder
+    position?: SortOrder
+    isHidden?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ColumnCountOrderByAggregateInput
+    _avg?: ColumnAvgOrderByAggregateInput
+    _max?: ColumnMaxOrderByAggregateInput
+    _min?: ColumnMinOrderByAggregateInput
+    _sum?: ColumnSumOrderByAggregateInput
+  }
+
+  export type ColumnScalarWhereWithAggregatesInput = {
+    AND?: ColumnScalarWhereWithAggregatesInput | ColumnScalarWhereWithAggregatesInput[]
+    OR?: ColumnScalarWhereWithAggregatesInput[]
+    NOT?: ColumnScalarWhereWithAggregatesInput | ColumnScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Column"> | string
+    tableId?: StringWithAggregatesFilter<"Column"> | string
+    name?: StringWithAggregatesFilter<"Column"> | string
+    type?: EnumColumnTypeWithAggregatesFilter<"Column"> | $Enums.ColumnType
+    position?: IntWithAggregatesFilter<"Column"> | number
+    isHidden?: BoolWithAggregatesFilter<"Column"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"Column"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Column"> | Date | string
+  }
+
+  export type RowWhereInput = {
+    AND?: RowWhereInput | RowWhereInput[]
+    OR?: RowWhereInput[]
+    NOT?: RowWhereInput | RowWhereInput[]
+    id?: StringFilter<"Row"> | string
+    tableId?: StringFilter<"Row"> | string
+    index?: IntFilter<"Row"> | number
+    createdAt?: DateTimeFilter<"Row"> | Date | string
+    updatedAt?: DateTimeFilter<"Row"> | Date | string
+    table?: XOR<TableScalarRelationFilter, TableWhereInput>
+    cells?: CellListRelationFilter
+  }
+
+  export type RowOrderByWithRelationInput = {
+    id?: SortOrder
+    tableId?: SortOrder
+    index?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    table?: TableOrderByWithRelationInput
+    cells?: CellOrderByRelationAggregateInput
+  }
+
+  export type RowWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: RowWhereInput | RowWhereInput[]
+    OR?: RowWhereInput[]
+    NOT?: RowWhereInput | RowWhereInput[]
+    tableId?: StringFilter<"Row"> | string
+    index?: IntFilter<"Row"> | number
+    createdAt?: DateTimeFilter<"Row"> | Date | string
+    updatedAt?: DateTimeFilter<"Row"> | Date | string
+    table?: XOR<TableScalarRelationFilter, TableWhereInput>
+    cells?: CellListRelationFilter
+  }, "id">
+
+  export type RowOrderByWithAggregationInput = {
+    id?: SortOrder
+    tableId?: SortOrder
+    index?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: RowCountOrderByAggregateInput
+    _avg?: RowAvgOrderByAggregateInput
+    _max?: RowMaxOrderByAggregateInput
+    _min?: RowMinOrderByAggregateInput
+    _sum?: RowSumOrderByAggregateInput
+  }
+
+  export type RowScalarWhereWithAggregatesInput = {
+    AND?: RowScalarWhereWithAggregatesInput | RowScalarWhereWithAggregatesInput[]
+    OR?: RowScalarWhereWithAggregatesInput[]
+    NOT?: RowScalarWhereWithAggregatesInput | RowScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Row"> | string
+    tableId?: StringWithAggregatesFilter<"Row"> | string
+    index?: IntWithAggregatesFilter<"Row"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Row"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Row"> | Date | string
+  }
+
+  export type CellWhereInput = {
+    AND?: CellWhereInput | CellWhereInput[]
+    OR?: CellWhereInput[]
+    NOT?: CellWhereInput | CellWhereInput[]
+    id?: StringFilter<"Cell"> | string
+    rowId?: StringFilter<"Cell"> | string
+    columnId?: StringFilter<"Cell"> | string
+    valueText?: StringNullableFilter<"Cell"> | string | null
+    valueNumber?: FloatNullableFilter<"Cell"> | number | null
+    row?: XOR<RowScalarRelationFilter, RowWhereInput>
+    column?: XOR<ColumnScalarRelationFilter, ColumnWhereInput>
+  }
+
+  export type CellOrderByWithRelationInput = {
+    id?: SortOrder
+    rowId?: SortOrder
+    columnId?: SortOrder
+    valueText?: SortOrderInput | SortOrder
+    valueNumber?: SortOrderInput | SortOrder
+    row?: RowOrderByWithRelationInput
+    column?: ColumnOrderByWithRelationInput
+  }
+
+  export type CellWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    rowId_columnId?: CellRowIdColumnIdCompoundUniqueInput
+    AND?: CellWhereInput | CellWhereInput[]
+    OR?: CellWhereInput[]
+    NOT?: CellWhereInput | CellWhereInput[]
+    rowId?: StringFilter<"Cell"> | string
+    columnId?: StringFilter<"Cell"> | string
+    valueText?: StringNullableFilter<"Cell"> | string | null
+    valueNumber?: FloatNullableFilter<"Cell"> | number | null
+    row?: XOR<RowScalarRelationFilter, RowWhereInput>
+    column?: XOR<ColumnScalarRelationFilter, ColumnWhereInput>
+  }, "id" | "rowId_columnId">
+
+  export type CellOrderByWithAggregationInput = {
+    id?: SortOrder
+    rowId?: SortOrder
+    columnId?: SortOrder
+    valueText?: SortOrderInput | SortOrder
+    valueNumber?: SortOrderInput | SortOrder
+    _count?: CellCountOrderByAggregateInput
+    _avg?: CellAvgOrderByAggregateInput
+    _max?: CellMaxOrderByAggregateInput
+    _min?: CellMinOrderByAggregateInput
+    _sum?: CellSumOrderByAggregateInput
+  }
+
+  export type CellScalarWhereWithAggregatesInput = {
+    AND?: CellScalarWhereWithAggregatesInput | CellScalarWhereWithAggregatesInput[]
+    OR?: CellScalarWhereWithAggregatesInput[]
+    NOT?: CellScalarWhereWithAggregatesInput | CellScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Cell"> | string
+    rowId?: StringWithAggregatesFilter<"Cell"> | string
+    columnId?: StringWithAggregatesFilter<"Cell"> | string
+    valueText?: StringNullableWithAggregatesFilter<"Cell"> | string | null
+    valueNumber?: FloatNullableWithAggregatesFilter<"Cell"> | number | null
+  }
+
+  export type ViewWhereInput = {
+    AND?: ViewWhereInput | ViewWhereInput[]
+    OR?: ViewWhereInput[]
+    NOT?: ViewWhereInput | ViewWhereInput[]
+    id?: StringFilter<"View"> | string
+    tableId?: StringFilter<"View"> | string
+    name?: StringFilter<"View"> | string
+    searchQuery?: StringNullableFilter<"View"> | string | null
+    createdAt?: DateTimeFilter<"View"> | Date | string
+    updatedAt?: DateTimeFilter<"View"> | Date | string
+    table?: XOR<TableScalarRelationFilter, TableWhereInput>
+    filters?: ViewFilterListRelationFilter
+    sorts?: ViewSortListRelationFilter
+    columnStates?: ColumnStateListRelationFilter
+  }
+
+  export type ViewOrderByWithRelationInput = {
+    id?: SortOrder
+    tableId?: SortOrder
+    name?: SortOrder
+    searchQuery?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    table?: TableOrderByWithRelationInput
+    filters?: ViewFilterOrderByRelationAggregateInput
+    sorts?: ViewSortOrderByRelationAggregateInput
+    columnStates?: ColumnStateOrderByRelationAggregateInput
+  }
+
+  export type ViewWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ViewWhereInput | ViewWhereInput[]
+    OR?: ViewWhereInput[]
+    NOT?: ViewWhereInput | ViewWhereInput[]
+    tableId?: StringFilter<"View"> | string
+    name?: StringFilter<"View"> | string
+    searchQuery?: StringNullableFilter<"View"> | string | null
+    createdAt?: DateTimeFilter<"View"> | Date | string
+    updatedAt?: DateTimeFilter<"View"> | Date | string
+    table?: XOR<TableScalarRelationFilter, TableWhereInput>
+    filters?: ViewFilterListRelationFilter
+    sorts?: ViewSortListRelationFilter
+    columnStates?: ColumnStateListRelationFilter
+  }, "id">
+
+  export type ViewOrderByWithAggregationInput = {
+    id?: SortOrder
+    tableId?: SortOrder
+    name?: SortOrder
+    searchQuery?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ViewCountOrderByAggregateInput
+    _max?: ViewMaxOrderByAggregateInput
+    _min?: ViewMinOrderByAggregateInput
+  }
+
+  export type ViewScalarWhereWithAggregatesInput = {
+    AND?: ViewScalarWhereWithAggregatesInput | ViewScalarWhereWithAggregatesInput[]
+    OR?: ViewScalarWhereWithAggregatesInput[]
+    NOT?: ViewScalarWhereWithAggregatesInput | ViewScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"View"> | string
+    tableId?: StringWithAggregatesFilter<"View"> | string
+    name?: StringWithAggregatesFilter<"View"> | string
+    searchQuery?: StringNullableWithAggregatesFilter<"View"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"View"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"View"> | Date | string
+  }
+
+  export type ViewFilterWhereInput = {
+    AND?: ViewFilterWhereInput | ViewFilterWhereInput[]
+    OR?: ViewFilterWhereInput[]
+    NOT?: ViewFilterWhereInput | ViewFilterWhereInput[]
+    id?: StringFilter<"ViewFilter"> | string
+    viewId?: StringFilter<"ViewFilter"> | string
+    columnId?: StringFilter<"ViewFilter"> | string
+    operator?: EnumFilterOperatorFilter<"ViewFilter"> | $Enums.FilterOperator
+    valueText?: StringNullableFilter<"ViewFilter"> | string | null
+    valueNumber?: FloatNullableFilter<"ViewFilter"> | number | null
+    view?: XOR<ViewScalarRelationFilter, ViewWhereInput>
+    column?: XOR<ColumnScalarRelationFilter, ColumnWhereInput>
+  }
+
+  export type ViewFilterOrderByWithRelationInput = {
+    id?: SortOrder
+    viewId?: SortOrder
+    columnId?: SortOrder
+    operator?: SortOrder
+    valueText?: SortOrderInput | SortOrder
+    valueNumber?: SortOrderInput | SortOrder
+    view?: ViewOrderByWithRelationInput
+    column?: ColumnOrderByWithRelationInput
+  }
+
+  export type ViewFilterWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ViewFilterWhereInput | ViewFilterWhereInput[]
+    OR?: ViewFilterWhereInput[]
+    NOT?: ViewFilterWhereInput | ViewFilterWhereInput[]
+    viewId?: StringFilter<"ViewFilter"> | string
+    columnId?: StringFilter<"ViewFilter"> | string
+    operator?: EnumFilterOperatorFilter<"ViewFilter"> | $Enums.FilterOperator
+    valueText?: StringNullableFilter<"ViewFilter"> | string | null
+    valueNumber?: FloatNullableFilter<"ViewFilter"> | number | null
+    view?: XOR<ViewScalarRelationFilter, ViewWhereInput>
+    column?: XOR<ColumnScalarRelationFilter, ColumnWhereInput>
+  }, "id">
+
+  export type ViewFilterOrderByWithAggregationInput = {
+    id?: SortOrder
+    viewId?: SortOrder
+    columnId?: SortOrder
+    operator?: SortOrder
+    valueText?: SortOrderInput | SortOrder
+    valueNumber?: SortOrderInput | SortOrder
+    _count?: ViewFilterCountOrderByAggregateInput
+    _avg?: ViewFilterAvgOrderByAggregateInput
+    _max?: ViewFilterMaxOrderByAggregateInput
+    _min?: ViewFilterMinOrderByAggregateInput
+    _sum?: ViewFilterSumOrderByAggregateInput
+  }
+
+  export type ViewFilterScalarWhereWithAggregatesInput = {
+    AND?: ViewFilterScalarWhereWithAggregatesInput | ViewFilterScalarWhereWithAggregatesInput[]
+    OR?: ViewFilterScalarWhereWithAggregatesInput[]
+    NOT?: ViewFilterScalarWhereWithAggregatesInput | ViewFilterScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ViewFilter"> | string
+    viewId?: StringWithAggregatesFilter<"ViewFilter"> | string
+    columnId?: StringWithAggregatesFilter<"ViewFilter"> | string
+    operator?: EnumFilterOperatorWithAggregatesFilter<"ViewFilter"> | $Enums.FilterOperator
+    valueText?: StringNullableWithAggregatesFilter<"ViewFilter"> | string | null
+    valueNumber?: FloatNullableWithAggregatesFilter<"ViewFilter"> | number | null
+  }
+
+  export type ViewSortWhereInput = {
+    AND?: ViewSortWhereInput | ViewSortWhereInput[]
+    OR?: ViewSortWhereInput[]
+    NOT?: ViewSortWhereInput | ViewSortWhereInput[]
+    id?: StringFilter<"ViewSort"> | string
+    viewId?: StringFilter<"ViewSort"> | string
+    columnId?: StringFilter<"ViewSort"> | string
+    direction?: EnumSortDirectionFilter<"ViewSort"> | $Enums.SortDirection
+    priority?: IntFilter<"ViewSort"> | number
+    view?: XOR<ViewScalarRelationFilter, ViewWhereInput>
+    column?: XOR<ColumnScalarRelationFilter, ColumnWhereInput>
+  }
+
+  export type ViewSortOrderByWithRelationInput = {
+    id?: SortOrder
+    viewId?: SortOrder
+    columnId?: SortOrder
+    direction?: SortOrder
+    priority?: SortOrder
+    view?: ViewOrderByWithRelationInput
+    column?: ColumnOrderByWithRelationInput
+  }
+
+  export type ViewSortWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ViewSortWhereInput | ViewSortWhereInput[]
+    OR?: ViewSortWhereInput[]
+    NOT?: ViewSortWhereInput | ViewSortWhereInput[]
+    viewId?: StringFilter<"ViewSort"> | string
+    columnId?: StringFilter<"ViewSort"> | string
+    direction?: EnumSortDirectionFilter<"ViewSort"> | $Enums.SortDirection
+    priority?: IntFilter<"ViewSort"> | number
+    view?: XOR<ViewScalarRelationFilter, ViewWhereInput>
+    column?: XOR<ColumnScalarRelationFilter, ColumnWhereInput>
+  }, "id">
+
+  export type ViewSortOrderByWithAggregationInput = {
+    id?: SortOrder
+    viewId?: SortOrder
+    columnId?: SortOrder
+    direction?: SortOrder
+    priority?: SortOrder
+    _count?: ViewSortCountOrderByAggregateInput
+    _avg?: ViewSortAvgOrderByAggregateInput
+    _max?: ViewSortMaxOrderByAggregateInput
+    _min?: ViewSortMinOrderByAggregateInput
+    _sum?: ViewSortSumOrderByAggregateInput
+  }
+
+  export type ViewSortScalarWhereWithAggregatesInput = {
+    AND?: ViewSortScalarWhereWithAggregatesInput | ViewSortScalarWhereWithAggregatesInput[]
+    OR?: ViewSortScalarWhereWithAggregatesInput[]
+    NOT?: ViewSortScalarWhereWithAggregatesInput | ViewSortScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ViewSort"> | string
+    viewId?: StringWithAggregatesFilter<"ViewSort"> | string
+    columnId?: StringWithAggregatesFilter<"ViewSort"> | string
+    direction?: EnumSortDirectionWithAggregatesFilter<"ViewSort"> | $Enums.SortDirection
+    priority?: IntWithAggregatesFilter<"ViewSort"> | number
+  }
+
+  export type ColumnStateWhereInput = {
+    AND?: ColumnStateWhereInput | ColumnStateWhereInput[]
+    OR?: ColumnStateWhereInput[]
+    NOT?: ColumnStateWhereInput | ColumnStateWhereInput[]
+    id?: StringFilter<"ColumnState"> | string
+    viewId?: StringFilter<"ColumnState"> | string
+    columnId?: StringFilter<"ColumnState"> | string
+    isHidden?: BoolFilter<"ColumnState"> | boolean
+    view?: XOR<ViewScalarRelationFilter, ViewWhereInput>
+    column?: XOR<ColumnScalarRelationFilter, ColumnWhereInput>
+  }
+
+  export type ColumnStateOrderByWithRelationInput = {
+    id?: SortOrder
+    viewId?: SortOrder
+    columnId?: SortOrder
+    isHidden?: SortOrder
+    view?: ViewOrderByWithRelationInput
+    column?: ColumnOrderByWithRelationInput
+  }
+
+  export type ColumnStateWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    viewId_columnId?: ColumnStateViewIdColumnIdCompoundUniqueInput
+    AND?: ColumnStateWhereInput | ColumnStateWhereInput[]
+    OR?: ColumnStateWhereInput[]
+    NOT?: ColumnStateWhereInput | ColumnStateWhereInput[]
+    viewId?: StringFilter<"ColumnState"> | string
+    columnId?: StringFilter<"ColumnState"> | string
+    isHidden?: BoolFilter<"ColumnState"> | boolean
+    view?: XOR<ViewScalarRelationFilter, ViewWhereInput>
+    column?: XOR<ColumnScalarRelationFilter, ColumnWhereInput>
+  }, "id" | "viewId_columnId">
+
+  export type ColumnStateOrderByWithAggregationInput = {
+    id?: SortOrder
+    viewId?: SortOrder
+    columnId?: SortOrder
+    isHidden?: SortOrder
+    _count?: ColumnStateCountOrderByAggregateInput
+    _max?: ColumnStateMaxOrderByAggregateInput
+    _min?: ColumnStateMinOrderByAggregateInput
+  }
+
+  export type ColumnStateScalarWhereWithAggregatesInput = {
+    AND?: ColumnStateScalarWhereWithAggregatesInput | ColumnStateScalarWhereWithAggregatesInput[]
+    OR?: ColumnStateScalarWhereWithAggregatesInput[]
+    NOT?: ColumnStateScalarWhereWithAggregatesInput | ColumnStateScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ColumnState"> | string
+    viewId?: StringWithAggregatesFilter<"ColumnState"> | string
+    columnId?: StringWithAggregatesFilter<"ColumnState"> | string
+    isHidden?: BoolWithAggregatesFilter<"ColumnState"> | boolean
   }
 
   export type AccountCreateInput = {
@@ -7395,7 +18080,7 @@ export namespace Prisma {
     image?: string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
-    posts?: PostCreateNestedManyWithoutCreatedByInput
+    bases?: BaseCreateNestedManyWithoutOwnerInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -7406,7 +18091,7 @@ export namespace Prisma {
     image?: string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    posts?: PostUncheckedCreateNestedManyWithoutCreatedByInput
+    bases?: BaseUncheckedCreateNestedManyWithoutOwnerInput
   }
 
   export type UserUpdateInput = {
@@ -7417,7 +18102,7 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
-    posts?: PostUpdateManyWithoutCreatedByNestedInput
+    bases?: BaseUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -7428,7 +18113,7 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    posts?: PostUncheckedUpdateManyWithoutCreatedByNestedInput
+    bases?: BaseUncheckedUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -7497,15 +18182,578 @@ export namespace Prisma {
     expires?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
+  export type BaseCreateInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    owner: UserCreateNestedOneWithoutBasesInput
+    tables?: TableCreateNestedManyWithoutBaseInput
+  }
+
+  export type BaseUncheckedCreateInput = {
+    id?: string
+    name: string
+    ownerId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tables?: TableUncheckedCreateNestedManyWithoutBaseInput
+  }
+
+  export type BaseUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    owner?: UserUpdateOneRequiredWithoutBasesNestedInput
+    tables?: TableUpdateManyWithoutBaseNestedInput
+  }
+
+  export type BaseUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tables?: TableUncheckedUpdateManyWithoutBaseNestedInput
+  }
+
+  export type BaseCreateManyInput = {
+    id?: string
+    name: string
+    ownerId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BaseUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BaseUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TableCreateInput = {
+    id?: string
+    name: string
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    base: BaseCreateNestedOneWithoutTablesInput
+    columns?: ColumnCreateNestedManyWithoutTableInput
+    rows?: RowCreateNestedManyWithoutTableInput
+    views?: ViewCreateNestedManyWithoutTableInput
+  }
+
+  export type TableUncheckedCreateInput = {
+    id?: string
+    baseId: string
+    name: string
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    columns?: ColumnUncheckedCreateNestedManyWithoutTableInput
+    rows?: RowUncheckedCreateNestedManyWithoutTableInput
+    views?: ViewUncheckedCreateNestedManyWithoutTableInput
+  }
+
+  export type TableUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    base?: BaseUpdateOneRequiredWithoutTablesNestedInput
+    columns?: ColumnUpdateManyWithoutTableNestedInput
+    rows?: RowUpdateManyWithoutTableNestedInput
+    views?: ViewUpdateManyWithoutTableNestedInput
+  }
+
+  export type TableUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    baseId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    columns?: ColumnUncheckedUpdateManyWithoutTableNestedInput
+    rows?: RowUncheckedUpdateManyWithoutTableNestedInput
+    views?: ViewUncheckedUpdateManyWithoutTableNestedInput
+  }
+
+  export type TableCreateManyInput = {
+    id?: string
+    baseId: string
+    name: string
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TableUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TableUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    baseId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ColumnCreateInput = {
+    id?: string
+    name: string
+    type: $Enums.ColumnType
+    position: number
+    isHidden?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    table: TableCreateNestedOneWithoutColumnsInput
+    cells?: CellCreateNestedManyWithoutColumnInput
+    filters?: ViewFilterCreateNestedManyWithoutColumnInput
+    sorts?: ViewSortCreateNestedManyWithoutColumnInput
+    columnStates?: ColumnStateCreateNestedManyWithoutColumnInput
+  }
+
+  export type ColumnUncheckedCreateInput = {
+    id?: string
+    tableId: string
+    name: string
+    type: $Enums.ColumnType
+    position: number
+    isHidden?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cells?: CellUncheckedCreateNestedManyWithoutColumnInput
+    filters?: ViewFilterUncheckedCreateNestedManyWithoutColumnInput
+    sorts?: ViewSortUncheckedCreateNestedManyWithoutColumnInput
+    columnStates?: ColumnStateUncheckedCreateNestedManyWithoutColumnInput
+  }
+
+  export type ColumnUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: EnumColumnTypeFieldUpdateOperationsInput | $Enums.ColumnType
+    position?: IntFieldUpdateOperationsInput | number
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    table?: TableUpdateOneRequiredWithoutColumnsNestedInput
+    cells?: CellUpdateManyWithoutColumnNestedInput
+    filters?: ViewFilterUpdateManyWithoutColumnNestedInput
+    sorts?: ViewSortUpdateManyWithoutColumnNestedInput
+    columnStates?: ColumnStateUpdateManyWithoutColumnNestedInput
+  }
+
+  export type ColumnUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tableId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: EnumColumnTypeFieldUpdateOperationsInput | $Enums.ColumnType
+    position?: IntFieldUpdateOperationsInput | number
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cells?: CellUncheckedUpdateManyWithoutColumnNestedInput
+    filters?: ViewFilterUncheckedUpdateManyWithoutColumnNestedInput
+    sorts?: ViewSortUncheckedUpdateManyWithoutColumnNestedInput
+    columnStates?: ColumnStateUncheckedUpdateManyWithoutColumnNestedInput
+  }
+
+  export type ColumnCreateManyInput = {
+    id?: string
+    tableId: string
+    name: string
+    type: $Enums.ColumnType
+    position: number
+    isHidden?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ColumnUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: EnumColumnTypeFieldUpdateOperationsInput | $Enums.ColumnType
+    position?: IntFieldUpdateOperationsInput | number
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ColumnUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tableId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: EnumColumnTypeFieldUpdateOperationsInput | $Enums.ColumnType
+    position?: IntFieldUpdateOperationsInput | number
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RowCreateInput = {
+    id?: string
+    index: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    table: TableCreateNestedOneWithoutRowsInput
+    cells?: CellCreateNestedManyWithoutRowInput
+  }
+
+  export type RowUncheckedCreateInput = {
+    id?: string
+    tableId: string
+    index: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cells?: CellUncheckedCreateNestedManyWithoutRowInput
+  }
+
+  export type RowUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    table?: TableUpdateOneRequiredWithoutRowsNestedInput
+    cells?: CellUpdateManyWithoutRowNestedInput
+  }
+
+  export type RowUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tableId?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cells?: CellUncheckedUpdateManyWithoutRowNestedInput
+  }
+
+  export type RowCreateManyInput = {
+    id?: string
+    tableId: string
+    index: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type RowUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RowUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tableId?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CellCreateInput = {
+    id?: string
+    valueText?: string | null
+    valueNumber?: number | null
+    row: RowCreateNestedOneWithoutCellsInput
+    column: ColumnCreateNestedOneWithoutCellsInput
+  }
+
+  export type CellUncheckedCreateInput = {
+    id?: string
+    rowId: string
+    columnId: string
+    valueText?: string | null
+    valueNumber?: number | null
+  }
+
+  export type CellUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+    row?: RowUpdateOneRequiredWithoutCellsNestedInput
+    column?: ColumnUpdateOneRequiredWithoutCellsNestedInput
+  }
+
+  export type CellUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    rowId?: StringFieldUpdateOperationsInput | string
+    columnId?: StringFieldUpdateOperationsInput | string
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type CellCreateManyInput = {
+    id?: string
+    rowId: string
+    columnId: string
+    valueText?: string | null
+    valueNumber?: number | null
+  }
+
+  export type CellUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type CellUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    rowId?: StringFieldUpdateOperationsInput | string
+    columnId?: StringFieldUpdateOperationsInput | string
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type ViewCreateInput = {
+    id?: string
+    name: string
+    searchQuery?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    table: TableCreateNestedOneWithoutViewsInput
+    filters?: ViewFilterCreateNestedManyWithoutViewInput
+    sorts?: ViewSortCreateNestedManyWithoutViewInput
+    columnStates?: ColumnStateCreateNestedManyWithoutViewInput
+  }
+
+  export type ViewUncheckedCreateInput = {
+    id?: string
+    tableId: string
+    name: string
+    searchQuery?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    filters?: ViewFilterUncheckedCreateNestedManyWithoutViewInput
+    sorts?: ViewSortUncheckedCreateNestedManyWithoutViewInput
+    columnStates?: ColumnStateUncheckedCreateNestedManyWithoutViewInput
+  }
+
+  export type ViewUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    searchQuery?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    table?: TableUpdateOneRequiredWithoutViewsNestedInput
+    filters?: ViewFilterUpdateManyWithoutViewNestedInput
+    sorts?: ViewSortUpdateManyWithoutViewNestedInput
+    columnStates?: ColumnStateUpdateManyWithoutViewNestedInput
+  }
+
+  export type ViewUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tableId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    searchQuery?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    filters?: ViewFilterUncheckedUpdateManyWithoutViewNestedInput
+    sorts?: ViewSortUncheckedUpdateManyWithoutViewNestedInput
+    columnStates?: ColumnStateUncheckedUpdateManyWithoutViewNestedInput
+  }
+
+  export type ViewCreateManyInput = {
+    id?: string
+    tableId: string
+    name: string
+    searchQuery?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ViewUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    searchQuery?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ViewUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tableId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    searchQuery?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ViewFilterCreateInput = {
+    id?: string
+    operator: $Enums.FilterOperator
+    valueText?: string | null
+    valueNumber?: number | null
+    view: ViewCreateNestedOneWithoutFiltersInput
+    column: ColumnCreateNestedOneWithoutFiltersInput
+  }
+
+  export type ViewFilterUncheckedCreateInput = {
+    id?: string
+    viewId: string
+    columnId: string
+    operator: $Enums.FilterOperator
+    valueText?: string | null
+    valueNumber?: number | null
+  }
+
+  export type ViewFilterUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    operator?: EnumFilterOperatorFieldUpdateOperationsInput | $Enums.FilterOperator
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+    view?: ViewUpdateOneRequiredWithoutFiltersNestedInput
+    column?: ColumnUpdateOneRequiredWithoutFiltersNestedInput
+  }
+
+  export type ViewFilterUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    viewId?: StringFieldUpdateOperationsInput | string
+    columnId?: StringFieldUpdateOperationsInput | string
+    operator?: EnumFilterOperatorFieldUpdateOperationsInput | $Enums.FilterOperator
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type ViewFilterCreateManyInput = {
+    id?: string
+    viewId: string
+    columnId: string
+    operator: $Enums.FilterOperator
+    valueText?: string | null
+    valueNumber?: number | null
+  }
+
+  export type ViewFilterUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    operator?: EnumFilterOperatorFieldUpdateOperationsInput | $Enums.FilterOperator
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type ViewFilterUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    viewId?: StringFieldUpdateOperationsInput | string
+    columnId?: StringFieldUpdateOperationsInput | string
+    operator?: EnumFilterOperatorFieldUpdateOperationsInput | $Enums.FilterOperator
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type ViewSortCreateInput = {
+    id?: string
+    direction: $Enums.SortDirection
+    priority?: number
+    view: ViewCreateNestedOneWithoutSortsInput
+    column: ColumnCreateNestedOneWithoutSortsInput
+  }
+
+  export type ViewSortUncheckedCreateInput = {
+    id?: string
+    viewId: string
+    columnId: string
+    direction: $Enums.SortDirection
+    priority?: number
+  }
+
+  export type ViewSortUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    direction?: EnumSortDirectionFieldUpdateOperationsInput | $Enums.SortDirection
+    priority?: IntFieldUpdateOperationsInput | number
+    view?: ViewUpdateOneRequiredWithoutSortsNestedInput
+    column?: ColumnUpdateOneRequiredWithoutSortsNestedInput
+  }
+
+  export type ViewSortUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    viewId?: StringFieldUpdateOperationsInput | string
+    columnId?: StringFieldUpdateOperationsInput | string
+    direction?: EnumSortDirectionFieldUpdateOperationsInput | $Enums.SortDirection
+    priority?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ViewSortCreateManyInput = {
+    id?: string
+    viewId: string
+    columnId: string
+    direction: $Enums.SortDirection
+    priority?: number
+  }
+
+  export type ViewSortUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    direction?: EnumSortDirectionFieldUpdateOperationsInput | $Enums.SortDirection
+    priority?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ViewSortUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    viewId?: StringFieldUpdateOperationsInput | string
+    columnId?: StringFieldUpdateOperationsInput | string
+    direction?: EnumSortDirectionFieldUpdateOperationsInput | $Enums.SortDirection
+    priority?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ColumnStateCreateInput = {
+    id?: string
+    isHidden?: boolean
+    view: ViewCreateNestedOneWithoutColumnStatesInput
+    column: ColumnCreateNestedOneWithoutColumnStatesInput
+  }
+
+  export type ColumnStateUncheckedCreateInput = {
+    id?: string
+    viewId: string
+    columnId: string
+    isHidden?: boolean
+  }
+
+  export type ColumnStateUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    view?: ViewUpdateOneRequiredWithoutColumnStatesNestedInput
+    column?: ColumnUpdateOneRequiredWithoutColumnStatesNestedInput
+  }
+
+  export type ColumnStateUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    viewId?: StringFieldUpdateOperationsInput | string
+    columnId?: StringFieldUpdateOperationsInput | string
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ColumnStateCreateManyInput = {
+    id?: string
+    viewId: string
+    columnId: string
+    isHidden?: boolean
+  }
+
+  export type ColumnStateUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ColumnStateUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    viewId?: StringFieldUpdateOperationsInput | string
+    columnId?: StringFieldUpdateOperationsInput | string
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -7521,102 +18769,6 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
     not?: NestedStringFilter<$PrismaModel> | string
-  }
-
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
-  export type UserScalarRelationFilter = {
-    is?: UserWhereInput
-    isNot?: UserWhereInput
-  }
-
-  export type PostCountOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    createdById?: SortOrder
-  }
-
-  export type PostAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type PostMaxOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    createdById?: SortOrder
-  }
-
-  export type PostMinOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    createdById?: SortOrder
-  }
-
-  export type PostSumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type StringWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[] | ListStringFieldRefInput<$PrismaModel>
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedStringFilter<$PrismaModel>
-    _max?: NestedStringFilter<$PrismaModel>
-  }
-
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type StringNullableFilter<$PrismaModel = never> = {
@@ -7643,6 +18795,11 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type UserScalarRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
   }
 
   export type SortOrderInput = {
@@ -7713,6 +18870,24 @@ export namespace Prisma {
     refresh_token_expires_in?: SortOrder
   }
 
+  export type StringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -7747,6 +18922,17 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
   export type SessionCountOrderByAggregateInput = {
     id?: SortOrder
     sessionToken?: SortOrder
@@ -7766,6 +18952,20 @@ export namespace Prisma {
     sessionToken?: SortOrder
     userId?: SortOrder
     expires?: SortOrder
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type DateTimeNullableFilter<$PrismaModel = never> = {
@@ -7791,10 +18991,10 @@ export namespace Prisma {
     none?: SessionWhereInput
   }
 
-  export type PostListRelationFilter = {
-    every?: PostWhereInput
-    some?: PostWhereInput
-    none?: PostWhereInput
+  export type BaseListRelationFilter = {
+    every?: BaseWhereInput
+    some?: BaseWhereInput
+    none?: BaseWhereInput
   }
 
   export type AccountOrderByRelationAggregateInput = {
@@ -7805,7 +19005,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type PostOrderByRelationAggregateInput = {
+  export type BaseOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -7870,40 +19070,526 @@ export namespace Prisma {
     expires?: SortOrder
   }
 
-  export type UserCreateNestedOneWithoutPostsInput = {
-    create?: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutPostsInput
-    connect?: UserWhereUniqueInput
+  export type TableListRelationFilter = {
+    every?: TableWhereInput
+    some?: TableWhereInput
+    none?: TableWhereInput
   }
 
-  export type StringFieldUpdateOperationsInput = {
-    set?: string
+  export type TableOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
+  export type BaseCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    ownerId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type UserUpdateOneRequiredWithoutPostsNestedInput = {
-    create?: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutPostsInput
-    upsert?: UserUpsertWithoutPostsInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPostsInput, UserUpdateWithoutPostsInput>, UserUncheckedUpdateWithoutPostsInput>
+  export type BaseMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    ownerId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
+  export type BaseMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    ownerId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type BaseScalarRelationFilter = {
+    is?: BaseWhereInput
+    isNot?: BaseWhereInput
+  }
+
+  export type ColumnListRelationFilter = {
+    every?: ColumnWhereInput
+    some?: ColumnWhereInput
+    none?: ColumnWhereInput
+  }
+
+  export type RowListRelationFilter = {
+    every?: RowWhereInput
+    some?: RowWhereInput
+    none?: RowWhereInput
+  }
+
+  export type ViewListRelationFilter = {
+    every?: ViewWhereInput
+    some?: ViewWhereInput
+    none?: ViewWhereInput
+  }
+
+  export type ColumnOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type RowOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ViewOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type TableCountOrderByAggregateInput = {
+    id?: SortOrder
+    baseId?: SortOrder
+    name?: SortOrder
+    position?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TableAvgOrderByAggregateInput = {
+    position?: SortOrder
+  }
+
+  export type TableMaxOrderByAggregateInput = {
+    id?: SortOrder
+    baseId?: SortOrder
+    name?: SortOrder
+    position?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TableMinOrderByAggregateInput = {
+    id?: SortOrder
+    baseId?: SortOrder
+    name?: SortOrder
+    position?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TableSumOrderByAggregateInput = {
+    position?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type EnumColumnTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.ColumnType | EnumColumnTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.ColumnType[] | ListEnumColumnTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ColumnType[] | ListEnumColumnTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumColumnTypeFilter<$PrismaModel> | $Enums.ColumnType
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type TableScalarRelationFilter = {
+    is?: TableWhereInput
+    isNot?: TableWhereInput
+  }
+
+  export type CellListRelationFilter = {
+    every?: CellWhereInput
+    some?: CellWhereInput
+    none?: CellWhereInput
+  }
+
+  export type ViewFilterListRelationFilter = {
+    every?: ViewFilterWhereInput
+    some?: ViewFilterWhereInput
+    none?: ViewFilterWhereInput
+  }
+
+  export type ViewSortListRelationFilter = {
+    every?: ViewSortWhereInput
+    some?: ViewSortWhereInput
+    none?: ViewSortWhereInput
+  }
+
+  export type ColumnStateListRelationFilter = {
+    every?: ColumnStateWhereInput
+    some?: ColumnStateWhereInput
+    none?: ColumnStateWhereInput
+  }
+
+  export type CellOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ViewFilterOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ViewSortOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ColumnStateOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ColumnCountOrderByAggregateInput = {
+    id?: SortOrder
+    tableId?: SortOrder
+    name?: SortOrder
+    type?: SortOrder
+    position?: SortOrder
+    isHidden?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ColumnAvgOrderByAggregateInput = {
+    position?: SortOrder
+  }
+
+  export type ColumnMaxOrderByAggregateInput = {
+    id?: SortOrder
+    tableId?: SortOrder
+    name?: SortOrder
+    type?: SortOrder
+    position?: SortOrder
+    isHidden?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ColumnMinOrderByAggregateInput = {
+    id?: SortOrder
+    tableId?: SortOrder
+    name?: SortOrder
+    type?: SortOrder
+    position?: SortOrder
+    isHidden?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ColumnSumOrderByAggregateInput = {
+    position?: SortOrder
+  }
+
+  export type EnumColumnTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ColumnType | EnumColumnTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.ColumnType[] | ListEnumColumnTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ColumnType[] | ListEnumColumnTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumColumnTypeWithAggregatesFilter<$PrismaModel> | $Enums.ColumnType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumColumnTypeFilter<$PrismaModel>
+    _max?: NestedEnumColumnTypeFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type RowCountOrderByAggregateInput = {
+    id?: SortOrder
+    tableId?: SortOrder
+    index?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type RowAvgOrderByAggregateInput = {
+    index?: SortOrder
+  }
+
+  export type RowMaxOrderByAggregateInput = {
+    id?: SortOrder
+    tableId?: SortOrder
+    index?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type RowMinOrderByAggregateInput = {
+    id?: SortOrder
+    tableId?: SortOrder
+    index?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type RowSumOrderByAggregateInput = {
+    index?: SortOrder
+  }
+
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type RowScalarRelationFilter = {
+    is?: RowWhereInput
+    isNot?: RowWhereInput
+  }
+
+  export type ColumnScalarRelationFilter = {
+    is?: ColumnWhereInput
+    isNot?: ColumnWhereInput
+  }
+
+  export type CellRowIdColumnIdCompoundUniqueInput = {
+    rowId: string
+    columnId: string
+  }
+
+  export type CellCountOrderByAggregateInput = {
+    id?: SortOrder
+    rowId?: SortOrder
+    columnId?: SortOrder
+    valueText?: SortOrder
+    valueNumber?: SortOrder
+  }
+
+  export type CellAvgOrderByAggregateInput = {
+    valueNumber?: SortOrder
+  }
+
+  export type CellMaxOrderByAggregateInput = {
+    id?: SortOrder
+    rowId?: SortOrder
+    columnId?: SortOrder
+    valueText?: SortOrder
+    valueNumber?: SortOrder
+  }
+
+  export type CellMinOrderByAggregateInput = {
+    id?: SortOrder
+    rowId?: SortOrder
+    columnId?: SortOrder
+    valueText?: SortOrder
+    valueNumber?: SortOrder
+  }
+
+  export type CellSumOrderByAggregateInput = {
+    valueNumber?: SortOrder
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type ViewCountOrderByAggregateInput = {
+    id?: SortOrder
+    tableId?: SortOrder
+    name?: SortOrder
+    searchQuery?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ViewMaxOrderByAggregateInput = {
+    id?: SortOrder
+    tableId?: SortOrder
+    name?: SortOrder
+    searchQuery?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ViewMinOrderByAggregateInput = {
+    id?: SortOrder
+    tableId?: SortOrder
+    name?: SortOrder
+    searchQuery?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EnumFilterOperatorFilter<$PrismaModel = never> = {
+    equals?: $Enums.FilterOperator | EnumFilterOperatorFieldRefInput<$PrismaModel>
+    in?: $Enums.FilterOperator[] | ListEnumFilterOperatorFieldRefInput<$PrismaModel>
+    notIn?: $Enums.FilterOperator[] | ListEnumFilterOperatorFieldRefInput<$PrismaModel>
+    not?: NestedEnumFilterOperatorFilter<$PrismaModel> | $Enums.FilterOperator
+  }
+
+  export type ViewScalarRelationFilter = {
+    is?: ViewWhereInput
+    isNot?: ViewWhereInput
+  }
+
+  export type ViewFilterCountOrderByAggregateInput = {
+    id?: SortOrder
+    viewId?: SortOrder
+    columnId?: SortOrder
+    operator?: SortOrder
+    valueText?: SortOrder
+    valueNumber?: SortOrder
+  }
+
+  export type ViewFilterAvgOrderByAggregateInput = {
+    valueNumber?: SortOrder
+  }
+
+  export type ViewFilterMaxOrderByAggregateInput = {
+    id?: SortOrder
+    viewId?: SortOrder
+    columnId?: SortOrder
+    operator?: SortOrder
+    valueText?: SortOrder
+    valueNumber?: SortOrder
+  }
+
+  export type ViewFilterMinOrderByAggregateInput = {
+    id?: SortOrder
+    viewId?: SortOrder
+    columnId?: SortOrder
+    operator?: SortOrder
+    valueText?: SortOrder
+    valueNumber?: SortOrder
+  }
+
+  export type ViewFilterSumOrderByAggregateInput = {
+    valueNumber?: SortOrder
+  }
+
+  export type EnumFilterOperatorWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.FilterOperator | EnumFilterOperatorFieldRefInput<$PrismaModel>
+    in?: $Enums.FilterOperator[] | ListEnumFilterOperatorFieldRefInput<$PrismaModel>
+    notIn?: $Enums.FilterOperator[] | ListEnumFilterOperatorFieldRefInput<$PrismaModel>
+    not?: NestedEnumFilterOperatorWithAggregatesFilter<$PrismaModel> | $Enums.FilterOperator
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumFilterOperatorFilter<$PrismaModel>
+    _max?: NestedEnumFilterOperatorFilter<$PrismaModel>
+  }
+
+  export type EnumSortDirectionFilter<$PrismaModel = never> = {
+    equals?: $Enums.SortDirection | EnumSortDirectionFieldRefInput<$PrismaModel>
+    in?: $Enums.SortDirection[] | ListEnumSortDirectionFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SortDirection[] | ListEnumSortDirectionFieldRefInput<$PrismaModel>
+    not?: NestedEnumSortDirectionFilter<$PrismaModel> | $Enums.SortDirection
+  }
+
+  export type ViewSortCountOrderByAggregateInput = {
+    id?: SortOrder
+    viewId?: SortOrder
+    columnId?: SortOrder
+    direction?: SortOrder
+    priority?: SortOrder
+  }
+
+  export type ViewSortAvgOrderByAggregateInput = {
+    priority?: SortOrder
+  }
+
+  export type ViewSortMaxOrderByAggregateInput = {
+    id?: SortOrder
+    viewId?: SortOrder
+    columnId?: SortOrder
+    direction?: SortOrder
+    priority?: SortOrder
+  }
+
+  export type ViewSortMinOrderByAggregateInput = {
+    id?: SortOrder
+    viewId?: SortOrder
+    columnId?: SortOrder
+    direction?: SortOrder
+    priority?: SortOrder
+  }
+
+  export type ViewSortSumOrderByAggregateInput = {
+    priority?: SortOrder
+  }
+
+  export type EnumSortDirectionWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.SortDirection | EnumSortDirectionFieldRefInput<$PrismaModel>
+    in?: $Enums.SortDirection[] | ListEnumSortDirectionFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SortDirection[] | ListEnumSortDirectionFieldRefInput<$PrismaModel>
+    not?: NestedEnumSortDirectionWithAggregatesFilter<$PrismaModel> | $Enums.SortDirection
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSortDirectionFilter<$PrismaModel>
+    _max?: NestedEnumSortDirectionFilter<$PrismaModel>
+  }
+
+  export type ColumnStateViewIdColumnIdCompoundUniqueInput = {
+    viewId: string
+    columnId: string
+  }
+
+  export type ColumnStateCountOrderByAggregateInput = {
+    id?: SortOrder
+    viewId?: SortOrder
+    columnId?: SortOrder
+    isHidden?: SortOrder
+  }
+
+  export type ColumnStateMaxOrderByAggregateInput = {
+    id?: SortOrder
+    viewId?: SortOrder
+    columnId?: SortOrder
+    isHidden?: SortOrder
+  }
+
+  export type ColumnStateMinOrderByAggregateInput = {
+    id?: SortOrder
+    viewId?: SortOrder
+    columnId?: SortOrder
+    isHidden?: SortOrder
   }
 
   export type UserCreateNestedOneWithoutAccountsInput = {
     create?: XOR<UserCreateWithoutAccountsInput, UserUncheckedCreateWithoutAccountsInput>
     connectOrCreate?: UserCreateOrConnectWithoutAccountsInput
     connect?: UserWhereUniqueInput
+  }
+
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -7932,6 +19618,10 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
   export type UserUpdateOneRequiredWithoutSessionsNestedInput = {
     create?: XOR<UserCreateWithoutSessionsInput, UserUncheckedCreateWithoutSessionsInput>
     connectOrCreate?: UserCreateOrConnectWithoutSessionsInput
@@ -7954,11 +19644,11 @@ export namespace Prisma {
     connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
   }
 
-  export type PostCreateNestedManyWithoutCreatedByInput = {
-    create?: XOR<PostCreateWithoutCreatedByInput, PostUncheckedCreateWithoutCreatedByInput> | PostCreateWithoutCreatedByInput[] | PostUncheckedCreateWithoutCreatedByInput[]
-    connectOrCreate?: PostCreateOrConnectWithoutCreatedByInput | PostCreateOrConnectWithoutCreatedByInput[]
-    createMany?: PostCreateManyCreatedByInputEnvelope
-    connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
+  export type BaseCreateNestedManyWithoutOwnerInput = {
+    create?: XOR<BaseCreateWithoutOwnerInput, BaseUncheckedCreateWithoutOwnerInput> | BaseCreateWithoutOwnerInput[] | BaseUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: BaseCreateOrConnectWithoutOwnerInput | BaseCreateOrConnectWithoutOwnerInput[]
+    createMany?: BaseCreateManyOwnerInputEnvelope
+    connect?: BaseWhereUniqueInput | BaseWhereUniqueInput[]
   }
 
   export type AccountUncheckedCreateNestedManyWithoutUserInput = {
@@ -7975,11 +19665,11 @@ export namespace Prisma {
     connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
   }
 
-  export type PostUncheckedCreateNestedManyWithoutCreatedByInput = {
-    create?: XOR<PostCreateWithoutCreatedByInput, PostUncheckedCreateWithoutCreatedByInput> | PostCreateWithoutCreatedByInput[] | PostUncheckedCreateWithoutCreatedByInput[]
-    connectOrCreate?: PostCreateOrConnectWithoutCreatedByInput | PostCreateOrConnectWithoutCreatedByInput[]
-    createMany?: PostCreateManyCreatedByInputEnvelope
-    connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
+  export type BaseUncheckedCreateNestedManyWithoutOwnerInput = {
+    create?: XOR<BaseCreateWithoutOwnerInput, BaseUncheckedCreateWithoutOwnerInput> | BaseCreateWithoutOwnerInput[] | BaseUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: BaseCreateOrConnectWithoutOwnerInput | BaseCreateOrConnectWithoutOwnerInput[]
+    createMany?: BaseCreateManyOwnerInputEnvelope
+    connect?: BaseWhereUniqueInput | BaseWhereUniqueInput[]
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -8014,18 +19704,18 @@ export namespace Prisma {
     deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
   }
 
-  export type PostUpdateManyWithoutCreatedByNestedInput = {
-    create?: XOR<PostCreateWithoutCreatedByInput, PostUncheckedCreateWithoutCreatedByInput> | PostCreateWithoutCreatedByInput[] | PostUncheckedCreateWithoutCreatedByInput[]
-    connectOrCreate?: PostCreateOrConnectWithoutCreatedByInput | PostCreateOrConnectWithoutCreatedByInput[]
-    upsert?: PostUpsertWithWhereUniqueWithoutCreatedByInput | PostUpsertWithWhereUniqueWithoutCreatedByInput[]
-    createMany?: PostCreateManyCreatedByInputEnvelope
-    set?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    disconnect?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    delete?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    update?: PostUpdateWithWhereUniqueWithoutCreatedByInput | PostUpdateWithWhereUniqueWithoutCreatedByInput[]
-    updateMany?: PostUpdateManyWithWhereWithoutCreatedByInput | PostUpdateManyWithWhereWithoutCreatedByInput[]
-    deleteMany?: PostScalarWhereInput | PostScalarWhereInput[]
+  export type BaseUpdateManyWithoutOwnerNestedInput = {
+    create?: XOR<BaseCreateWithoutOwnerInput, BaseUncheckedCreateWithoutOwnerInput> | BaseCreateWithoutOwnerInput[] | BaseUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: BaseCreateOrConnectWithoutOwnerInput | BaseCreateOrConnectWithoutOwnerInput[]
+    upsert?: BaseUpsertWithWhereUniqueWithoutOwnerInput | BaseUpsertWithWhereUniqueWithoutOwnerInput[]
+    createMany?: BaseCreateManyOwnerInputEnvelope
+    set?: BaseWhereUniqueInput | BaseWhereUniqueInput[]
+    disconnect?: BaseWhereUniqueInput | BaseWhereUniqueInput[]
+    delete?: BaseWhereUniqueInput | BaseWhereUniqueInput[]
+    connect?: BaseWhereUniqueInput | BaseWhereUniqueInput[]
+    update?: BaseUpdateWithWhereUniqueWithoutOwnerInput | BaseUpdateWithWhereUniqueWithoutOwnerInput[]
+    updateMany?: BaseUpdateManyWithWhereWithoutOwnerInput | BaseUpdateManyWithWhereWithoutOwnerInput[]
+    deleteMany?: BaseScalarWhereInput | BaseScalarWhereInput[]
   }
 
   export type AccountUncheckedUpdateManyWithoutUserNestedInput = {
@@ -8056,29 +19746,736 @@ export namespace Prisma {
     deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
   }
 
-  export type PostUncheckedUpdateManyWithoutCreatedByNestedInput = {
-    create?: XOR<PostCreateWithoutCreatedByInput, PostUncheckedCreateWithoutCreatedByInput> | PostCreateWithoutCreatedByInput[] | PostUncheckedCreateWithoutCreatedByInput[]
-    connectOrCreate?: PostCreateOrConnectWithoutCreatedByInput | PostCreateOrConnectWithoutCreatedByInput[]
-    upsert?: PostUpsertWithWhereUniqueWithoutCreatedByInput | PostUpsertWithWhereUniqueWithoutCreatedByInput[]
-    createMany?: PostCreateManyCreatedByInputEnvelope
-    set?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    disconnect?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    delete?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    update?: PostUpdateWithWhereUniqueWithoutCreatedByInput | PostUpdateWithWhereUniqueWithoutCreatedByInput[]
-    updateMany?: PostUpdateManyWithWhereWithoutCreatedByInput | PostUpdateManyWithWhereWithoutCreatedByInput[]
-    deleteMany?: PostScalarWhereInput | PostScalarWhereInput[]
+  export type BaseUncheckedUpdateManyWithoutOwnerNestedInput = {
+    create?: XOR<BaseCreateWithoutOwnerInput, BaseUncheckedCreateWithoutOwnerInput> | BaseCreateWithoutOwnerInput[] | BaseUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: BaseCreateOrConnectWithoutOwnerInput | BaseCreateOrConnectWithoutOwnerInput[]
+    upsert?: BaseUpsertWithWhereUniqueWithoutOwnerInput | BaseUpsertWithWhereUniqueWithoutOwnerInput[]
+    createMany?: BaseCreateManyOwnerInputEnvelope
+    set?: BaseWhereUniqueInput | BaseWhereUniqueInput[]
+    disconnect?: BaseWhereUniqueInput | BaseWhereUniqueInput[]
+    delete?: BaseWhereUniqueInput | BaseWhereUniqueInput[]
+    connect?: BaseWhereUniqueInput | BaseWhereUniqueInput[]
+    update?: BaseUpdateWithWhereUniqueWithoutOwnerInput | BaseUpdateWithWhereUniqueWithoutOwnerInput[]
+    updateMany?: BaseUpdateManyWithWhereWithoutOwnerInput | BaseUpdateManyWithWhereWithoutOwnerInput[]
+    deleteMany?: BaseScalarWhereInput | BaseScalarWhereInput[]
   }
 
-  export type NestedIntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
+  export type UserCreateNestedOneWithoutBasesInput = {
+    create?: XOR<UserCreateWithoutBasesInput, UserUncheckedCreateWithoutBasesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutBasesInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type TableCreateNestedManyWithoutBaseInput = {
+    create?: XOR<TableCreateWithoutBaseInput, TableUncheckedCreateWithoutBaseInput> | TableCreateWithoutBaseInput[] | TableUncheckedCreateWithoutBaseInput[]
+    connectOrCreate?: TableCreateOrConnectWithoutBaseInput | TableCreateOrConnectWithoutBaseInput[]
+    createMany?: TableCreateManyBaseInputEnvelope
+    connect?: TableWhereUniqueInput | TableWhereUniqueInput[]
+  }
+
+  export type TableUncheckedCreateNestedManyWithoutBaseInput = {
+    create?: XOR<TableCreateWithoutBaseInput, TableUncheckedCreateWithoutBaseInput> | TableCreateWithoutBaseInput[] | TableUncheckedCreateWithoutBaseInput[]
+    connectOrCreate?: TableCreateOrConnectWithoutBaseInput | TableCreateOrConnectWithoutBaseInput[]
+    createMany?: TableCreateManyBaseInputEnvelope
+    connect?: TableWhereUniqueInput | TableWhereUniqueInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutBasesNestedInput = {
+    create?: XOR<UserCreateWithoutBasesInput, UserUncheckedCreateWithoutBasesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutBasesInput
+    upsert?: UserUpsertWithoutBasesInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutBasesInput, UserUpdateWithoutBasesInput>, UserUncheckedUpdateWithoutBasesInput>
+  }
+
+  export type TableUpdateManyWithoutBaseNestedInput = {
+    create?: XOR<TableCreateWithoutBaseInput, TableUncheckedCreateWithoutBaseInput> | TableCreateWithoutBaseInput[] | TableUncheckedCreateWithoutBaseInput[]
+    connectOrCreate?: TableCreateOrConnectWithoutBaseInput | TableCreateOrConnectWithoutBaseInput[]
+    upsert?: TableUpsertWithWhereUniqueWithoutBaseInput | TableUpsertWithWhereUniqueWithoutBaseInput[]
+    createMany?: TableCreateManyBaseInputEnvelope
+    set?: TableWhereUniqueInput | TableWhereUniqueInput[]
+    disconnect?: TableWhereUniqueInput | TableWhereUniqueInput[]
+    delete?: TableWhereUniqueInput | TableWhereUniqueInput[]
+    connect?: TableWhereUniqueInput | TableWhereUniqueInput[]
+    update?: TableUpdateWithWhereUniqueWithoutBaseInput | TableUpdateWithWhereUniqueWithoutBaseInput[]
+    updateMany?: TableUpdateManyWithWhereWithoutBaseInput | TableUpdateManyWithWhereWithoutBaseInput[]
+    deleteMany?: TableScalarWhereInput | TableScalarWhereInput[]
+  }
+
+  export type TableUncheckedUpdateManyWithoutBaseNestedInput = {
+    create?: XOR<TableCreateWithoutBaseInput, TableUncheckedCreateWithoutBaseInput> | TableCreateWithoutBaseInput[] | TableUncheckedCreateWithoutBaseInput[]
+    connectOrCreate?: TableCreateOrConnectWithoutBaseInput | TableCreateOrConnectWithoutBaseInput[]
+    upsert?: TableUpsertWithWhereUniqueWithoutBaseInput | TableUpsertWithWhereUniqueWithoutBaseInput[]
+    createMany?: TableCreateManyBaseInputEnvelope
+    set?: TableWhereUniqueInput | TableWhereUniqueInput[]
+    disconnect?: TableWhereUniqueInput | TableWhereUniqueInput[]
+    delete?: TableWhereUniqueInput | TableWhereUniqueInput[]
+    connect?: TableWhereUniqueInput | TableWhereUniqueInput[]
+    update?: TableUpdateWithWhereUniqueWithoutBaseInput | TableUpdateWithWhereUniqueWithoutBaseInput[]
+    updateMany?: TableUpdateManyWithWhereWithoutBaseInput | TableUpdateManyWithWhereWithoutBaseInput[]
+    deleteMany?: TableScalarWhereInput | TableScalarWhereInput[]
+  }
+
+  export type BaseCreateNestedOneWithoutTablesInput = {
+    create?: XOR<BaseCreateWithoutTablesInput, BaseUncheckedCreateWithoutTablesInput>
+    connectOrCreate?: BaseCreateOrConnectWithoutTablesInput
+    connect?: BaseWhereUniqueInput
+  }
+
+  export type ColumnCreateNestedManyWithoutTableInput = {
+    create?: XOR<ColumnCreateWithoutTableInput, ColumnUncheckedCreateWithoutTableInput> | ColumnCreateWithoutTableInput[] | ColumnUncheckedCreateWithoutTableInput[]
+    connectOrCreate?: ColumnCreateOrConnectWithoutTableInput | ColumnCreateOrConnectWithoutTableInput[]
+    createMany?: ColumnCreateManyTableInputEnvelope
+    connect?: ColumnWhereUniqueInput | ColumnWhereUniqueInput[]
+  }
+
+  export type RowCreateNestedManyWithoutTableInput = {
+    create?: XOR<RowCreateWithoutTableInput, RowUncheckedCreateWithoutTableInput> | RowCreateWithoutTableInput[] | RowUncheckedCreateWithoutTableInput[]
+    connectOrCreate?: RowCreateOrConnectWithoutTableInput | RowCreateOrConnectWithoutTableInput[]
+    createMany?: RowCreateManyTableInputEnvelope
+    connect?: RowWhereUniqueInput | RowWhereUniqueInput[]
+  }
+
+  export type ViewCreateNestedManyWithoutTableInput = {
+    create?: XOR<ViewCreateWithoutTableInput, ViewUncheckedCreateWithoutTableInput> | ViewCreateWithoutTableInput[] | ViewUncheckedCreateWithoutTableInput[]
+    connectOrCreate?: ViewCreateOrConnectWithoutTableInput | ViewCreateOrConnectWithoutTableInput[]
+    createMany?: ViewCreateManyTableInputEnvelope
+    connect?: ViewWhereUniqueInput | ViewWhereUniqueInput[]
+  }
+
+  export type ColumnUncheckedCreateNestedManyWithoutTableInput = {
+    create?: XOR<ColumnCreateWithoutTableInput, ColumnUncheckedCreateWithoutTableInput> | ColumnCreateWithoutTableInput[] | ColumnUncheckedCreateWithoutTableInput[]
+    connectOrCreate?: ColumnCreateOrConnectWithoutTableInput | ColumnCreateOrConnectWithoutTableInput[]
+    createMany?: ColumnCreateManyTableInputEnvelope
+    connect?: ColumnWhereUniqueInput | ColumnWhereUniqueInput[]
+  }
+
+  export type RowUncheckedCreateNestedManyWithoutTableInput = {
+    create?: XOR<RowCreateWithoutTableInput, RowUncheckedCreateWithoutTableInput> | RowCreateWithoutTableInput[] | RowUncheckedCreateWithoutTableInput[]
+    connectOrCreate?: RowCreateOrConnectWithoutTableInput | RowCreateOrConnectWithoutTableInput[]
+    createMany?: RowCreateManyTableInputEnvelope
+    connect?: RowWhereUniqueInput | RowWhereUniqueInput[]
+  }
+
+  export type ViewUncheckedCreateNestedManyWithoutTableInput = {
+    create?: XOR<ViewCreateWithoutTableInput, ViewUncheckedCreateWithoutTableInput> | ViewCreateWithoutTableInput[] | ViewUncheckedCreateWithoutTableInput[]
+    connectOrCreate?: ViewCreateOrConnectWithoutTableInput | ViewCreateOrConnectWithoutTableInput[]
+    createMany?: ViewCreateManyTableInputEnvelope
+    connect?: ViewWhereUniqueInput | ViewWhereUniqueInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type BaseUpdateOneRequiredWithoutTablesNestedInput = {
+    create?: XOR<BaseCreateWithoutTablesInput, BaseUncheckedCreateWithoutTablesInput>
+    connectOrCreate?: BaseCreateOrConnectWithoutTablesInput
+    upsert?: BaseUpsertWithoutTablesInput
+    connect?: BaseWhereUniqueInput
+    update?: XOR<XOR<BaseUpdateToOneWithWhereWithoutTablesInput, BaseUpdateWithoutTablesInput>, BaseUncheckedUpdateWithoutTablesInput>
+  }
+
+  export type ColumnUpdateManyWithoutTableNestedInput = {
+    create?: XOR<ColumnCreateWithoutTableInput, ColumnUncheckedCreateWithoutTableInput> | ColumnCreateWithoutTableInput[] | ColumnUncheckedCreateWithoutTableInput[]
+    connectOrCreate?: ColumnCreateOrConnectWithoutTableInput | ColumnCreateOrConnectWithoutTableInput[]
+    upsert?: ColumnUpsertWithWhereUniqueWithoutTableInput | ColumnUpsertWithWhereUniqueWithoutTableInput[]
+    createMany?: ColumnCreateManyTableInputEnvelope
+    set?: ColumnWhereUniqueInput | ColumnWhereUniqueInput[]
+    disconnect?: ColumnWhereUniqueInput | ColumnWhereUniqueInput[]
+    delete?: ColumnWhereUniqueInput | ColumnWhereUniqueInput[]
+    connect?: ColumnWhereUniqueInput | ColumnWhereUniqueInput[]
+    update?: ColumnUpdateWithWhereUniqueWithoutTableInput | ColumnUpdateWithWhereUniqueWithoutTableInput[]
+    updateMany?: ColumnUpdateManyWithWhereWithoutTableInput | ColumnUpdateManyWithWhereWithoutTableInput[]
+    deleteMany?: ColumnScalarWhereInput | ColumnScalarWhereInput[]
+  }
+
+  export type RowUpdateManyWithoutTableNestedInput = {
+    create?: XOR<RowCreateWithoutTableInput, RowUncheckedCreateWithoutTableInput> | RowCreateWithoutTableInput[] | RowUncheckedCreateWithoutTableInput[]
+    connectOrCreate?: RowCreateOrConnectWithoutTableInput | RowCreateOrConnectWithoutTableInput[]
+    upsert?: RowUpsertWithWhereUniqueWithoutTableInput | RowUpsertWithWhereUniqueWithoutTableInput[]
+    createMany?: RowCreateManyTableInputEnvelope
+    set?: RowWhereUniqueInput | RowWhereUniqueInput[]
+    disconnect?: RowWhereUniqueInput | RowWhereUniqueInput[]
+    delete?: RowWhereUniqueInput | RowWhereUniqueInput[]
+    connect?: RowWhereUniqueInput | RowWhereUniqueInput[]
+    update?: RowUpdateWithWhereUniqueWithoutTableInput | RowUpdateWithWhereUniqueWithoutTableInput[]
+    updateMany?: RowUpdateManyWithWhereWithoutTableInput | RowUpdateManyWithWhereWithoutTableInput[]
+    deleteMany?: RowScalarWhereInput | RowScalarWhereInput[]
+  }
+
+  export type ViewUpdateManyWithoutTableNestedInput = {
+    create?: XOR<ViewCreateWithoutTableInput, ViewUncheckedCreateWithoutTableInput> | ViewCreateWithoutTableInput[] | ViewUncheckedCreateWithoutTableInput[]
+    connectOrCreate?: ViewCreateOrConnectWithoutTableInput | ViewCreateOrConnectWithoutTableInput[]
+    upsert?: ViewUpsertWithWhereUniqueWithoutTableInput | ViewUpsertWithWhereUniqueWithoutTableInput[]
+    createMany?: ViewCreateManyTableInputEnvelope
+    set?: ViewWhereUniqueInput | ViewWhereUniqueInput[]
+    disconnect?: ViewWhereUniqueInput | ViewWhereUniqueInput[]
+    delete?: ViewWhereUniqueInput | ViewWhereUniqueInput[]
+    connect?: ViewWhereUniqueInput | ViewWhereUniqueInput[]
+    update?: ViewUpdateWithWhereUniqueWithoutTableInput | ViewUpdateWithWhereUniqueWithoutTableInput[]
+    updateMany?: ViewUpdateManyWithWhereWithoutTableInput | ViewUpdateManyWithWhereWithoutTableInput[]
+    deleteMany?: ViewScalarWhereInput | ViewScalarWhereInput[]
+  }
+
+  export type ColumnUncheckedUpdateManyWithoutTableNestedInput = {
+    create?: XOR<ColumnCreateWithoutTableInput, ColumnUncheckedCreateWithoutTableInput> | ColumnCreateWithoutTableInput[] | ColumnUncheckedCreateWithoutTableInput[]
+    connectOrCreate?: ColumnCreateOrConnectWithoutTableInput | ColumnCreateOrConnectWithoutTableInput[]
+    upsert?: ColumnUpsertWithWhereUniqueWithoutTableInput | ColumnUpsertWithWhereUniqueWithoutTableInput[]
+    createMany?: ColumnCreateManyTableInputEnvelope
+    set?: ColumnWhereUniqueInput | ColumnWhereUniqueInput[]
+    disconnect?: ColumnWhereUniqueInput | ColumnWhereUniqueInput[]
+    delete?: ColumnWhereUniqueInput | ColumnWhereUniqueInput[]
+    connect?: ColumnWhereUniqueInput | ColumnWhereUniqueInput[]
+    update?: ColumnUpdateWithWhereUniqueWithoutTableInput | ColumnUpdateWithWhereUniqueWithoutTableInput[]
+    updateMany?: ColumnUpdateManyWithWhereWithoutTableInput | ColumnUpdateManyWithWhereWithoutTableInput[]
+    deleteMany?: ColumnScalarWhereInput | ColumnScalarWhereInput[]
+  }
+
+  export type RowUncheckedUpdateManyWithoutTableNestedInput = {
+    create?: XOR<RowCreateWithoutTableInput, RowUncheckedCreateWithoutTableInput> | RowCreateWithoutTableInput[] | RowUncheckedCreateWithoutTableInput[]
+    connectOrCreate?: RowCreateOrConnectWithoutTableInput | RowCreateOrConnectWithoutTableInput[]
+    upsert?: RowUpsertWithWhereUniqueWithoutTableInput | RowUpsertWithWhereUniqueWithoutTableInput[]
+    createMany?: RowCreateManyTableInputEnvelope
+    set?: RowWhereUniqueInput | RowWhereUniqueInput[]
+    disconnect?: RowWhereUniqueInput | RowWhereUniqueInput[]
+    delete?: RowWhereUniqueInput | RowWhereUniqueInput[]
+    connect?: RowWhereUniqueInput | RowWhereUniqueInput[]
+    update?: RowUpdateWithWhereUniqueWithoutTableInput | RowUpdateWithWhereUniqueWithoutTableInput[]
+    updateMany?: RowUpdateManyWithWhereWithoutTableInput | RowUpdateManyWithWhereWithoutTableInput[]
+    deleteMany?: RowScalarWhereInput | RowScalarWhereInput[]
+  }
+
+  export type ViewUncheckedUpdateManyWithoutTableNestedInput = {
+    create?: XOR<ViewCreateWithoutTableInput, ViewUncheckedCreateWithoutTableInput> | ViewCreateWithoutTableInput[] | ViewUncheckedCreateWithoutTableInput[]
+    connectOrCreate?: ViewCreateOrConnectWithoutTableInput | ViewCreateOrConnectWithoutTableInput[]
+    upsert?: ViewUpsertWithWhereUniqueWithoutTableInput | ViewUpsertWithWhereUniqueWithoutTableInput[]
+    createMany?: ViewCreateManyTableInputEnvelope
+    set?: ViewWhereUniqueInput | ViewWhereUniqueInput[]
+    disconnect?: ViewWhereUniqueInput | ViewWhereUniqueInput[]
+    delete?: ViewWhereUniqueInput | ViewWhereUniqueInput[]
+    connect?: ViewWhereUniqueInput | ViewWhereUniqueInput[]
+    update?: ViewUpdateWithWhereUniqueWithoutTableInput | ViewUpdateWithWhereUniqueWithoutTableInput[]
+    updateMany?: ViewUpdateManyWithWhereWithoutTableInput | ViewUpdateManyWithWhereWithoutTableInput[]
+    deleteMany?: ViewScalarWhereInput | ViewScalarWhereInput[]
+  }
+
+  export type TableCreateNestedOneWithoutColumnsInput = {
+    create?: XOR<TableCreateWithoutColumnsInput, TableUncheckedCreateWithoutColumnsInput>
+    connectOrCreate?: TableCreateOrConnectWithoutColumnsInput
+    connect?: TableWhereUniqueInput
+  }
+
+  export type CellCreateNestedManyWithoutColumnInput = {
+    create?: XOR<CellCreateWithoutColumnInput, CellUncheckedCreateWithoutColumnInput> | CellCreateWithoutColumnInput[] | CellUncheckedCreateWithoutColumnInput[]
+    connectOrCreate?: CellCreateOrConnectWithoutColumnInput | CellCreateOrConnectWithoutColumnInput[]
+    createMany?: CellCreateManyColumnInputEnvelope
+    connect?: CellWhereUniqueInput | CellWhereUniqueInput[]
+  }
+
+  export type ViewFilterCreateNestedManyWithoutColumnInput = {
+    create?: XOR<ViewFilterCreateWithoutColumnInput, ViewFilterUncheckedCreateWithoutColumnInput> | ViewFilterCreateWithoutColumnInput[] | ViewFilterUncheckedCreateWithoutColumnInput[]
+    connectOrCreate?: ViewFilterCreateOrConnectWithoutColumnInput | ViewFilterCreateOrConnectWithoutColumnInput[]
+    createMany?: ViewFilterCreateManyColumnInputEnvelope
+    connect?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+  }
+
+  export type ViewSortCreateNestedManyWithoutColumnInput = {
+    create?: XOR<ViewSortCreateWithoutColumnInput, ViewSortUncheckedCreateWithoutColumnInput> | ViewSortCreateWithoutColumnInput[] | ViewSortUncheckedCreateWithoutColumnInput[]
+    connectOrCreate?: ViewSortCreateOrConnectWithoutColumnInput | ViewSortCreateOrConnectWithoutColumnInput[]
+    createMany?: ViewSortCreateManyColumnInputEnvelope
+    connect?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+  }
+
+  export type ColumnStateCreateNestedManyWithoutColumnInput = {
+    create?: XOR<ColumnStateCreateWithoutColumnInput, ColumnStateUncheckedCreateWithoutColumnInput> | ColumnStateCreateWithoutColumnInput[] | ColumnStateUncheckedCreateWithoutColumnInput[]
+    connectOrCreate?: ColumnStateCreateOrConnectWithoutColumnInput | ColumnStateCreateOrConnectWithoutColumnInput[]
+    createMany?: ColumnStateCreateManyColumnInputEnvelope
+    connect?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+  }
+
+  export type CellUncheckedCreateNestedManyWithoutColumnInput = {
+    create?: XOR<CellCreateWithoutColumnInput, CellUncheckedCreateWithoutColumnInput> | CellCreateWithoutColumnInput[] | CellUncheckedCreateWithoutColumnInput[]
+    connectOrCreate?: CellCreateOrConnectWithoutColumnInput | CellCreateOrConnectWithoutColumnInput[]
+    createMany?: CellCreateManyColumnInputEnvelope
+    connect?: CellWhereUniqueInput | CellWhereUniqueInput[]
+  }
+
+  export type ViewFilterUncheckedCreateNestedManyWithoutColumnInput = {
+    create?: XOR<ViewFilterCreateWithoutColumnInput, ViewFilterUncheckedCreateWithoutColumnInput> | ViewFilterCreateWithoutColumnInput[] | ViewFilterUncheckedCreateWithoutColumnInput[]
+    connectOrCreate?: ViewFilterCreateOrConnectWithoutColumnInput | ViewFilterCreateOrConnectWithoutColumnInput[]
+    createMany?: ViewFilterCreateManyColumnInputEnvelope
+    connect?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+  }
+
+  export type ViewSortUncheckedCreateNestedManyWithoutColumnInput = {
+    create?: XOR<ViewSortCreateWithoutColumnInput, ViewSortUncheckedCreateWithoutColumnInput> | ViewSortCreateWithoutColumnInput[] | ViewSortUncheckedCreateWithoutColumnInput[]
+    connectOrCreate?: ViewSortCreateOrConnectWithoutColumnInput | ViewSortCreateOrConnectWithoutColumnInput[]
+    createMany?: ViewSortCreateManyColumnInputEnvelope
+    connect?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+  }
+
+  export type ColumnStateUncheckedCreateNestedManyWithoutColumnInput = {
+    create?: XOR<ColumnStateCreateWithoutColumnInput, ColumnStateUncheckedCreateWithoutColumnInput> | ColumnStateCreateWithoutColumnInput[] | ColumnStateUncheckedCreateWithoutColumnInput[]
+    connectOrCreate?: ColumnStateCreateOrConnectWithoutColumnInput | ColumnStateCreateOrConnectWithoutColumnInput[]
+    createMany?: ColumnStateCreateManyColumnInputEnvelope
+    connect?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+  }
+
+  export type EnumColumnTypeFieldUpdateOperationsInput = {
+    set?: $Enums.ColumnType
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type TableUpdateOneRequiredWithoutColumnsNestedInput = {
+    create?: XOR<TableCreateWithoutColumnsInput, TableUncheckedCreateWithoutColumnsInput>
+    connectOrCreate?: TableCreateOrConnectWithoutColumnsInput
+    upsert?: TableUpsertWithoutColumnsInput
+    connect?: TableWhereUniqueInput
+    update?: XOR<XOR<TableUpdateToOneWithWhereWithoutColumnsInput, TableUpdateWithoutColumnsInput>, TableUncheckedUpdateWithoutColumnsInput>
+  }
+
+  export type CellUpdateManyWithoutColumnNestedInput = {
+    create?: XOR<CellCreateWithoutColumnInput, CellUncheckedCreateWithoutColumnInput> | CellCreateWithoutColumnInput[] | CellUncheckedCreateWithoutColumnInput[]
+    connectOrCreate?: CellCreateOrConnectWithoutColumnInput | CellCreateOrConnectWithoutColumnInput[]
+    upsert?: CellUpsertWithWhereUniqueWithoutColumnInput | CellUpsertWithWhereUniqueWithoutColumnInput[]
+    createMany?: CellCreateManyColumnInputEnvelope
+    set?: CellWhereUniqueInput | CellWhereUniqueInput[]
+    disconnect?: CellWhereUniqueInput | CellWhereUniqueInput[]
+    delete?: CellWhereUniqueInput | CellWhereUniqueInput[]
+    connect?: CellWhereUniqueInput | CellWhereUniqueInput[]
+    update?: CellUpdateWithWhereUniqueWithoutColumnInput | CellUpdateWithWhereUniqueWithoutColumnInput[]
+    updateMany?: CellUpdateManyWithWhereWithoutColumnInput | CellUpdateManyWithWhereWithoutColumnInput[]
+    deleteMany?: CellScalarWhereInput | CellScalarWhereInput[]
+  }
+
+  export type ViewFilterUpdateManyWithoutColumnNestedInput = {
+    create?: XOR<ViewFilterCreateWithoutColumnInput, ViewFilterUncheckedCreateWithoutColumnInput> | ViewFilterCreateWithoutColumnInput[] | ViewFilterUncheckedCreateWithoutColumnInput[]
+    connectOrCreate?: ViewFilterCreateOrConnectWithoutColumnInput | ViewFilterCreateOrConnectWithoutColumnInput[]
+    upsert?: ViewFilterUpsertWithWhereUniqueWithoutColumnInput | ViewFilterUpsertWithWhereUniqueWithoutColumnInput[]
+    createMany?: ViewFilterCreateManyColumnInputEnvelope
+    set?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+    disconnect?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+    delete?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+    connect?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+    update?: ViewFilterUpdateWithWhereUniqueWithoutColumnInput | ViewFilterUpdateWithWhereUniqueWithoutColumnInput[]
+    updateMany?: ViewFilterUpdateManyWithWhereWithoutColumnInput | ViewFilterUpdateManyWithWhereWithoutColumnInput[]
+    deleteMany?: ViewFilterScalarWhereInput | ViewFilterScalarWhereInput[]
+  }
+
+  export type ViewSortUpdateManyWithoutColumnNestedInput = {
+    create?: XOR<ViewSortCreateWithoutColumnInput, ViewSortUncheckedCreateWithoutColumnInput> | ViewSortCreateWithoutColumnInput[] | ViewSortUncheckedCreateWithoutColumnInput[]
+    connectOrCreate?: ViewSortCreateOrConnectWithoutColumnInput | ViewSortCreateOrConnectWithoutColumnInput[]
+    upsert?: ViewSortUpsertWithWhereUniqueWithoutColumnInput | ViewSortUpsertWithWhereUniqueWithoutColumnInput[]
+    createMany?: ViewSortCreateManyColumnInputEnvelope
+    set?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+    disconnect?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+    delete?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+    connect?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+    update?: ViewSortUpdateWithWhereUniqueWithoutColumnInput | ViewSortUpdateWithWhereUniqueWithoutColumnInput[]
+    updateMany?: ViewSortUpdateManyWithWhereWithoutColumnInput | ViewSortUpdateManyWithWhereWithoutColumnInput[]
+    deleteMany?: ViewSortScalarWhereInput | ViewSortScalarWhereInput[]
+  }
+
+  export type ColumnStateUpdateManyWithoutColumnNestedInput = {
+    create?: XOR<ColumnStateCreateWithoutColumnInput, ColumnStateUncheckedCreateWithoutColumnInput> | ColumnStateCreateWithoutColumnInput[] | ColumnStateUncheckedCreateWithoutColumnInput[]
+    connectOrCreate?: ColumnStateCreateOrConnectWithoutColumnInput | ColumnStateCreateOrConnectWithoutColumnInput[]
+    upsert?: ColumnStateUpsertWithWhereUniqueWithoutColumnInput | ColumnStateUpsertWithWhereUniqueWithoutColumnInput[]
+    createMany?: ColumnStateCreateManyColumnInputEnvelope
+    set?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+    disconnect?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+    delete?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+    connect?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+    update?: ColumnStateUpdateWithWhereUniqueWithoutColumnInput | ColumnStateUpdateWithWhereUniqueWithoutColumnInput[]
+    updateMany?: ColumnStateUpdateManyWithWhereWithoutColumnInput | ColumnStateUpdateManyWithWhereWithoutColumnInput[]
+    deleteMany?: ColumnStateScalarWhereInput | ColumnStateScalarWhereInput[]
+  }
+
+  export type CellUncheckedUpdateManyWithoutColumnNestedInput = {
+    create?: XOR<CellCreateWithoutColumnInput, CellUncheckedCreateWithoutColumnInput> | CellCreateWithoutColumnInput[] | CellUncheckedCreateWithoutColumnInput[]
+    connectOrCreate?: CellCreateOrConnectWithoutColumnInput | CellCreateOrConnectWithoutColumnInput[]
+    upsert?: CellUpsertWithWhereUniqueWithoutColumnInput | CellUpsertWithWhereUniqueWithoutColumnInput[]
+    createMany?: CellCreateManyColumnInputEnvelope
+    set?: CellWhereUniqueInput | CellWhereUniqueInput[]
+    disconnect?: CellWhereUniqueInput | CellWhereUniqueInput[]
+    delete?: CellWhereUniqueInput | CellWhereUniqueInput[]
+    connect?: CellWhereUniqueInput | CellWhereUniqueInput[]
+    update?: CellUpdateWithWhereUniqueWithoutColumnInput | CellUpdateWithWhereUniqueWithoutColumnInput[]
+    updateMany?: CellUpdateManyWithWhereWithoutColumnInput | CellUpdateManyWithWhereWithoutColumnInput[]
+    deleteMany?: CellScalarWhereInput | CellScalarWhereInput[]
+  }
+
+  export type ViewFilterUncheckedUpdateManyWithoutColumnNestedInput = {
+    create?: XOR<ViewFilterCreateWithoutColumnInput, ViewFilterUncheckedCreateWithoutColumnInput> | ViewFilterCreateWithoutColumnInput[] | ViewFilterUncheckedCreateWithoutColumnInput[]
+    connectOrCreate?: ViewFilterCreateOrConnectWithoutColumnInput | ViewFilterCreateOrConnectWithoutColumnInput[]
+    upsert?: ViewFilterUpsertWithWhereUniqueWithoutColumnInput | ViewFilterUpsertWithWhereUniqueWithoutColumnInput[]
+    createMany?: ViewFilterCreateManyColumnInputEnvelope
+    set?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+    disconnect?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+    delete?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+    connect?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+    update?: ViewFilterUpdateWithWhereUniqueWithoutColumnInput | ViewFilterUpdateWithWhereUniqueWithoutColumnInput[]
+    updateMany?: ViewFilterUpdateManyWithWhereWithoutColumnInput | ViewFilterUpdateManyWithWhereWithoutColumnInput[]
+    deleteMany?: ViewFilterScalarWhereInput | ViewFilterScalarWhereInput[]
+  }
+
+  export type ViewSortUncheckedUpdateManyWithoutColumnNestedInput = {
+    create?: XOR<ViewSortCreateWithoutColumnInput, ViewSortUncheckedCreateWithoutColumnInput> | ViewSortCreateWithoutColumnInput[] | ViewSortUncheckedCreateWithoutColumnInput[]
+    connectOrCreate?: ViewSortCreateOrConnectWithoutColumnInput | ViewSortCreateOrConnectWithoutColumnInput[]
+    upsert?: ViewSortUpsertWithWhereUniqueWithoutColumnInput | ViewSortUpsertWithWhereUniqueWithoutColumnInput[]
+    createMany?: ViewSortCreateManyColumnInputEnvelope
+    set?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+    disconnect?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+    delete?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+    connect?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+    update?: ViewSortUpdateWithWhereUniqueWithoutColumnInput | ViewSortUpdateWithWhereUniqueWithoutColumnInput[]
+    updateMany?: ViewSortUpdateManyWithWhereWithoutColumnInput | ViewSortUpdateManyWithWhereWithoutColumnInput[]
+    deleteMany?: ViewSortScalarWhereInput | ViewSortScalarWhereInput[]
+  }
+
+  export type ColumnStateUncheckedUpdateManyWithoutColumnNestedInput = {
+    create?: XOR<ColumnStateCreateWithoutColumnInput, ColumnStateUncheckedCreateWithoutColumnInput> | ColumnStateCreateWithoutColumnInput[] | ColumnStateUncheckedCreateWithoutColumnInput[]
+    connectOrCreate?: ColumnStateCreateOrConnectWithoutColumnInput | ColumnStateCreateOrConnectWithoutColumnInput[]
+    upsert?: ColumnStateUpsertWithWhereUniqueWithoutColumnInput | ColumnStateUpsertWithWhereUniqueWithoutColumnInput[]
+    createMany?: ColumnStateCreateManyColumnInputEnvelope
+    set?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+    disconnect?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+    delete?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+    connect?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+    update?: ColumnStateUpdateWithWhereUniqueWithoutColumnInput | ColumnStateUpdateWithWhereUniqueWithoutColumnInput[]
+    updateMany?: ColumnStateUpdateManyWithWhereWithoutColumnInput | ColumnStateUpdateManyWithWhereWithoutColumnInput[]
+    deleteMany?: ColumnStateScalarWhereInput | ColumnStateScalarWhereInput[]
+  }
+
+  export type TableCreateNestedOneWithoutRowsInput = {
+    create?: XOR<TableCreateWithoutRowsInput, TableUncheckedCreateWithoutRowsInput>
+    connectOrCreate?: TableCreateOrConnectWithoutRowsInput
+    connect?: TableWhereUniqueInput
+  }
+
+  export type CellCreateNestedManyWithoutRowInput = {
+    create?: XOR<CellCreateWithoutRowInput, CellUncheckedCreateWithoutRowInput> | CellCreateWithoutRowInput[] | CellUncheckedCreateWithoutRowInput[]
+    connectOrCreate?: CellCreateOrConnectWithoutRowInput | CellCreateOrConnectWithoutRowInput[]
+    createMany?: CellCreateManyRowInputEnvelope
+    connect?: CellWhereUniqueInput | CellWhereUniqueInput[]
+  }
+
+  export type CellUncheckedCreateNestedManyWithoutRowInput = {
+    create?: XOR<CellCreateWithoutRowInput, CellUncheckedCreateWithoutRowInput> | CellCreateWithoutRowInput[] | CellUncheckedCreateWithoutRowInput[]
+    connectOrCreate?: CellCreateOrConnectWithoutRowInput | CellCreateOrConnectWithoutRowInput[]
+    createMany?: CellCreateManyRowInputEnvelope
+    connect?: CellWhereUniqueInput | CellWhereUniqueInput[]
+  }
+
+  export type TableUpdateOneRequiredWithoutRowsNestedInput = {
+    create?: XOR<TableCreateWithoutRowsInput, TableUncheckedCreateWithoutRowsInput>
+    connectOrCreate?: TableCreateOrConnectWithoutRowsInput
+    upsert?: TableUpsertWithoutRowsInput
+    connect?: TableWhereUniqueInput
+    update?: XOR<XOR<TableUpdateToOneWithWhereWithoutRowsInput, TableUpdateWithoutRowsInput>, TableUncheckedUpdateWithoutRowsInput>
+  }
+
+  export type CellUpdateManyWithoutRowNestedInput = {
+    create?: XOR<CellCreateWithoutRowInput, CellUncheckedCreateWithoutRowInput> | CellCreateWithoutRowInput[] | CellUncheckedCreateWithoutRowInput[]
+    connectOrCreate?: CellCreateOrConnectWithoutRowInput | CellCreateOrConnectWithoutRowInput[]
+    upsert?: CellUpsertWithWhereUniqueWithoutRowInput | CellUpsertWithWhereUniqueWithoutRowInput[]
+    createMany?: CellCreateManyRowInputEnvelope
+    set?: CellWhereUniqueInput | CellWhereUniqueInput[]
+    disconnect?: CellWhereUniqueInput | CellWhereUniqueInput[]
+    delete?: CellWhereUniqueInput | CellWhereUniqueInput[]
+    connect?: CellWhereUniqueInput | CellWhereUniqueInput[]
+    update?: CellUpdateWithWhereUniqueWithoutRowInput | CellUpdateWithWhereUniqueWithoutRowInput[]
+    updateMany?: CellUpdateManyWithWhereWithoutRowInput | CellUpdateManyWithWhereWithoutRowInput[]
+    deleteMany?: CellScalarWhereInput | CellScalarWhereInput[]
+  }
+
+  export type CellUncheckedUpdateManyWithoutRowNestedInput = {
+    create?: XOR<CellCreateWithoutRowInput, CellUncheckedCreateWithoutRowInput> | CellCreateWithoutRowInput[] | CellUncheckedCreateWithoutRowInput[]
+    connectOrCreate?: CellCreateOrConnectWithoutRowInput | CellCreateOrConnectWithoutRowInput[]
+    upsert?: CellUpsertWithWhereUniqueWithoutRowInput | CellUpsertWithWhereUniqueWithoutRowInput[]
+    createMany?: CellCreateManyRowInputEnvelope
+    set?: CellWhereUniqueInput | CellWhereUniqueInput[]
+    disconnect?: CellWhereUniqueInput | CellWhereUniqueInput[]
+    delete?: CellWhereUniqueInput | CellWhereUniqueInput[]
+    connect?: CellWhereUniqueInput | CellWhereUniqueInput[]
+    update?: CellUpdateWithWhereUniqueWithoutRowInput | CellUpdateWithWhereUniqueWithoutRowInput[]
+    updateMany?: CellUpdateManyWithWhereWithoutRowInput | CellUpdateManyWithWhereWithoutRowInput[]
+    deleteMany?: CellScalarWhereInput | CellScalarWhereInput[]
+  }
+
+  export type RowCreateNestedOneWithoutCellsInput = {
+    create?: XOR<RowCreateWithoutCellsInput, RowUncheckedCreateWithoutCellsInput>
+    connectOrCreate?: RowCreateOrConnectWithoutCellsInput
+    connect?: RowWhereUniqueInput
+  }
+
+  export type ColumnCreateNestedOneWithoutCellsInput = {
+    create?: XOR<ColumnCreateWithoutCellsInput, ColumnUncheckedCreateWithoutCellsInput>
+    connectOrCreate?: ColumnCreateOrConnectWithoutCellsInput
+    connect?: ColumnWhereUniqueInput
+  }
+
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type RowUpdateOneRequiredWithoutCellsNestedInput = {
+    create?: XOR<RowCreateWithoutCellsInput, RowUncheckedCreateWithoutCellsInput>
+    connectOrCreate?: RowCreateOrConnectWithoutCellsInput
+    upsert?: RowUpsertWithoutCellsInput
+    connect?: RowWhereUniqueInput
+    update?: XOR<XOR<RowUpdateToOneWithWhereWithoutCellsInput, RowUpdateWithoutCellsInput>, RowUncheckedUpdateWithoutCellsInput>
+  }
+
+  export type ColumnUpdateOneRequiredWithoutCellsNestedInput = {
+    create?: XOR<ColumnCreateWithoutCellsInput, ColumnUncheckedCreateWithoutCellsInput>
+    connectOrCreate?: ColumnCreateOrConnectWithoutCellsInput
+    upsert?: ColumnUpsertWithoutCellsInput
+    connect?: ColumnWhereUniqueInput
+    update?: XOR<XOR<ColumnUpdateToOneWithWhereWithoutCellsInput, ColumnUpdateWithoutCellsInput>, ColumnUncheckedUpdateWithoutCellsInput>
+  }
+
+  export type TableCreateNestedOneWithoutViewsInput = {
+    create?: XOR<TableCreateWithoutViewsInput, TableUncheckedCreateWithoutViewsInput>
+    connectOrCreate?: TableCreateOrConnectWithoutViewsInput
+    connect?: TableWhereUniqueInput
+  }
+
+  export type ViewFilterCreateNestedManyWithoutViewInput = {
+    create?: XOR<ViewFilterCreateWithoutViewInput, ViewFilterUncheckedCreateWithoutViewInput> | ViewFilterCreateWithoutViewInput[] | ViewFilterUncheckedCreateWithoutViewInput[]
+    connectOrCreate?: ViewFilterCreateOrConnectWithoutViewInput | ViewFilterCreateOrConnectWithoutViewInput[]
+    createMany?: ViewFilterCreateManyViewInputEnvelope
+    connect?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+  }
+
+  export type ViewSortCreateNestedManyWithoutViewInput = {
+    create?: XOR<ViewSortCreateWithoutViewInput, ViewSortUncheckedCreateWithoutViewInput> | ViewSortCreateWithoutViewInput[] | ViewSortUncheckedCreateWithoutViewInput[]
+    connectOrCreate?: ViewSortCreateOrConnectWithoutViewInput | ViewSortCreateOrConnectWithoutViewInput[]
+    createMany?: ViewSortCreateManyViewInputEnvelope
+    connect?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+  }
+
+  export type ColumnStateCreateNestedManyWithoutViewInput = {
+    create?: XOR<ColumnStateCreateWithoutViewInput, ColumnStateUncheckedCreateWithoutViewInput> | ColumnStateCreateWithoutViewInput[] | ColumnStateUncheckedCreateWithoutViewInput[]
+    connectOrCreate?: ColumnStateCreateOrConnectWithoutViewInput | ColumnStateCreateOrConnectWithoutViewInput[]
+    createMany?: ColumnStateCreateManyViewInputEnvelope
+    connect?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+  }
+
+  export type ViewFilterUncheckedCreateNestedManyWithoutViewInput = {
+    create?: XOR<ViewFilterCreateWithoutViewInput, ViewFilterUncheckedCreateWithoutViewInput> | ViewFilterCreateWithoutViewInput[] | ViewFilterUncheckedCreateWithoutViewInput[]
+    connectOrCreate?: ViewFilterCreateOrConnectWithoutViewInput | ViewFilterCreateOrConnectWithoutViewInput[]
+    createMany?: ViewFilterCreateManyViewInputEnvelope
+    connect?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+  }
+
+  export type ViewSortUncheckedCreateNestedManyWithoutViewInput = {
+    create?: XOR<ViewSortCreateWithoutViewInput, ViewSortUncheckedCreateWithoutViewInput> | ViewSortCreateWithoutViewInput[] | ViewSortUncheckedCreateWithoutViewInput[]
+    connectOrCreate?: ViewSortCreateOrConnectWithoutViewInput | ViewSortCreateOrConnectWithoutViewInput[]
+    createMany?: ViewSortCreateManyViewInputEnvelope
+    connect?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+  }
+
+  export type ColumnStateUncheckedCreateNestedManyWithoutViewInput = {
+    create?: XOR<ColumnStateCreateWithoutViewInput, ColumnStateUncheckedCreateWithoutViewInput> | ColumnStateCreateWithoutViewInput[] | ColumnStateUncheckedCreateWithoutViewInput[]
+    connectOrCreate?: ColumnStateCreateOrConnectWithoutViewInput | ColumnStateCreateOrConnectWithoutViewInput[]
+    createMany?: ColumnStateCreateManyViewInputEnvelope
+    connect?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+  }
+
+  export type TableUpdateOneRequiredWithoutViewsNestedInput = {
+    create?: XOR<TableCreateWithoutViewsInput, TableUncheckedCreateWithoutViewsInput>
+    connectOrCreate?: TableCreateOrConnectWithoutViewsInput
+    upsert?: TableUpsertWithoutViewsInput
+    connect?: TableWhereUniqueInput
+    update?: XOR<XOR<TableUpdateToOneWithWhereWithoutViewsInput, TableUpdateWithoutViewsInput>, TableUncheckedUpdateWithoutViewsInput>
+  }
+
+  export type ViewFilterUpdateManyWithoutViewNestedInput = {
+    create?: XOR<ViewFilterCreateWithoutViewInput, ViewFilterUncheckedCreateWithoutViewInput> | ViewFilterCreateWithoutViewInput[] | ViewFilterUncheckedCreateWithoutViewInput[]
+    connectOrCreate?: ViewFilterCreateOrConnectWithoutViewInput | ViewFilterCreateOrConnectWithoutViewInput[]
+    upsert?: ViewFilterUpsertWithWhereUniqueWithoutViewInput | ViewFilterUpsertWithWhereUniqueWithoutViewInput[]
+    createMany?: ViewFilterCreateManyViewInputEnvelope
+    set?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+    disconnect?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+    delete?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+    connect?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+    update?: ViewFilterUpdateWithWhereUniqueWithoutViewInput | ViewFilterUpdateWithWhereUniqueWithoutViewInput[]
+    updateMany?: ViewFilterUpdateManyWithWhereWithoutViewInput | ViewFilterUpdateManyWithWhereWithoutViewInput[]
+    deleteMany?: ViewFilterScalarWhereInput | ViewFilterScalarWhereInput[]
+  }
+
+  export type ViewSortUpdateManyWithoutViewNestedInput = {
+    create?: XOR<ViewSortCreateWithoutViewInput, ViewSortUncheckedCreateWithoutViewInput> | ViewSortCreateWithoutViewInput[] | ViewSortUncheckedCreateWithoutViewInput[]
+    connectOrCreate?: ViewSortCreateOrConnectWithoutViewInput | ViewSortCreateOrConnectWithoutViewInput[]
+    upsert?: ViewSortUpsertWithWhereUniqueWithoutViewInput | ViewSortUpsertWithWhereUniqueWithoutViewInput[]
+    createMany?: ViewSortCreateManyViewInputEnvelope
+    set?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+    disconnect?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+    delete?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+    connect?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+    update?: ViewSortUpdateWithWhereUniqueWithoutViewInput | ViewSortUpdateWithWhereUniqueWithoutViewInput[]
+    updateMany?: ViewSortUpdateManyWithWhereWithoutViewInput | ViewSortUpdateManyWithWhereWithoutViewInput[]
+    deleteMany?: ViewSortScalarWhereInput | ViewSortScalarWhereInput[]
+  }
+
+  export type ColumnStateUpdateManyWithoutViewNestedInput = {
+    create?: XOR<ColumnStateCreateWithoutViewInput, ColumnStateUncheckedCreateWithoutViewInput> | ColumnStateCreateWithoutViewInput[] | ColumnStateUncheckedCreateWithoutViewInput[]
+    connectOrCreate?: ColumnStateCreateOrConnectWithoutViewInput | ColumnStateCreateOrConnectWithoutViewInput[]
+    upsert?: ColumnStateUpsertWithWhereUniqueWithoutViewInput | ColumnStateUpsertWithWhereUniqueWithoutViewInput[]
+    createMany?: ColumnStateCreateManyViewInputEnvelope
+    set?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+    disconnect?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+    delete?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+    connect?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+    update?: ColumnStateUpdateWithWhereUniqueWithoutViewInput | ColumnStateUpdateWithWhereUniqueWithoutViewInput[]
+    updateMany?: ColumnStateUpdateManyWithWhereWithoutViewInput | ColumnStateUpdateManyWithWhereWithoutViewInput[]
+    deleteMany?: ColumnStateScalarWhereInput | ColumnStateScalarWhereInput[]
+  }
+
+  export type ViewFilterUncheckedUpdateManyWithoutViewNestedInput = {
+    create?: XOR<ViewFilterCreateWithoutViewInput, ViewFilterUncheckedCreateWithoutViewInput> | ViewFilterCreateWithoutViewInput[] | ViewFilterUncheckedCreateWithoutViewInput[]
+    connectOrCreate?: ViewFilterCreateOrConnectWithoutViewInput | ViewFilterCreateOrConnectWithoutViewInput[]
+    upsert?: ViewFilterUpsertWithWhereUniqueWithoutViewInput | ViewFilterUpsertWithWhereUniqueWithoutViewInput[]
+    createMany?: ViewFilterCreateManyViewInputEnvelope
+    set?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+    disconnect?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+    delete?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+    connect?: ViewFilterWhereUniqueInput | ViewFilterWhereUniqueInput[]
+    update?: ViewFilterUpdateWithWhereUniqueWithoutViewInput | ViewFilterUpdateWithWhereUniqueWithoutViewInput[]
+    updateMany?: ViewFilterUpdateManyWithWhereWithoutViewInput | ViewFilterUpdateManyWithWhereWithoutViewInput[]
+    deleteMany?: ViewFilterScalarWhereInput | ViewFilterScalarWhereInput[]
+  }
+
+  export type ViewSortUncheckedUpdateManyWithoutViewNestedInput = {
+    create?: XOR<ViewSortCreateWithoutViewInput, ViewSortUncheckedCreateWithoutViewInput> | ViewSortCreateWithoutViewInput[] | ViewSortUncheckedCreateWithoutViewInput[]
+    connectOrCreate?: ViewSortCreateOrConnectWithoutViewInput | ViewSortCreateOrConnectWithoutViewInput[]
+    upsert?: ViewSortUpsertWithWhereUniqueWithoutViewInput | ViewSortUpsertWithWhereUniqueWithoutViewInput[]
+    createMany?: ViewSortCreateManyViewInputEnvelope
+    set?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+    disconnect?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+    delete?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+    connect?: ViewSortWhereUniqueInput | ViewSortWhereUniqueInput[]
+    update?: ViewSortUpdateWithWhereUniqueWithoutViewInput | ViewSortUpdateWithWhereUniqueWithoutViewInput[]
+    updateMany?: ViewSortUpdateManyWithWhereWithoutViewInput | ViewSortUpdateManyWithWhereWithoutViewInput[]
+    deleteMany?: ViewSortScalarWhereInput | ViewSortScalarWhereInput[]
+  }
+
+  export type ColumnStateUncheckedUpdateManyWithoutViewNestedInput = {
+    create?: XOR<ColumnStateCreateWithoutViewInput, ColumnStateUncheckedCreateWithoutViewInput> | ColumnStateCreateWithoutViewInput[] | ColumnStateUncheckedCreateWithoutViewInput[]
+    connectOrCreate?: ColumnStateCreateOrConnectWithoutViewInput | ColumnStateCreateOrConnectWithoutViewInput[]
+    upsert?: ColumnStateUpsertWithWhereUniqueWithoutViewInput | ColumnStateUpsertWithWhereUniqueWithoutViewInput[]
+    createMany?: ColumnStateCreateManyViewInputEnvelope
+    set?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+    disconnect?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+    delete?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+    connect?: ColumnStateWhereUniqueInput | ColumnStateWhereUniqueInput[]
+    update?: ColumnStateUpdateWithWhereUniqueWithoutViewInput | ColumnStateUpdateWithWhereUniqueWithoutViewInput[]
+    updateMany?: ColumnStateUpdateManyWithWhereWithoutViewInput | ColumnStateUpdateManyWithWhereWithoutViewInput[]
+    deleteMany?: ColumnStateScalarWhereInput | ColumnStateScalarWhereInput[]
+  }
+
+  export type ViewCreateNestedOneWithoutFiltersInput = {
+    create?: XOR<ViewCreateWithoutFiltersInput, ViewUncheckedCreateWithoutFiltersInput>
+    connectOrCreate?: ViewCreateOrConnectWithoutFiltersInput
+    connect?: ViewWhereUniqueInput
+  }
+
+  export type ColumnCreateNestedOneWithoutFiltersInput = {
+    create?: XOR<ColumnCreateWithoutFiltersInput, ColumnUncheckedCreateWithoutFiltersInput>
+    connectOrCreate?: ColumnCreateOrConnectWithoutFiltersInput
+    connect?: ColumnWhereUniqueInput
+  }
+
+  export type EnumFilterOperatorFieldUpdateOperationsInput = {
+    set?: $Enums.FilterOperator
+  }
+
+  export type ViewUpdateOneRequiredWithoutFiltersNestedInput = {
+    create?: XOR<ViewCreateWithoutFiltersInput, ViewUncheckedCreateWithoutFiltersInput>
+    connectOrCreate?: ViewCreateOrConnectWithoutFiltersInput
+    upsert?: ViewUpsertWithoutFiltersInput
+    connect?: ViewWhereUniqueInput
+    update?: XOR<XOR<ViewUpdateToOneWithWhereWithoutFiltersInput, ViewUpdateWithoutFiltersInput>, ViewUncheckedUpdateWithoutFiltersInput>
+  }
+
+  export type ColumnUpdateOneRequiredWithoutFiltersNestedInput = {
+    create?: XOR<ColumnCreateWithoutFiltersInput, ColumnUncheckedCreateWithoutFiltersInput>
+    connectOrCreate?: ColumnCreateOrConnectWithoutFiltersInput
+    upsert?: ColumnUpsertWithoutFiltersInput
+    connect?: ColumnWhereUniqueInput
+    update?: XOR<XOR<ColumnUpdateToOneWithWhereWithoutFiltersInput, ColumnUpdateWithoutFiltersInput>, ColumnUncheckedUpdateWithoutFiltersInput>
+  }
+
+  export type ViewCreateNestedOneWithoutSortsInput = {
+    create?: XOR<ViewCreateWithoutSortsInput, ViewUncheckedCreateWithoutSortsInput>
+    connectOrCreate?: ViewCreateOrConnectWithoutSortsInput
+    connect?: ViewWhereUniqueInput
+  }
+
+  export type ColumnCreateNestedOneWithoutSortsInput = {
+    create?: XOR<ColumnCreateWithoutSortsInput, ColumnUncheckedCreateWithoutSortsInput>
+    connectOrCreate?: ColumnCreateOrConnectWithoutSortsInput
+    connect?: ColumnWhereUniqueInput
+  }
+
+  export type EnumSortDirectionFieldUpdateOperationsInput = {
+    set?: $Enums.SortDirection
+  }
+
+  export type ViewUpdateOneRequiredWithoutSortsNestedInput = {
+    create?: XOR<ViewCreateWithoutSortsInput, ViewUncheckedCreateWithoutSortsInput>
+    connectOrCreate?: ViewCreateOrConnectWithoutSortsInput
+    upsert?: ViewUpsertWithoutSortsInput
+    connect?: ViewWhereUniqueInput
+    update?: XOR<XOR<ViewUpdateToOneWithWhereWithoutSortsInput, ViewUpdateWithoutSortsInput>, ViewUncheckedUpdateWithoutSortsInput>
+  }
+
+  export type ColumnUpdateOneRequiredWithoutSortsNestedInput = {
+    create?: XOR<ColumnCreateWithoutSortsInput, ColumnUncheckedCreateWithoutSortsInput>
+    connectOrCreate?: ColumnCreateOrConnectWithoutSortsInput
+    upsert?: ColumnUpsertWithoutSortsInput
+    connect?: ColumnWhereUniqueInput
+    update?: XOR<XOR<ColumnUpdateToOneWithWhereWithoutSortsInput, ColumnUpdateWithoutSortsInput>, ColumnUncheckedUpdateWithoutSortsInput>
+  }
+
+  export type ViewCreateNestedOneWithoutColumnStatesInput = {
+    create?: XOR<ViewCreateWithoutColumnStatesInput, ViewUncheckedCreateWithoutColumnStatesInput>
+    connectOrCreate?: ViewCreateOrConnectWithoutColumnStatesInput
+    connect?: ViewWhereUniqueInput
+  }
+
+  export type ColumnCreateNestedOneWithoutColumnStatesInput = {
+    create?: XOR<ColumnCreateWithoutColumnStatesInput, ColumnUncheckedCreateWithoutColumnStatesInput>
+    connectOrCreate?: ColumnCreateOrConnectWithoutColumnStatesInput
+    connect?: ColumnWhereUniqueInput
+  }
+
+  export type ViewUpdateOneRequiredWithoutColumnStatesNestedInput = {
+    create?: XOR<ViewCreateWithoutColumnStatesInput, ViewUncheckedCreateWithoutColumnStatesInput>
+    connectOrCreate?: ViewCreateOrConnectWithoutColumnStatesInput
+    upsert?: ViewUpsertWithoutColumnStatesInput
+    connect?: ViewWhereUniqueInput
+    update?: XOR<XOR<ViewUpdateToOneWithWhereWithoutColumnStatesInput, ViewUpdateWithoutColumnStatesInput>, ViewUncheckedUpdateWithoutColumnStatesInput>
+  }
+
+  export type ColumnUpdateOneRequiredWithoutColumnStatesNestedInput = {
+    create?: XOR<ColumnCreateWithoutColumnStatesInput, ColumnUncheckedCreateWithoutColumnStatesInput>
+    connectOrCreate?: ColumnCreateOrConnectWithoutColumnStatesInput
+    upsert?: ColumnUpsertWithoutColumnStatesInput
+    connect?: ColumnWhereUniqueInput
+    update?: XOR<XOR<ColumnUpdateToOneWithWhereWithoutColumnStatesInput, ColumnUpdateWithoutColumnStatesInput>, ColumnUncheckedUpdateWithoutColumnStatesInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -8093,75 +20490,6 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
-  }
-
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
-  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type NestedFloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
-  }
-
-  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[] | ListStringFieldRefInput<$PrismaModel>
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedStringFilter<$PrismaModel>
-    _max?: NestedStringFilter<$PrismaModel>
-  }
-
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type NestedStringNullableFilter<$PrismaModel = never> = {
@@ -8187,6 +20515,34 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -8233,6 +20589,31 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -8258,60 +20639,111 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
-  export type UserCreateWithoutPostsInput = {
-    id?: string
-    name?: string | null
-    email?: string | null
-    emailVerified?: Date | string | null
-    image?: string | null
-    accounts?: AccountCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type UserUncheckedCreateWithoutPostsInput = {
-    id?: string
-    name?: string | null
-    email?: string | null
-    emailVerified?: Date | string | null
-    image?: string | null
-    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
   }
 
-  export type UserCreateOrConnectWithoutPostsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
+  export type NestedEnumColumnTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.ColumnType | EnumColumnTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.ColumnType[] | ListEnumColumnTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ColumnType[] | ListEnumColumnTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumColumnTypeFilter<$PrismaModel> | $Enums.ColumnType
   }
 
-  export type UserUpsertWithoutPostsInput = {
-    update: XOR<UserUpdateWithoutPostsInput, UserUncheckedUpdateWithoutPostsInput>
-    create: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
-    where?: UserWhereInput
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
-  export type UserUpdateToOneWithWhereWithoutPostsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutPostsInput, UserUncheckedUpdateWithoutPostsInput>
+  export type NestedEnumColumnTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ColumnType | EnumColumnTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.ColumnType[] | ListEnumColumnTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ColumnType[] | ListEnumColumnTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumColumnTypeWithAggregatesFilter<$PrismaModel> | $Enums.ColumnType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumColumnTypeFilter<$PrismaModel>
+    _max?: NestedEnumColumnTypeFilter<$PrismaModel>
   }
 
-  export type UserUpdateWithoutPostsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    accounts?: AccountUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
-  export type UserUncheckedUpdateWithoutPostsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumFilterOperatorFilter<$PrismaModel = never> = {
+    equals?: $Enums.FilterOperator | EnumFilterOperatorFieldRefInput<$PrismaModel>
+    in?: $Enums.FilterOperator[] | ListEnumFilterOperatorFieldRefInput<$PrismaModel>
+    notIn?: $Enums.FilterOperator[] | ListEnumFilterOperatorFieldRefInput<$PrismaModel>
+    not?: NestedEnumFilterOperatorFilter<$PrismaModel> | $Enums.FilterOperator
+  }
+
+  export type NestedEnumFilterOperatorWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.FilterOperator | EnumFilterOperatorFieldRefInput<$PrismaModel>
+    in?: $Enums.FilterOperator[] | ListEnumFilterOperatorFieldRefInput<$PrismaModel>
+    notIn?: $Enums.FilterOperator[] | ListEnumFilterOperatorFieldRefInput<$PrismaModel>
+    not?: NestedEnumFilterOperatorWithAggregatesFilter<$PrismaModel> | $Enums.FilterOperator
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumFilterOperatorFilter<$PrismaModel>
+    _max?: NestedEnumFilterOperatorFilter<$PrismaModel>
+  }
+
+  export type NestedEnumSortDirectionFilter<$PrismaModel = never> = {
+    equals?: $Enums.SortDirection | EnumSortDirectionFieldRefInput<$PrismaModel>
+    in?: $Enums.SortDirection[] | ListEnumSortDirectionFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SortDirection[] | ListEnumSortDirectionFieldRefInput<$PrismaModel>
+    not?: NestedEnumSortDirectionFilter<$PrismaModel> | $Enums.SortDirection
+  }
+
+  export type NestedEnumSortDirectionWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.SortDirection | EnumSortDirectionFieldRefInput<$PrismaModel>
+    in?: $Enums.SortDirection[] | ListEnumSortDirectionFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SortDirection[] | ListEnumSortDirectionFieldRefInput<$PrismaModel>
+    not?: NestedEnumSortDirectionWithAggregatesFilter<$PrismaModel> | $Enums.SortDirection
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSortDirectionFilter<$PrismaModel>
+    _max?: NestedEnumSortDirectionFilter<$PrismaModel>
   }
 
   export type UserCreateWithoutAccountsInput = {
@@ -8321,7 +20753,7 @@ export namespace Prisma {
     emailVerified?: Date | string | null
     image?: string | null
     sessions?: SessionCreateNestedManyWithoutUserInput
-    posts?: PostCreateNestedManyWithoutCreatedByInput
+    bases?: BaseCreateNestedManyWithoutOwnerInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -8331,7 +20763,7 @@ export namespace Prisma {
     emailVerified?: Date | string | null
     image?: string | null
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    posts?: PostUncheckedCreateNestedManyWithoutCreatedByInput
+    bases?: BaseUncheckedCreateNestedManyWithoutOwnerInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -8357,7 +20789,7 @@ export namespace Prisma {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     sessions?: SessionUpdateManyWithoutUserNestedInput
-    posts?: PostUpdateManyWithoutCreatedByNestedInput
+    bases?: BaseUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -8367,7 +20799,7 @@ export namespace Prisma {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    posts?: PostUncheckedUpdateManyWithoutCreatedByNestedInput
+    bases?: BaseUncheckedUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserCreateWithoutSessionsInput = {
@@ -8377,7 +20809,7 @@ export namespace Prisma {
     emailVerified?: Date | string | null
     image?: string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
-    posts?: PostCreateNestedManyWithoutCreatedByInput
+    bases?: BaseCreateNestedManyWithoutOwnerInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -8387,7 +20819,7 @@ export namespace Prisma {
     emailVerified?: Date | string | null
     image?: string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    posts?: PostUncheckedCreateNestedManyWithoutCreatedByInput
+    bases?: BaseUncheckedCreateNestedManyWithoutOwnerInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -8413,7 +20845,7 @@ export namespace Prisma {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    posts?: PostUpdateManyWithoutCreatedByNestedInput
+    bases?: BaseUpdateManyWithoutOwnerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -8423,7 +20855,7 @@ export namespace Prisma {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    posts?: PostUncheckedUpdateManyWithoutCreatedByNestedInput
+    bases?: BaseUncheckedUpdateManyWithoutOwnerNestedInput
   }
 
   export type AccountCreateWithoutUserInput = {
@@ -8488,26 +20920,29 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type PostCreateWithoutCreatedByInput = {
+  export type BaseCreateWithoutOwnerInput = {
+    id?: string
     name: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    tables?: TableCreateNestedManyWithoutBaseInput
   }
 
-  export type PostUncheckedCreateWithoutCreatedByInput = {
-    id?: number
+  export type BaseUncheckedCreateWithoutOwnerInput = {
+    id?: string
     name: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    tables?: TableUncheckedCreateNestedManyWithoutBaseInput
   }
 
-  export type PostCreateOrConnectWithoutCreatedByInput = {
-    where: PostWhereUniqueInput
-    create: XOR<PostCreateWithoutCreatedByInput, PostUncheckedCreateWithoutCreatedByInput>
+  export type BaseCreateOrConnectWithoutOwnerInput = {
+    where: BaseWhereUniqueInput
+    create: XOR<BaseCreateWithoutOwnerInput, BaseUncheckedCreateWithoutOwnerInput>
   }
 
-  export type PostCreateManyCreatedByInputEnvelope = {
-    data: PostCreateManyCreatedByInput | PostCreateManyCreatedByInput[]
+  export type BaseCreateManyOwnerInputEnvelope = {
+    data: BaseCreateManyOwnerInput | BaseCreateManyOwnerInput[]
     skipDuplicates?: boolean
   }
 
@@ -8572,31 +21007,1436 @@ export namespace Prisma {
     expires?: DateTimeFilter<"Session"> | Date | string
   }
 
-  export type PostUpsertWithWhereUniqueWithoutCreatedByInput = {
-    where: PostWhereUniqueInput
-    update: XOR<PostUpdateWithoutCreatedByInput, PostUncheckedUpdateWithoutCreatedByInput>
-    create: XOR<PostCreateWithoutCreatedByInput, PostUncheckedCreateWithoutCreatedByInput>
+  export type BaseUpsertWithWhereUniqueWithoutOwnerInput = {
+    where: BaseWhereUniqueInput
+    update: XOR<BaseUpdateWithoutOwnerInput, BaseUncheckedUpdateWithoutOwnerInput>
+    create: XOR<BaseCreateWithoutOwnerInput, BaseUncheckedCreateWithoutOwnerInput>
   }
 
-  export type PostUpdateWithWhereUniqueWithoutCreatedByInput = {
-    where: PostWhereUniqueInput
-    data: XOR<PostUpdateWithoutCreatedByInput, PostUncheckedUpdateWithoutCreatedByInput>
+  export type BaseUpdateWithWhereUniqueWithoutOwnerInput = {
+    where: BaseWhereUniqueInput
+    data: XOR<BaseUpdateWithoutOwnerInput, BaseUncheckedUpdateWithoutOwnerInput>
   }
 
-  export type PostUpdateManyWithWhereWithoutCreatedByInput = {
-    where: PostScalarWhereInput
-    data: XOR<PostUpdateManyMutationInput, PostUncheckedUpdateManyWithoutCreatedByInput>
+  export type BaseUpdateManyWithWhereWithoutOwnerInput = {
+    where: BaseScalarWhereInput
+    data: XOR<BaseUpdateManyMutationInput, BaseUncheckedUpdateManyWithoutOwnerInput>
   }
 
-  export type PostScalarWhereInput = {
-    AND?: PostScalarWhereInput | PostScalarWhereInput[]
-    OR?: PostScalarWhereInput[]
-    NOT?: PostScalarWhereInput | PostScalarWhereInput[]
-    id?: IntFilter<"Post"> | number
-    name?: StringFilter<"Post"> | string
-    createdAt?: DateTimeFilter<"Post"> | Date | string
-    updatedAt?: DateTimeFilter<"Post"> | Date | string
-    createdById?: StringFilter<"Post"> | string
+  export type BaseScalarWhereInput = {
+    AND?: BaseScalarWhereInput | BaseScalarWhereInput[]
+    OR?: BaseScalarWhereInput[]
+    NOT?: BaseScalarWhereInput | BaseScalarWhereInput[]
+    id?: StringFilter<"Base"> | string
+    name?: StringFilter<"Base"> | string
+    ownerId?: StringFilter<"Base"> | string
+    createdAt?: DateTimeFilter<"Base"> | Date | string
+    updatedAt?: DateTimeFilter<"Base"> | Date | string
+  }
+
+  export type UserCreateWithoutBasesInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutBasesInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutBasesInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutBasesInput, UserUncheckedCreateWithoutBasesInput>
+  }
+
+  export type TableCreateWithoutBaseInput = {
+    id?: string
+    name: string
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    columns?: ColumnCreateNestedManyWithoutTableInput
+    rows?: RowCreateNestedManyWithoutTableInput
+    views?: ViewCreateNestedManyWithoutTableInput
+  }
+
+  export type TableUncheckedCreateWithoutBaseInput = {
+    id?: string
+    name: string
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    columns?: ColumnUncheckedCreateNestedManyWithoutTableInput
+    rows?: RowUncheckedCreateNestedManyWithoutTableInput
+    views?: ViewUncheckedCreateNestedManyWithoutTableInput
+  }
+
+  export type TableCreateOrConnectWithoutBaseInput = {
+    where: TableWhereUniqueInput
+    create: XOR<TableCreateWithoutBaseInput, TableUncheckedCreateWithoutBaseInput>
+  }
+
+  export type TableCreateManyBaseInputEnvelope = {
+    data: TableCreateManyBaseInput | TableCreateManyBaseInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutBasesInput = {
+    update: XOR<UserUpdateWithoutBasesInput, UserUncheckedUpdateWithoutBasesInput>
+    create: XOR<UserCreateWithoutBasesInput, UserUncheckedCreateWithoutBasesInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutBasesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutBasesInput, UserUncheckedUpdateWithoutBasesInput>
+  }
+
+  export type UserUpdateWithoutBasesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutBasesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type TableUpsertWithWhereUniqueWithoutBaseInput = {
+    where: TableWhereUniqueInput
+    update: XOR<TableUpdateWithoutBaseInput, TableUncheckedUpdateWithoutBaseInput>
+    create: XOR<TableCreateWithoutBaseInput, TableUncheckedCreateWithoutBaseInput>
+  }
+
+  export type TableUpdateWithWhereUniqueWithoutBaseInput = {
+    where: TableWhereUniqueInput
+    data: XOR<TableUpdateWithoutBaseInput, TableUncheckedUpdateWithoutBaseInput>
+  }
+
+  export type TableUpdateManyWithWhereWithoutBaseInput = {
+    where: TableScalarWhereInput
+    data: XOR<TableUpdateManyMutationInput, TableUncheckedUpdateManyWithoutBaseInput>
+  }
+
+  export type TableScalarWhereInput = {
+    AND?: TableScalarWhereInput | TableScalarWhereInput[]
+    OR?: TableScalarWhereInput[]
+    NOT?: TableScalarWhereInput | TableScalarWhereInput[]
+    id?: StringFilter<"Table"> | string
+    baseId?: StringFilter<"Table"> | string
+    name?: StringFilter<"Table"> | string
+    position?: IntFilter<"Table"> | number
+    createdAt?: DateTimeFilter<"Table"> | Date | string
+    updatedAt?: DateTimeFilter<"Table"> | Date | string
+  }
+
+  export type BaseCreateWithoutTablesInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    owner: UserCreateNestedOneWithoutBasesInput
+  }
+
+  export type BaseUncheckedCreateWithoutTablesInput = {
+    id?: string
+    name: string
+    ownerId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BaseCreateOrConnectWithoutTablesInput = {
+    where: BaseWhereUniqueInput
+    create: XOR<BaseCreateWithoutTablesInput, BaseUncheckedCreateWithoutTablesInput>
+  }
+
+  export type ColumnCreateWithoutTableInput = {
+    id?: string
+    name: string
+    type: $Enums.ColumnType
+    position: number
+    isHidden?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cells?: CellCreateNestedManyWithoutColumnInput
+    filters?: ViewFilterCreateNestedManyWithoutColumnInput
+    sorts?: ViewSortCreateNestedManyWithoutColumnInput
+    columnStates?: ColumnStateCreateNestedManyWithoutColumnInput
+  }
+
+  export type ColumnUncheckedCreateWithoutTableInput = {
+    id?: string
+    name: string
+    type: $Enums.ColumnType
+    position: number
+    isHidden?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cells?: CellUncheckedCreateNestedManyWithoutColumnInput
+    filters?: ViewFilterUncheckedCreateNestedManyWithoutColumnInput
+    sorts?: ViewSortUncheckedCreateNestedManyWithoutColumnInput
+    columnStates?: ColumnStateUncheckedCreateNestedManyWithoutColumnInput
+  }
+
+  export type ColumnCreateOrConnectWithoutTableInput = {
+    where: ColumnWhereUniqueInput
+    create: XOR<ColumnCreateWithoutTableInput, ColumnUncheckedCreateWithoutTableInput>
+  }
+
+  export type ColumnCreateManyTableInputEnvelope = {
+    data: ColumnCreateManyTableInput | ColumnCreateManyTableInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type RowCreateWithoutTableInput = {
+    id?: string
+    index: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cells?: CellCreateNestedManyWithoutRowInput
+  }
+
+  export type RowUncheckedCreateWithoutTableInput = {
+    id?: string
+    index: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cells?: CellUncheckedCreateNestedManyWithoutRowInput
+  }
+
+  export type RowCreateOrConnectWithoutTableInput = {
+    where: RowWhereUniqueInput
+    create: XOR<RowCreateWithoutTableInput, RowUncheckedCreateWithoutTableInput>
+  }
+
+  export type RowCreateManyTableInputEnvelope = {
+    data: RowCreateManyTableInput | RowCreateManyTableInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ViewCreateWithoutTableInput = {
+    id?: string
+    name: string
+    searchQuery?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    filters?: ViewFilterCreateNestedManyWithoutViewInput
+    sorts?: ViewSortCreateNestedManyWithoutViewInput
+    columnStates?: ColumnStateCreateNestedManyWithoutViewInput
+  }
+
+  export type ViewUncheckedCreateWithoutTableInput = {
+    id?: string
+    name: string
+    searchQuery?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    filters?: ViewFilterUncheckedCreateNestedManyWithoutViewInput
+    sorts?: ViewSortUncheckedCreateNestedManyWithoutViewInput
+    columnStates?: ColumnStateUncheckedCreateNestedManyWithoutViewInput
+  }
+
+  export type ViewCreateOrConnectWithoutTableInput = {
+    where: ViewWhereUniqueInput
+    create: XOR<ViewCreateWithoutTableInput, ViewUncheckedCreateWithoutTableInput>
+  }
+
+  export type ViewCreateManyTableInputEnvelope = {
+    data: ViewCreateManyTableInput | ViewCreateManyTableInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BaseUpsertWithoutTablesInput = {
+    update: XOR<BaseUpdateWithoutTablesInput, BaseUncheckedUpdateWithoutTablesInput>
+    create: XOR<BaseCreateWithoutTablesInput, BaseUncheckedCreateWithoutTablesInput>
+    where?: BaseWhereInput
+  }
+
+  export type BaseUpdateToOneWithWhereWithoutTablesInput = {
+    where?: BaseWhereInput
+    data: XOR<BaseUpdateWithoutTablesInput, BaseUncheckedUpdateWithoutTablesInput>
+  }
+
+  export type BaseUpdateWithoutTablesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    owner?: UserUpdateOneRequiredWithoutBasesNestedInput
+  }
+
+  export type BaseUncheckedUpdateWithoutTablesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ColumnUpsertWithWhereUniqueWithoutTableInput = {
+    where: ColumnWhereUniqueInput
+    update: XOR<ColumnUpdateWithoutTableInput, ColumnUncheckedUpdateWithoutTableInput>
+    create: XOR<ColumnCreateWithoutTableInput, ColumnUncheckedCreateWithoutTableInput>
+  }
+
+  export type ColumnUpdateWithWhereUniqueWithoutTableInput = {
+    where: ColumnWhereUniqueInput
+    data: XOR<ColumnUpdateWithoutTableInput, ColumnUncheckedUpdateWithoutTableInput>
+  }
+
+  export type ColumnUpdateManyWithWhereWithoutTableInput = {
+    where: ColumnScalarWhereInput
+    data: XOR<ColumnUpdateManyMutationInput, ColumnUncheckedUpdateManyWithoutTableInput>
+  }
+
+  export type ColumnScalarWhereInput = {
+    AND?: ColumnScalarWhereInput | ColumnScalarWhereInput[]
+    OR?: ColumnScalarWhereInput[]
+    NOT?: ColumnScalarWhereInput | ColumnScalarWhereInput[]
+    id?: StringFilter<"Column"> | string
+    tableId?: StringFilter<"Column"> | string
+    name?: StringFilter<"Column"> | string
+    type?: EnumColumnTypeFilter<"Column"> | $Enums.ColumnType
+    position?: IntFilter<"Column"> | number
+    isHidden?: BoolFilter<"Column"> | boolean
+    createdAt?: DateTimeFilter<"Column"> | Date | string
+    updatedAt?: DateTimeFilter<"Column"> | Date | string
+  }
+
+  export type RowUpsertWithWhereUniqueWithoutTableInput = {
+    where: RowWhereUniqueInput
+    update: XOR<RowUpdateWithoutTableInput, RowUncheckedUpdateWithoutTableInput>
+    create: XOR<RowCreateWithoutTableInput, RowUncheckedCreateWithoutTableInput>
+  }
+
+  export type RowUpdateWithWhereUniqueWithoutTableInput = {
+    where: RowWhereUniqueInput
+    data: XOR<RowUpdateWithoutTableInput, RowUncheckedUpdateWithoutTableInput>
+  }
+
+  export type RowUpdateManyWithWhereWithoutTableInput = {
+    where: RowScalarWhereInput
+    data: XOR<RowUpdateManyMutationInput, RowUncheckedUpdateManyWithoutTableInput>
+  }
+
+  export type RowScalarWhereInput = {
+    AND?: RowScalarWhereInput | RowScalarWhereInput[]
+    OR?: RowScalarWhereInput[]
+    NOT?: RowScalarWhereInput | RowScalarWhereInput[]
+    id?: StringFilter<"Row"> | string
+    tableId?: StringFilter<"Row"> | string
+    index?: IntFilter<"Row"> | number
+    createdAt?: DateTimeFilter<"Row"> | Date | string
+    updatedAt?: DateTimeFilter<"Row"> | Date | string
+  }
+
+  export type ViewUpsertWithWhereUniqueWithoutTableInput = {
+    where: ViewWhereUniqueInput
+    update: XOR<ViewUpdateWithoutTableInput, ViewUncheckedUpdateWithoutTableInput>
+    create: XOR<ViewCreateWithoutTableInput, ViewUncheckedCreateWithoutTableInput>
+  }
+
+  export type ViewUpdateWithWhereUniqueWithoutTableInput = {
+    where: ViewWhereUniqueInput
+    data: XOR<ViewUpdateWithoutTableInput, ViewUncheckedUpdateWithoutTableInput>
+  }
+
+  export type ViewUpdateManyWithWhereWithoutTableInput = {
+    where: ViewScalarWhereInput
+    data: XOR<ViewUpdateManyMutationInput, ViewUncheckedUpdateManyWithoutTableInput>
+  }
+
+  export type ViewScalarWhereInput = {
+    AND?: ViewScalarWhereInput | ViewScalarWhereInput[]
+    OR?: ViewScalarWhereInput[]
+    NOT?: ViewScalarWhereInput | ViewScalarWhereInput[]
+    id?: StringFilter<"View"> | string
+    tableId?: StringFilter<"View"> | string
+    name?: StringFilter<"View"> | string
+    searchQuery?: StringNullableFilter<"View"> | string | null
+    createdAt?: DateTimeFilter<"View"> | Date | string
+    updatedAt?: DateTimeFilter<"View"> | Date | string
+  }
+
+  export type TableCreateWithoutColumnsInput = {
+    id?: string
+    name: string
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    base: BaseCreateNestedOneWithoutTablesInput
+    rows?: RowCreateNestedManyWithoutTableInput
+    views?: ViewCreateNestedManyWithoutTableInput
+  }
+
+  export type TableUncheckedCreateWithoutColumnsInput = {
+    id?: string
+    baseId: string
+    name: string
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    rows?: RowUncheckedCreateNestedManyWithoutTableInput
+    views?: ViewUncheckedCreateNestedManyWithoutTableInput
+  }
+
+  export type TableCreateOrConnectWithoutColumnsInput = {
+    where: TableWhereUniqueInput
+    create: XOR<TableCreateWithoutColumnsInput, TableUncheckedCreateWithoutColumnsInput>
+  }
+
+  export type CellCreateWithoutColumnInput = {
+    id?: string
+    valueText?: string | null
+    valueNumber?: number | null
+    row: RowCreateNestedOneWithoutCellsInput
+  }
+
+  export type CellUncheckedCreateWithoutColumnInput = {
+    id?: string
+    rowId: string
+    valueText?: string | null
+    valueNumber?: number | null
+  }
+
+  export type CellCreateOrConnectWithoutColumnInput = {
+    where: CellWhereUniqueInput
+    create: XOR<CellCreateWithoutColumnInput, CellUncheckedCreateWithoutColumnInput>
+  }
+
+  export type CellCreateManyColumnInputEnvelope = {
+    data: CellCreateManyColumnInput | CellCreateManyColumnInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ViewFilterCreateWithoutColumnInput = {
+    id?: string
+    operator: $Enums.FilterOperator
+    valueText?: string | null
+    valueNumber?: number | null
+    view: ViewCreateNestedOneWithoutFiltersInput
+  }
+
+  export type ViewFilterUncheckedCreateWithoutColumnInput = {
+    id?: string
+    viewId: string
+    operator: $Enums.FilterOperator
+    valueText?: string | null
+    valueNumber?: number | null
+  }
+
+  export type ViewFilterCreateOrConnectWithoutColumnInput = {
+    where: ViewFilterWhereUniqueInput
+    create: XOR<ViewFilterCreateWithoutColumnInput, ViewFilterUncheckedCreateWithoutColumnInput>
+  }
+
+  export type ViewFilterCreateManyColumnInputEnvelope = {
+    data: ViewFilterCreateManyColumnInput | ViewFilterCreateManyColumnInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ViewSortCreateWithoutColumnInput = {
+    id?: string
+    direction: $Enums.SortDirection
+    priority?: number
+    view: ViewCreateNestedOneWithoutSortsInput
+  }
+
+  export type ViewSortUncheckedCreateWithoutColumnInput = {
+    id?: string
+    viewId: string
+    direction: $Enums.SortDirection
+    priority?: number
+  }
+
+  export type ViewSortCreateOrConnectWithoutColumnInput = {
+    where: ViewSortWhereUniqueInput
+    create: XOR<ViewSortCreateWithoutColumnInput, ViewSortUncheckedCreateWithoutColumnInput>
+  }
+
+  export type ViewSortCreateManyColumnInputEnvelope = {
+    data: ViewSortCreateManyColumnInput | ViewSortCreateManyColumnInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ColumnStateCreateWithoutColumnInput = {
+    id?: string
+    isHidden?: boolean
+    view: ViewCreateNestedOneWithoutColumnStatesInput
+  }
+
+  export type ColumnStateUncheckedCreateWithoutColumnInput = {
+    id?: string
+    viewId: string
+    isHidden?: boolean
+  }
+
+  export type ColumnStateCreateOrConnectWithoutColumnInput = {
+    where: ColumnStateWhereUniqueInput
+    create: XOR<ColumnStateCreateWithoutColumnInput, ColumnStateUncheckedCreateWithoutColumnInput>
+  }
+
+  export type ColumnStateCreateManyColumnInputEnvelope = {
+    data: ColumnStateCreateManyColumnInput | ColumnStateCreateManyColumnInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TableUpsertWithoutColumnsInput = {
+    update: XOR<TableUpdateWithoutColumnsInput, TableUncheckedUpdateWithoutColumnsInput>
+    create: XOR<TableCreateWithoutColumnsInput, TableUncheckedCreateWithoutColumnsInput>
+    where?: TableWhereInput
+  }
+
+  export type TableUpdateToOneWithWhereWithoutColumnsInput = {
+    where?: TableWhereInput
+    data: XOR<TableUpdateWithoutColumnsInput, TableUncheckedUpdateWithoutColumnsInput>
+  }
+
+  export type TableUpdateWithoutColumnsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    base?: BaseUpdateOneRequiredWithoutTablesNestedInput
+    rows?: RowUpdateManyWithoutTableNestedInput
+    views?: ViewUpdateManyWithoutTableNestedInput
+  }
+
+  export type TableUncheckedUpdateWithoutColumnsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    baseId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    rows?: RowUncheckedUpdateManyWithoutTableNestedInput
+    views?: ViewUncheckedUpdateManyWithoutTableNestedInput
+  }
+
+  export type CellUpsertWithWhereUniqueWithoutColumnInput = {
+    where: CellWhereUniqueInput
+    update: XOR<CellUpdateWithoutColumnInput, CellUncheckedUpdateWithoutColumnInput>
+    create: XOR<CellCreateWithoutColumnInput, CellUncheckedCreateWithoutColumnInput>
+  }
+
+  export type CellUpdateWithWhereUniqueWithoutColumnInput = {
+    where: CellWhereUniqueInput
+    data: XOR<CellUpdateWithoutColumnInput, CellUncheckedUpdateWithoutColumnInput>
+  }
+
+  export type CellUpdateManyWithWhereWithoutColumnInput = {
+    where: CellScalarWhereInput
+    data: XOR<CellUpdateManyMutationInput, CellUncheckedUpdateManyWithoutColumnInput>
+  }
+
+  export type CellScalarWhereInput = {
+    AND?: CellScalarWhereInput | CellScalarWhereInput[]
+    OR?: CellScalarWhereInput[]
+    NOT?: CellScalarWhereInput | CellScalarWhereInput[]
+    id?: StringFilter<"Cell"> | string
+    rowId?: StringFilter<"Cell"> | string
+    columnId?: StringFilter<"Cell"> | string
+    valueText?: StringNullableFilter<"Cell"> | string | null
+    valueNumber?: FloatNullableFilter<"Cell"> | number | null
+  }
+
+  export type ViewFilterUpsertWithWhereUniqueWithoutColumnInput = {
+    where: ViewFilterWhereUniqueInput
+    update: XOR<ViewFilterUpdateWithoutColumnInput, ViewFilterUncheckedUpdateWithoutColumnInput>
+    create: XOR<ViewFilterCreateWithoutColumnInput, ViewFilterUncheckedCreateWithoutColumnInput>
+  }
+
+  export type ViewFilterUpdateWithWhereUniqueWithoutColumnInput = {
+    where: ViewFilterWhereUniqueInput
+    data: XOR<ViewFilterUpdateWithoutColumnInput, ViewFilterUncheckedUpdateWithoutColumnInput>
+  }
+
+  export type ViewFilterUpdateManyWithWhereWithoutColumnInput = {
+    where: ViewFilterScalarWhereInput
+    data: XOR<ViewFilterUpdateManyMutationInput, ViewFilterUncheckedUpdateManyWithoutColumnInput>
+  }
+
+  export type ViewFilterScalarWhereInput = {
+    AND?: ViewFilterScalarWhereInput | ViewFilterScalarWhereInput[]
+    OR?: ViewFilterScalarWhereInput[]
+    NOT?: ViewFilterScalarWhereInput | ViewFilterScalarWhereInput[]
+    id?: StringFilter<"ViewFilter"> | string
+    viewId?: StringFilter<"ViewFilter"> | string
+    columnId?: StringFilter<"ViewFilter"> | string
+    operator?: EnumFilterOperatorFilter<"ViewFilter"> | $Enums.FilterOperator
+    valueText?: StringNullableFilter<"ViewFilter"> | string | null
+    valueNumber?: FloatNullableFilter<"ViewFilter"> | number | null
+  }
+
+  export type ViewSortUpsertWithWhereUniqueWithoutColumnInput = {
+    where: ViewSortWhereUniqueInput
+    update: XOR<ViewSortUpdateWithoutColumnInput, ViewSortUncheckedUpdateWithoutColumnInput>
+    create: XOR<ViewSortCreateWithoutColumnInput, ViewSortUncheckedCreateWithoutColumnInput>
+  }
+
+  export type ViewSortUpdateWithWhereUniqueWithoutColumnInput = {
+    where: ViewSortWhereUniqueInput
+    data: XOR<ViewSortUpdateWithoutColumnInput, ViewSortUncheckedUpdateWithoutColumnInput>
+  }
+
+  export type ViewSortUpdateManyWithWhereWithoutColumnInput = {
+    where: ViewSortScalarWhereInput
+    data: XOR<ViewSortUpdateManyMutationInput, ViewSortUncheckedUpdateManyWithoutColumnInput>
+  }
+
+  export type ViewSortScalarWhereInput = {
+    AND?: ViewSortScalarWhereInput | ViewSortScalarWhereInput[]
+    OR?: ViewSortScalarWhereInput[]
+    NOT?: ViewSortScalarWhereInput | ViewSortScalarWhereInput[]
+    id?: StringFilter<"ViewSort"> | string
+    viewId?: StringFilter<"ViewSort"> | string
+    columnId?: StringFilter<"ViewSort"> | string
+    direction?: EnumSortDirectionFilter<"ViewSort"> | $Enums.SortDirection
+    priority?: IntFilter<"ViewSort"> | number
+  }
+
+  export type ColumnStateUpsertWithWhereUniqueWithoutColumnInput = {
+    where: ColumnStateWhereUniqueInput
+    update: XOR<ColumnStateUpdateWithoutColumnInput, ColumnStateUncheckedUpdateWithoutColumnInput>
+    create: XOR<ColumnStateCreateWithoutColumnInput, ColumnStateUncheckedCreateWithoutColumnInput>
+  }
+
+  export type ColumnStateUpdateWithWhereUniqueWithoutColumnInput = {
+    where: ColumnStateWhereUniqueInput
+    data: XOR<ColumnStateUpdateWithoutColumnInput, ColumnStateUncheckedUpdateWithoutColumnInput>
+  }
+
+  export type ColumnStateUpdateManyWithWhereWithoutColumnInput = {
+    where: ColumnStateScalarWhereInput
+    data: XOR<ColumnStateUpdateManyMutationInput, ColumnStateUncheckedUpdateManyWithoutColumnInput>
+  }
+
+  export type ColumnStateScalarWhereInput = {
+    AND?: ColumnStateScalarWhereInput | ColumnStateScalarWhereInput[]
+    OR?: ColumnStateScalarWhereInput[]
+    NOT?: ColumnStateScalarWhereInput | ColumnStateScalarWhereInput[]
+    id?: StringFilter<"ColumnState"> | string
+    viewId?: StringFilter<"ColumnState"> | string
+    columnId?: StringFilter<"ColumnState"> | string
+    isHidden?: BoolFilter<"ColumnState"> | boolean
+  }
+
+  export type TableCreateWithoutRowsInput = {
+    id?: string
+    name: string
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    base: BaseCreateNestedOneWithoutTablesInput
+    columns?: ColumnCreateNestedManyWithoutTableInput
+    views?: ViewCreateNestedManyWithoutTableInput
+  }
+
+  export type TableUncheckedCreateWithoutRowsInput = {
+    id?: string
+    baseId: string
+    name: string
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    columns?: ColumnUncheckedCreateNestedManyWithoutTableInput
+    views?: ViewUncheckedCreateNestedManyWithoutTableInput
+  }
+
+  export type TableCreateOrConnectWithoutRowsInput = {
+    where: TableWhereUniqueInput
+    create: XOR<TableCreateWithoutRowsInput, TableUncheckedCreateWithoutRowsInput>
+  }
+
+  export type CellCreateWithoutRowInput = {
+    id?: string
+    valueText?: string | null
+    valueNumber?: number | null
+    column: ColumnCreateNestedOneWithoutCellsInput
+  }
+
+  export type CellUncheckedCreateWithoutRowInput = {
+    id?: string
+    columnId: string
+    valueText?: string | null
+    valueNumber?: number | null
+  }
+
+  export type CellCreateOrConnectWithoutRowInput = {
+    where: CellWhereUniqueInput
+    create: XOR<CellCreateWithoutRowInput, CellUncheckedCreateWithoutRowInput>
+  }
+
+  export type CellCreateManyRowInputEnvelope = {
+    data: CellCreateManyRowInput | CellCreateManyRowInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TableUpsertWithoutRowsInput = {
+    update: XOR<TableUpdateWithoutRowsInput, TableUncheckedUpdateWithoutRowsInput>
+    create: XOR<TableCreateWithoutRowsInput, TableUncheckedCreateWithoutRowsInput>
+    where?: TableWhereInput
+  }
+
+  export type TableUpdateToOneWithWhereWithoutRowsInput = {
+    where?: TableWhereInput
+    data: XOR<TableUpdateWithoutRowsInput, TableUncheckedUpdateWithoutRowsInput>
+  }
+
+  export type TableUpdateWithoutRowsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    base?: BaseUpdateOneRequiredWithoutTablesNestedInput
+    columns?: ColumnUpdateManyWithoutTableNestedInput
+    views?: ViewUpdateManyWithoutTableNestedInput
+  }
+
+  export type TableUncheckedUpdateWithoutRowsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    baseId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    columns?: ColumnUncheckedUpdateManyWithoutTableNestedInput
+    views?: ViewUncheckedUpdateManyWithoutTableNestedInput
+  }
+
+  export type CellUpsertWithWhereUniqueWithoutRowInput = {
+    where: CellWhereUniqueInput
+    update: XOR<CellUpdateWithoutRowInput, CellUncheckedUpdateWithoutRowInput>
+    create: XOR<CellCreateWithoutRowInput, CellUncheckedCreateWithoutRowInput>
+  }
+
+  export type CellUpdateWithWhereUniqueWithoutRowInput = {
+    where: CellWhereUniqueInput
+    data: XOR<CellUpdateWithoutRowInput, CellUncheckedUpdateWithoutRowInput>
+  }
+
+  export type CellUpdateManyWithWhereWithoutRowInput = {
+    where: CellScalarWhereInput
+    data: XOR<CellUpdateManyMutationInput, CellUncheckedUpdateManyWithoutRowInput>
+  }
+
+  export type RowCreateWithoutCellsInput = {
+    id?: string
+    index: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    table: TableCreateNestedOneWithoutRowsInput
+  }
+
+  export type RowUncheckedCreateWithoutCellsInput = {
+    id?: string
+    tableId: string
+    index: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type RowCreateOrConnectWithoutCellsInput = {
+    where: RowWhereUniqueInput
+    create: XOR<RowCreateWithoutCellsInput, RowUncheckedCreateWithoutCellsInput>
+  }
+
+  export type ColumnCreateWithoutCellsInput = {
+    id?: string
+    name: string
+    type: $Enums.ColumnType
+    position: number
+    isHidden?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    table: TableCreateNestedOneWithoutColumnsInput
+    filters?: ViewFilterCreateNestedManyWithoutColumnInput
+    sorts?: ViewSortCreateNestedManyWithoutColumnInput
+    columnStates?: ColumnStateCreateNestedManyWithoutColumnInput
+  }
+
+  export type ColumnUncheckedCreateWithoutCellsInput = {
+    id?: string
+    tableId: string
+    name: string
+    type: $Enums.ColumnType
+    position: number
+    isHidden?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    filters?: ViewFilterUncheckedCreateNestedManyWithoutColumnInput
+    sorts?: ViewSortUncheckedCreateNestedManyWithoutColumnInput
+    columnStates?: ColumnStateUncheckedCreateNestedManyWithoutColumnInput
+  }
+
+  export type ColumnCreateOrConnectWithoutCellsInput = {
+    where: ColumnWhereUniqueInput
+    create: XOR<ColumnCreateWithoutCellsInput, ColumnUncheckedCreateWithoutCellsInput>
+  }
+
+  export type RowUpsertWithoutCellsInput = {
+    update: XOR<RowUpdateWithoutCellsInput, RowUncheckedUpdateWithoutCellsInput>
+    create: XOR<RowCreateWithoutCellsInput, RowUncheckedCreateWithoutCellsInput>
+    where?: RowWhereInput
+  }
+
+  export type RowUpdateToOneWithWhereWithoutCellsInput = {
+    where?: RowWhereInput
+    data: XOR<RowUpdateWithoutCellsInput, RowUncheckedUpdateWithoutCellsInput>
+  }
+
+  export type RowUpdateWithoutCellsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    table?: TableUpdateOneRequiredWithoutRowsNestedInput
+  }
+
+  export type RowUncheckedUpdateWithoutCellsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tableId?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ColumnUpsertWithoutCellsInput = {
+    update: XOR<ColumnUpdateWithoutCellsInput, ColumnUncheckedUpdateWithoutCellsInput>
+    create: XOR<ColumnCreateWithoutCellsInput, ColumnUncheckedCreateWithoutCellsInput>
+    where?: ColumnWhereInput
+  }
+
+  export type ColumnUpdateToOneWithWhereWithoutCellsInput = {
+    where?: ColumnWhereInput
+    data: XOR<ColumnUpdateWithoutCellsInput, ColumnUncheckedUpdateWithoutCellsInput>
+  }
+
+  export type ColumnUpdateWithoutCellsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: EnumColumnTypeFieldUpdateOperationsInput | $Enums.ColumnType
+    position?: IntFieldUpdateOperationsInput | number
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    table?: TableUpdateOneRequiredWithoutColumnsNestedInput
+    filters?: ViewFilterUpdateManyWithoutColumnNestedInput
+    sorts?: ViewSortUpdateManyWithoutColumnNestedInput
+    columnStates?: ColumnStateUpdateManyWithoutColumnNestedInput
+  }
+
+  export type ColumnUncheckedUpdateWithoutCellsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tableId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: EnumColumnTypeFieldUpdateOperationsInput | $Enums.ColumnType
+    position?: IntFieldUpdateOperationsInput | number
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    filters?: ViewFilterUncheckedUpdateManyWithoutColumnNestedInput
+    sorts?: ViewSortUncheckedUpdateManyWithoutColumnNestedInput
+    columnStates?: ColumnStateUncheckedUpdateManyWithoutColumnNestedInput
+  }
+
+  export type TableCreateWithoutViewsInput = {
+    id?: string
+    name: string
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    base: BaseCreateNestedOneWithoutTablesInput
+    columns?: ColumnCreateNestedManyWithoutTableInput
+    rows?: RowCreateNestedManyWithoutTableInput
+  }
+
+  export type TableUncheckedCreateWithoutViewsInput = {
+    id?: string
+    baseId: string
+    name: string
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    columns?: ColumnUncheckedCreateNestedManyWithoutTableInput
+    rows?: RowUncheckedCreateNestedManyWithoutTableInput
+  }
+
+  export type TableCreateOrConnectWithoutViewsInput = {
+    where: TableWhereUniqueInput
+    create: XOR<TableCreateWithoutViewsInput, TableUncheckedCreateWithoutViewsInput>
+  }
+
+  export type ViewFilterCreateWithoutViewInput = {
+    id?: string
+    operator: $Enums.FilterOperator
+    valueText?: string | null
+    valueNumber?: number | null
+    column: ColumnCreateNestedOneWithoutFiltersInput
+  }
+
+  export type ViewFilterUncheckedCreateWithoutViewInput = {
+    id?: string
+    columnId: string
+    operator: $Enums.FilterOperator
+    valueText?: string | null
+    valueNumber?: number | null
+  }
+
+  export type ViewFilterCreateOrConnectWithoutViewInput = {
+    where: ViewFilterWhereUniqueInput
+    create: XOR<ViewFilterCreateWithoutViewInput, ViewFilterUncheckedCreateWithoutViewInput>
+  }
+
+  export type ViewFilterCreateManyViewInputEnvelope = {
+    data: ViewFilterCreateManyViewInput | ViewFilterCreateManyViewInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ViewSortCreateWithoutViewInput = {
+    id?: string
+    direction: $Enums.SortDirection
+    priority?: number
+    column: ColumnCreateNestedOneWithoutSortsInput
+  }
+
+  export type ViewSortUncheckedCreateWithoutViewInput = {
+    id?: string
+    columnId: string
+    direction: $Enums.SortDirection
+    priority?: number
+  }
+
+  export type ViewSortCreateOrConnectWithoutViewInput = {
+    where: ViewSortWhereUniqueInput
+    create: XOR<ViewSortCreateWithoutViewInput, ViewSortUncheckedCreateWithoutViewInput>
+  }
+
+  export type ViewSortCreateManyViewInputEnvelope = {
+    data: ViewSortCreateManyViewInput | ViewSortCreateManyViewInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ColumnStateCreateWithoutViewInput = {
+    id?: string
+    isHidden?: boolean
+    column: ColumnCreateNestedOneWithoutColumnStatesInput
+  }
+
+  export type ColumnStateUncheckedCreateWithoutViewInput = {
+    id?: string
+    columnId: string
+    isHidden?: boolean
+  }
+
+  export type ColumnStateCreateOrConnectWithoutViewInput = {
+    where: ColumnStateWhereUniqueInput
+    create: XOR<ColumnStateCreateWithoutViewInput, ColumnStateUncheckedCreateWithoutViewInput>
+  }
+
+  export type ColumnStateCreateManyViewInputEnvelope = {
+    data: ColumnStateCreateManyViewInput | ColumnStateCreateManyViewInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TableUpsertWithoutViewsInput = {
+    update: XOR<TableUpdateWithoutViewsInput, TableUncheckedUpdateWithoutViewsInput>
+    create: XOR<TableCreateWithoutViewsInput, TableUncheckedCreateWithoutViewsInput>
+    where?: TableWhereInput
+  }
+
+  export type TableUpdateToOneWithWhereWithoutViewsInput = {
+    where?: TableWhereInput
+    data: XOR<TableUpdateWithoutViewsInput, TableUncheckedUpdateWithoutViewsInput>
+  }
+
+  export type TableUpdateWithoutViewsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    base?: BaseUpdateOneRequiredWithoutTablesNestedInput
+    columns?: ColumnUpdateManyWithoutTableNestedInput
+    rows?: RowUpdateManyWithoutTableNestedInput
+  }
+
+  export type TableUncheckedUpdateWithoutViewsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    baseId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    columns?: ColumnUncheckedUpdateManyWithoutTableNestedInput
+    rows?: RowUncheckedUpdateManyWithoutTableNestedInput
+  }
+
+  export type ViewFilterUpsertWithWhereUniqueWithoutViewInput = {
+    where: ViewFilterWhereUniqueInput
+    update: XOR<ViewFilterUpdateWithoutViewInput, ViewFilterUncheckedUpdateWithoutViewInput>
+    create: XOR<ViewFilterCreateWithoutViewInput, ViewFilterUncheckedCreateWithoutViewInput>
+  }
+
+  export type ViewFilterUpdateWithWhereUniqueWithoutViewInput = {
+    where: ViewFilterWhereUniqueInput
+    data: XOR<ViewFilterUpdateWithoutViewInput, ViewFilterUncheckedUpdateWithoutViewInput>
+  }
+
+  export type ViewFilterUpdateManyWithWhereWithoutViewInput = {
+    where: ViewFilterScalarWhereInput
+    data: XOR<ViewFilterUpdateManyMutationInput, ViewFilterUncheckedUpdateManyWithoutViewInput>
+  }
+
+  export type ViewSortUpsertWithWhereUniqueWithoutViewInput = {
+    where: ViewSortWhereUniqueInput
+    update: XOR<ViewSortUpdateWithoutViewInput, ViewSortUncheckedUpdateWithoutViewInput>
+    create: XOR<ViewSortCreateWithoutViewInput, ViewSortUncheckedCreateWithoutViewInput>
+  }
+
+  export type ViewSortUpdateWithWhereUniqueWithoutViewInput = {
+    where: ViewSortWhereUniqueInput
+    data: XOR<ViewSortUpdateWithoutViewInput, ViewSortUncheckedUpdateWithoutViewInput>
+  }
+
+  export type ViewSortUpdateManyWithWhereWithoutViewInput = {
+    where: ViewSortScalarWhereInput
+    data: XOR<ViewSortUpdateManyMutationInput, ViewSortUncheckedUpdateManyWithoutViewInput>
+  }
+
+  export type ColumnStateUpsertWithWhereUniqueWithoutViewInput = {
+    where: ColumnStateWhereUniqueInput
+    update: XOR<ColumnStateUpdateWithoutViewInput, ColumnStateUncheckedUpdateWithoutViewInput>
+    create: XOR<ColumnStateCreateWithoutViewInput, ColumnStateUncheckedCreateWithoutViewInput>
+  }
+
+  export type ColumnStateUpdateWithWhereUniqueWithoutViewInput = {
+    where: ColumnStateWhereUniqueInput
+    data: XOR<ColumnStateUpdateWithoutViewInput, ColumnStateUncheckedUpdateWithoutViewInput>
+  }
+
+  export type ColumnStateUpdateManyWithWhereWithoutViewInput = {
+    where: ColumnStateScalarWhereInput
+    data: XOR<ColumnStateUpdateManyMutationInput, ColumnStateUncheckedUpdateManyWithoutViewInput>
+  }
+
+  export type ViewCreateWithoutFiltersInput = {
+    id?: string
+    name: string
+    searchQuery?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    table: TableCreateNestedOneWithoutViewsInput
+    sorts?: ViewSortCreateNestedManyWithoutViewInput
+    columnStates?: ColumnStateCreateNestedManyWithoutViewInput
+  }
+
+  export type ViewUncheckedCreateWithoutFiltersInput = {
+    id?: string
+    tableId: string
+    name: string
+    searchQuery?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sorts?: ViewSortUncheckedCreateNestedManyWithoutViewInput
+    columnStates?: ColumnStateUncheckedCreateNestedManyWithoutViewInput
+  }
+
+  export type ViewCreateOrConnectWithoutFiltersInput = {
+    where: ViewWhereUniqueInput
+    create: XOR<ViewCreateWithoutFiltersInput, ViewUncheckedCreateWithoutFiltersInput>
+  }
+
+  export type ColumnCreateWithoutFiltersInput = {
+    id?: string
+    name: string
+    type: $Enums.ColumnType
+    position: number
+    isHidden?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    table: TableCreateNestedOneWithoutColumnsInput
+    cells?: CellCreateNestedManyWithoutColumnInput
+    sorts?: ViewSortCreateNestedManyWithoutColumnInput
+    columnStates?: ColumnStateCreateNestedManyWithoutColumnInput
+  }
+
+  export type ColumnUncheckedCreateWithoutFiltersInput = {
+    id?: string
+    tableId: string
+    name: string
+    type: $Enums.ColumnType
+    position: number
+    isHidden?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cells?: CellUncheckedCreateNestedManyWithoutColumnInput
+    sorts?: ViewSortUncheckedCreateNestedManyWithoutColumnInput
+    columnStates?: ColumnStateUncheckedCreateNestedManyWithoutColumnInput
+  }
+
+  export type ColumnCreateOrConnectWithoutFiltersInput = {
+    where: ColumnWhereUniqueInput
+    create: XOR<ColumnCreateWithoutFiltersInput, ColumnUncheckedCreateWithoutFiltersInput>
+  }
+
+  export type ViewUpsertWithoutFiltersInput = {
+    update: XOR<ViewUpdateWithoutFiltersInput, ViewUncheckedUpdateWithoutFiltersInput>
+    create: XOR<ViewCreateWithoutFiltersInput, ViewUncheckedCreateWithoutFiltersInput>
+    where?: ViewWhereInput
+  }
+
+  export type ViewUpdateToOneWithWhereWithoutFiltersInput = {
+    where?: ViewWhereInput
+    data: XOR<ViewUpdateWithoutFiltersInput, ViewUncheckedUpdateWithoutFiltersInput>
+  }
+
+  export type ViewUpdateWithoutFiltersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    searchQuery?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    table?: TableUpdateOneRequiredWithoutViewsNestedInput
+    sorts?: ViewSortUpdateManyWithoutViewNestedInput
+    columnStates?: ColumnStateUpdateManyWithoutViewNestedInput
+  }
+
+  export type ViewUncheckedUpdateWithoutFiltersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tableId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    searchQuery?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sorts?: ViewSortUncheckedUpdateManyWithoutViewNestedInput
+    columnStates?: ColumnStateUncheckedUpdateManyWithoutViewNestedInput
+  }
+
+  export type ColumnUpsertWithoutFiltersInput = {
+    update: XOR<ColumnUpdateWithoutFiltersInput, ColumnUncheckedUpdateWithoutFiltersInput>
+    create: XOR<ColumnCreateWithoutFiltersInput, ColumnUncheckedCreateWithoutFiltersInput>
+    where?: ColumnWhereInput
+  }
+
+  export type ColumnUpdateToOneWithWhereWithoutFiltersInput = {
+    where?: ColumnWhereInput
+    data: XOR<ColumnUpdateWithoutFiltersInput, ColumnUncheckedUpdateWithoutFiltersInput>
+  }
+
+  export type ColumnUpdateWithoutFiltersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: EnumColumnTypeFieldUpdateOperationsInput | $Enums.ColumnType
+    position?: IntFieldUpdateOperationsInput | number
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    table?: TableUpdateOneRequiredWithoutColumnsNestedInput
+    cells?: CellUpdateManyWithoutColumnNestedInput
+    sorts?: ViewSortUpdateManyWithoutColumnNestedInput
+    columnStates?: ColumnStateUpdateManyWithoutColumnNestedInput
+  }
+
+  export type ColumnUncheckedUpdateWithoutFiltersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tableId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: EnumColumnTypeFieldUpdateOperationsInput | $Enums.ColumnType
+    position?: IntFieldUpdateOperationsInput | number
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cells?: CellUncheckedUpdateManyWithoutColumnNestedInput
+    sorts?: ViewSortUncheckedUpdateManyWithoutColumnNestedInput
+    columnStates?: ColumnStateUncheckedUpdateManyWithoutColumnNestedInput
+  }
+
+  export type ViewCreateWithoutSortsInput = {
+    id?: string
+    name: string
+    searchQuery?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    table: TableCreateNestedOneWithoutViewsInput
+    filters?: ViewFilterCreateNestedManyWithoutViewInput
+    columnStates?: ColumnStateCreateNestedManyWithoutViewInput
+  }
+
+  export type ViewUncheckedCreateWithoutSortsInput = {
+    id?: string
+    tableId: string
+    name: string
+    searchQuery?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    filters?: ViewFilterUncheckedCreateNestedManyWithoutViewInput
+    columnStates?: ColumnStateUncheckedCreateNestedManyWithoutViewInput
+  }
+
+  export type ViewCreateOrConnectWithoutSortsInput = {
+    where: ViewWhereUniqueInput
+    create: XOR<ViewCreateWithoutSortsInput, ViewUncheckedCreateWithoutSortsInput>
+  }
+
+  export type ColumnCreateWithoutSortsInput = {
+    id?: string
+    name: string
+    type: $Enums.ColumnType
+    position: number
+    isHidden?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    table: TableCreateNestedOneWithoutColumnsInput
+    cells?: CellCreateNestedManyWithoutColumnInput
+    filters?: ViewFilterCreateNestedManyWithoutColumnInput
+    columnStates?: ColumnStateCreateNestedManyWithoutColumnInput
+  }
+
+  export type ColumnUncheckedCreateWithoutSortsInput = {
+    id?: string
+    tableId: string
+    name: string
+    type: $Enums.ColumnType
+    position: number
+    isHidden?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cells?: CellUncheckedCreateNestedManyWithoutColumnInput
+    filters?: ViewFilterUncheckedCreateNestedManyWithoutColumnInput
+    columnStates?: ColumnStateUncheckedCreateNestedManyWithoutColumnInput
+  }
+
+  export type ColumnCreateOrConnectWithoutSortsInput = {
+    where: ColumnWhereUniqueInput
+    create: XOR<ColumnCreateWithoutSortsInput, ColumnUncheckedCreateWithoutSortsInput>
+  }
+
+  export type ViewUpsertWithoutSortsInput = {
+    update: XOR<ViewUpdateWithoutSortsInput, ViewUncheckedUpdateWithoutSortsInput>
+    create: XOR<ViewCreateWithoutSortsInput, ViewUncheckedCreateWithoutSortsInput>
+    where?: ViewWhereInput
+  }
+
+  export type ViewUpdateToOneWithWhereWithoutSortsInput = {
+    where?: ViewWhereInput
+    data: XOR<ViewUpdateWithoutSortsInput, ViewUncheckedUpdateWithoutSortsInput>
+  }
+
+  export type ViewUpdateWithoutSortsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    searchQuery?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    table?: TableUpdateOneRequiredWithoutViewsNestedInput
+    filters?: ViewFilterUpdateManyWithoutViewNestedInput
+    columnStates?: ColumnStateUpdateManyWithoutViewNestedInput
+  }
+
+  export type ViewUncheckedUpdateWithoutSortsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tableId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    searchQuery?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    filters?: ViewFilterUncheckedUpdateManyWithoutViewNestedInput
+    columnStates?: ColumnStateUncheckedUpdateManyWithoutViewNestedInput
+  }
+
+  export type ColumnUpsertWithoutSortsInput = {
+    update: XOR<ColumnUpdateWithoutSortsInput, ColumnUncheckedUpdateWithoutSortsInput>
+    create: XOR<ColumnCreateWithoutSortsInput, ColumnUncheckedCreateWithoutSortsInput>
+    where?: ColumnWhereInput
+  }
+
+  export type ColumnUpdateToOneWithWhereWithoutSortsInput = {
+    where?: ColumnWhereInput
+    data: XOR<ColumnUpdateWithoutSortsInput, ColumnUncheckedUpdateWithoutSortsInput>
+  }
+
+  export type ColumnUpdateWithoutSortsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: EnumColumnTypeFieldUpdateOperationsInput | $Enums.ColumnType
+    position?: IntFieldUpdateOperationsInput | number
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    table?: TableUpdateOneRequiredWithoutColumnsNestedInput
+    cells?: CellUpdateManyWithoutColumnNestedInput
+    filters?: ViewFilterUpdateManyWithoutColumnNestedInput
+    columnStates?: ColumnStateUpdateManyWithoutColumnNestedInput
+  }
+
+  export type ColumnUncheckedUpdateWithoutSortsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tableId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: EnumColumnTypeFieldUpdateOperationsInput | $Enums.ColumnType
+    position?: IntFieldUpdateOperationsInput | number
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cells?: CellUncheckedUpdateManyWithoutColumnNestedInput
+    filters?: ViewFilterUncheckedUpdateManyWithoutColumnNestedInput
+    columnStates?: ColumnStateUncheckedUpdateManyWithoutColumnNestedInput
+  }
+
+  export type ViewCreateWithoutColumnStatesInput = {
+    id?: string
+    name: string
+    searchQuery?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    table: TableCreateNestedOneWithoutViewsInput
+    filters?: ViewFilterCreateNestedManyWithoutViewInput
+    sorts?: ViewSortCreateNestedManyWithoutViewInput
+  }
+
+  export type ViewUncheckedCreateWithoutColumnStatesInput = {
+    id?: string
+    tableId: string
+    name: string
+    searchQuery?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    filters?: ViewFilterUncheckedCreateNestedManyWithoutViewInput
+    sorts?: ViewSortUncheckedCreateNestedManyWithoutViewInput
+  }
+
+  export type ViewCreateOrConnectWithoutColumnStatesInput = {
+    where: ViewWhereUniqueInput
+    create: XOR<ViewCreateWithoutColumnStatesInput, ViewUncheckedCreateWithoutColumnStatesInput>
+  }
+
+  export type ColumnCreateWithoutColumnStatesInput = {
+    id?: string
+    name: string
+    type: $Enums.ColumnType
+    position: number
+    isHidden?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    table: TableCreateNestedOneWithoutColumnsInput
+    cells?: CellCreateNestedManyWithoutColumnInput
+    filters?: ViewFilterCreateNestedManyWithoutColumnInput
+    sorts?: ViewSortCreateNestedManyWithoutColumnInput
+  }
+
+  export type ColumnUncheckedCreateWithoutColumnStatesInput = {
+    id?: string
+    tableId: string
+    name: string
+    type: $Enums.ColumnType
+    position: number
+    isHidden?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cells?: CellUncheckedCreateNestedManyWithoutColumnInput
+    filters?: ViewFilterUncheckedCreateNestedManyWithoutColumnInput
+    sorts?: ViewSortUncheckedCreateNestedManyWithoutColumnInput
+  }
+
+  export type ColumnCreateOrConnectWithoutColumnStatesInput = {
+    where: ColumnWhereUniqueInput
+    create: XOR<ColumnCreateWithoutColumnStatesInput, ColumnUncheckedCreateWithoutColumnStatesInput>
+  }
+
+  export type ViewUpsertWithoutColumnStatesInput = {
+    update: XOR<ViewUpdateWithoutColumnStatesInput, ViewUncheckedUpdateWithoutColumnStatesInput>
+    create: XOR<ViewCreateWithoutColumnStatesInput, ViewUncheckedCreateWithoutColumnStatesInput>
+    where?: ViewWhereInput
+  }
+
+  export type ViewUpdateToOneWithWhereWithoutColumnStatesInput = {
+    where?: ViewWhereInput
+    data: XOR<ViewUpdateWithoutColumnStatesInput, ViewUncheckedUpdateWithoutColumnStatesInput>
+  }
+
+  export type ViewUpdateWithoutColumnStatesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    searchQuery?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    table?: TableUpdateOneRequiredWithoutViewsNestedInput
+    filters?: ViewFilterUpdateManyWithoutViewNestedInput
+    sorts?: ViewSortUpdateManyWithoutViewNestedInput
+  }
+
+  export type ViewUncheckedUpdateWithoutColumnStatesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tableId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    searchQuery?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    filters?: ViewFilterUncheckedUpdateManyWithoutViewNestedInput
+    sorts?: ViewSortUncheckedUpdateManyWithoutViewNestedInput
+  }
+
+  export type ColumnUpsertWithoutColumnStatesInput = {
+    update: XOR<ColumnUpdateWithoutColumnStatesInput, ColumnUncheckedUpdateWithoutColumnStatesInput>
+    create: XOR<ColumnCreateWithoutColumnStatesInput, ColumnUncheckedCreateWithoutColumnStatesInput>
+    where?: ColumnWhereInput
+  }
+
+  export type ColumnUpdateToOneWithWhereWithoutColumnStatesInput = {
+    where?: ColumnWhereInput
+    data: XOR<ColumnUpdateWithoutColumnStatesInput, ColumnUncheckedUpdateWithoutColumnStatesInput>
+  }
+
+  export type ColumnUpdateWithoutColumnStatesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: EnumColumnTypeFieldUpdateOperationsInput | $Enums.ColumnType
+    position?: IntFieldUpdateOperationsInput | number
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    table?: TableUpdateOneRequiredWithoutColumnsNestedInput
+    cells?: CellUpdateManyWithoutColumnNestedInput
+    filters?: ViewFilterUpdateManyWithoutColumnNestedInput
+    sorts?: ViewSortUpdateManyWithoutColumnNestedInput
+  }
+
+  export type ColumnUncheckedUpdateWithoutColumnStatesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tableId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: EnumColumnTypeFieldUpdateOperationsInput | $Enums.ColumnType
+    position?: IntFieldUpdateOperationsInput | number
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cells?: CellUncheckedUpdateManyWithoutColumnNestedInput
+    filters?: ViewFilterUncheckedUpdateManyWithoutColumnNestedInput
+    sorts?: ViewSortUncheckedUpdateManyWithoutColumnNestedInput
   }
 
   export type AccountCreateManyUserInput = {
@@ -8620,8 +22460,8 @@ export namespace Prisma {
     expires: Date | string
   }
 
-  export type PostCreateManyCreatedByInput = {
-    id?: number
+  export type BaseCreateManyOwnerInput = {
+    id?: string
     name: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -8690,24 +22530,405 @@ export namespace Prisma {
     expires?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PostUpdateWithoutCreatedByInput = {
+  export type BaseUpdateWithoutOwnerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tables?: TableUpdateManyWithoutBaseNestedInput
+  }
+
+  export type BaseUncheckedUpdateWithoutOwnerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tables?: TableUncheckedUpdateManyWithoutBaseNestedInput
+  }
+
+  export type BaseUncheckedUpdateManyWithoutOwnerInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PostUncheckedUpdateWithoutCreatedByInput = {
-    id?: IntFieldUpdateOperationsInput | number
+  export type TableCreateManyBaseInput = {
+    id?: string
+    name: string
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TableUpdateWithoutBaseInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    columns?: ColumnUpdateManyWithoutTableNestedInput
+    rows?: RowUpdateManyWithoutTableNestedInput
+    views?: ViewUpdateManyWithoutTableNestedInput
+  }
+
+  export type TableUncheckedUpdateWithoutBaseInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    columns?: ColumnUncheckedUpdateManyWithoutTableNestedInput
+    rows?: RowUncheckedUpdateManyWithoutTableNestedInput
+    views?: ViewUncheckedUpdateManyWithoutTableNestedInput
+  }
+
+  export type TableUncheckedUpdateManyWithoutBaseInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    position?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PostUncheckedUpdateManyWithoutCreatedByInput = {
-    id?: IntFieldUpdateOperationsInput | number
+  export type ColumnCreateManyTableInput = {
+    id?: string
+    name: string
+    type: $Enums.ColumnType
+    position: number
+    isHidden?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type RowCreateManyTableInput = {
+    id?: string
+    index: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ViewCreateManyTableInput = {
+    id?: string
+    name: string
+    searchQuery?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ColumnUpdateWithoutTableInput = {
+    id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    type?: EnumColumnTypeFieldUpdateOperationsInput | $Enums.ColumnType
+    position?: IntFieldUpdateOperationsInput | number
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cells?: CellUpdateManyWithoutColumnNestedInput
+    filters?: ViewFilterUpdateManyWithoutColumnNestedInput
+    sorts?: ViewSortUpdateManyWithoutColumnNestedInput
+    columnStates?: ColumnStateUpdateManyWithoutColumnNestedInput
+  }
+
+  export type ColumnUncheckedUpdateWithoutTableInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: EnumColumnTypeFieldUpdateOperationsInput | $Enums.ColumnType
+    position?: IntFieldUpdateOperationsInput | number
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cells?: CellUncheckedUpdateManyWithoutColumnNestedInput
+    filters?: ViewFilterUncheckedUpdateManyWithoutColumnNestedInput
+    sorts?: ViewSortUncheckedUpdateManyWithoutColumnNestedInput
+    columnStates?: ColumnStateUncheckedUpdateManyWithoutColumnNestedInput
+  }
+
+  export type ColumnUncheckedUpdateManyWithoutTableInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: EnumColumnTypeFieldUpdateOperationsInput | $Enums.ColumnType
+    position?: IntFieldUpdateOperationsInput | number
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RowUpdateWithoutTableInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cells?: CellUpdateManyWithoutRowNestedInput
+  }
+
+  export type RowUncheckedUpdateWithoutTableInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cells?: CellUncheckedUpdateManyWithoutRowNestedInput
+  }
+
+  export type RowUncheckedUpdateManyWithoutTableInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ViewUpdateWithoutTableInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    searchQuery?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    filters?: ViewFilterUpdateManyWithoutViewNestedInput
+    sorts?: ViewSortUpdateManyWithoutViewNestedInput
+    columnStates?: ColumnStateUpdateManyWithoutViewNestedInput
+  }
+
+  export type ViewUncheckedUpdateWithoutTableInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    searchQuery?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    filters?: ViewFilterUncheckedUpdateManyWithoutViewNestedInput
+    sorts?: ViewSortUncheckedUpdateManyWithoutViewNestedInput
+    columnStates?: ColumnStateUncheckedUpdateManyWithoutViewNestedInput
+  }
+
+  export type ViewUncheckedUpdateManyWithoutTableInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    searchQuery?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CellCreateManyColumnInput = {
+    id?: string
+    rowId: string
+    valueText?: string | null
+    valueNumber?: number | null
+  }
+
+  export type ViewFilterCreateManyColumnInput = {
+    id?: string
+    viewId: string
+    operator: $Enums.FilterOperator
+    valueText?: string | null
+    valueNumber?: number | null
+  }
+
+  export type ViewSortCreateManyColumnInput = {
+    id?: string
+    viewId: string
+    direction: $Enums.SortDirection
+    priority?: number
+  }
+
+  export type ColumnStateCreateManyColumnInput = {
+    id?: string
+    viewId: string
+    isHidden?: boolean
+  }
+
+  export type CellUpdateWithoutColumnInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+    row?: RowUpdateOneRequiredWithoutCellsNestedInput
+  }
+
+  export type CellUncheckedUpdateWithoutColumnInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    rowId?: StringFieldUpdateOperationsInput | string
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type CellUncheckedUpdateManyWithoutColumnInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    rowId?: StringFieldUpdateOperationsInput | string
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type ViewFilterUpdateWithoutColumnInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    operator?: EnumFilterOperatorFieldUpdateOperationsInput | $Enums.FilterOperator
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+    view?: ViewUpdateOneRequiredWithoutFiltersNestedInput
+  }
+
+  export type ViewFilterUncheckedUpdateWithoutColumnInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    viewId?: StringFieldUpdateOperationsInput | string
+    operator?: EnumFilterOperatorFieldUpdateOperationsInput | $Enums.FilterOperator
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type ViewFilterUncheckedUpdateManyWithoutColumnInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    viewId?: StringFieldUpdateOperationsInput | string
+    operator?: EnumFilterOperatorFieldUpdateOperationsInput | $Enums.FilterOperator
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type ViewSortUpdateWithoutColumnInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    direction?: EnumSortDirectionFieldUpdateOperationsInput | $Enums.SortDirection
+    priority?: IntFieldUpdateOperationsInput | number
+    view?: ViewUpdateOneRequiredWithoutSortsNestedInput
+  }
+
+  export type ViewSortUncheckedUpdateWithoutColumnInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    viewId?: StringFieldUpdateOperationsInput | string
+    direction?: EnumSortDirectionFieldUpdateOperationsInput | $Enums.SortDirection
+    priority?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ViewSortUncheckedUpdateManyWithoutColumnInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    viewId?: StringFieldUpdateOperationsInput | string
+    direction?: EnumSortDirectionFieldUpdateOperationsInput | $Enums.SortDirection
+    priority?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ColumnStateUpdateWithoutColumnInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    view?: ViewUpdateOneRequiredWithoutColumnStatesNestedInput
+  }
+
+  export type ColumnStateUncheckedUpdateWithoutColumnInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    viewId?: StringFieldUpdateOperationsInput | string
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ColumnStateUncheckedUpdateManyWithoutColumnInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    viewId?: StringFieldUpdateOperationsInput | string
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type CellCreateManyRowInput = {
+    id?: string
+    columnId: string
+    valueText?: string | null
+    valueNumber?: number | null
+  }
+
+  export type CellUpdateWithoutRowInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+    column?: ColumnUpdateOneRequiredWithoutCellsNestedInput
+  }
+
+  export type CellUncheckedUpdateWithoutRowInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    columnId?: StringFieldUpdateOperationsInput | string
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type CellUncheckedUpdateManyWithoutRowInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    columnId?: StringFieldUpdateOperationsInput | string
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type ViewFilterCreateManyViewInput = {
+    id?: string
+    columnId: string
+    operator: $Enums.FilterOperator
+    valueText?: string | null
+    valueNumber?: number | null
+  }
+
+  export type ViewSortCreateManyViewInput = {
+    id?: string
+    columnId: string
+    direction: $Enums.SortDirection
+    priority?: number
+  }
+
+  export type ColumnStateCreateManyViewInput = {
+    id?: string
+    columnId: string
+    isHidden?: boolean
+  }
+
+  export type ViewFilterUpdateWithoutViewInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    operator?: EnumFilterOperatorFieldUpdateOperationsInput | $Enums.FilterOperator
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+    column?: ColumnUpdateOneRequiredWithoutFiltersNestedInput
+  }
+
+  export type ViewFilterUncheckedUpdateWithoutViewInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    columnId?: StringFieldUpdateOperationsInput | string
+    operator?: EnumFilterOperatorFieldUpdateOperationsInput | $Enums.FilterOperator
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type ViewFilterUncheckedUpdateManyWithoutViewInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    columnId?: StringFieldUpdateOperationsInput | string
+    operator?: EnumFilterOperatorFieldUpdateOperationsInput | $Enums.FilterOperator
+    valueText?: NullableStringFieldUpdateOperationsInput | string | null
+    valueNumber?: NullableFloatFieldUpdateOperationsInput | number | null
+  }
+
+  export type ViewSortUpdateWithoutViewInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    direction?: EnumSortDirectionFieldUpdateOperationsInput | $Enums.SortDirection
+    priority?: IntFieldUpdateOperationsInput | number
+    column?: ColumnUpdateOneRequiredWithoutSortsNestedInput
+  }
+
+  export type ViewSortUncheckedUpdateWithoutViewInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    columnId?: StringFieldUpdateOperationsInput | string
+    direction?: EnumSortDirectionFieldUpdateOperationsInput | $Enums.SortDirection
+    priority?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ViewSortUncheckedUpdateManyWithoutViewInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    columnId?: StringFieldUpdateOperationsInput | string
+    direction?: EnumSortDirectionFieldUpdateOperationsInput | $Enums.SortDirection
+    priority?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ColumnStateUpdateWithoutViewInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+    column?: ColumnUpdateOneRequiredWithoutColumnStatesNestedInput
+  }
+
+  export type ColumnStateUncheckedUpdateWithoutViewInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    columnId?: StringFieldUpdateOperationsInput | string
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ColumnStateUncheckedUpdateManyWithoutViewInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    columnId?: StringFieldUpdateOperationsInput | string
+    isHidden?: BoolFieldUpdateOperationsInput | boolean
   }
 
 

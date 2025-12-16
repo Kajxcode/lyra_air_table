@@ -121,14 +121,6 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.PostScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  createdById: 'createdById'
-};
-
 exports.Prisma.AccountScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
@@ -166,6 +158,83 @@ exports.Prisma.VerificationTokenScalarFieldEnum = {
   expires: 'expires'
 };
 
+exports.Prisma.BaseScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  ownerId: 'ownerId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.TableScalarFieldEnum = {
+  id: 'id',
+  baseId: 'baseId',
+  name: 'name',
+  position: 'position',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ColumnScalarFieldEnum = {
+  id: 'id',
+  tableId: 'tableId',
+  name: 'name',
+  type: 'type',
+  position: 'position',
+  isHidden: 'isHidden',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.RowScalarFieldEnum = {
+  id: 'id',
+  tableId: 'tableId',
+  index: 'index',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CellScalarFieldEnum = {
+  id: 'id',
+  rowId: 'rowId',
+  columnId: 'columnId',
+  valueText: 'valueText',
+  valueNumber: 'valueNumber'
+};
+
+exports.Prisma.ViewScalarFieldEnum = {
+  id: 'id',
+  tableId: 'tableId',
+  name: 'name',
+  searchQuery: 'searchQuery',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ViewFilterScalarFieldEnum = {
+  id: 'id',
+  viewId: 'viewId',
+  columnId: 'columnId',
+  operator: 'operator',
+  valueText: 'valueText',
+  valueNumber: 'valueNumber'
+};
+
+exports.Prisma.ViewSortScalarFieldEnum = {
+  id: 'id',
+  viewId: 'viewId',
+  columnId: 'columnId',
+  direction: 'direction',
+  priority: 'priority'
+};
+
+exports.Prisma.ColumnStateScalarFieldEnum = {
+  id: 'id',
+  viewId: 'viewId',
+  columnId: 'columnId',
+  isHidden: 'isHidden'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -180,14 +249,41 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.ColumnType = exports.$Enums.ColumnType = {
+  TEXT: 'TEXT',
+  NUMBER: 'NUMBER'
+};
 
+exports.FilterOperator = exports.$Enums.FilterOperator = {
+  CONTAINS: 'CONTAINS',
+  NOT_CONTAINS: 'NOT_CONTAINS',
+  EQUALS: 'EQUALS',
+  NOT_EQUALS: 'NOT_EQUALS',
+  IS_EMPTY: 'IS_EMPTY',
+  IS_NOT_EMPTY: 'IS_NOT_EMPTY',
+  GREATER_THAN: 'GREATER_THAN',
+  LESS_THAN: 'LESS_THAN'
+};
+
+exports.SortDirection = exports.$Enums.SortDirection = {
+  ASC: 'ASC',
+  DESC: 'DESC'
+};
 
 exports.Prisma.ModelName = {
-  Post: 'Post',
   Account: 'Account',
   Session: 'Session',
   User: 'User',
-  VerificationToken: 'VerificationToken'
+  VerificationToken: 'VerificationToken',
+  Base: 'Base',
+  Table: 'Table',
+  Column: 'Column',
+  Row: 'Row',
+  Cell: 'Cell',
+  View: 'View',
+  ViewFilter: 'ViewFilter',
+  ViewSort: 'ViewSort',
+  ColumnState: 'ColumnState'
 };
 
 /**
